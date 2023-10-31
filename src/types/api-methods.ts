@@ -65,6 +65,11 @@ type ExpandRecursively<T> = T extends object
     : never
   : T;
 
+export interface DefaultArgs {
+  api_key: string;
+  auth_token?: string;
+}
+
 export type MappedApiSurface = ExpandRecursively<ApiSurface<ApiMethods>>;
 
 export type NameSpace<T extends keyof MappedApiSurface> = MappedApiSurface[T];
