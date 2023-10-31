@@ -3,23 +3,30 @@ import { RtmClient } from "../client";
 import { RtmTypescriptError } from "../core/rtm-typescript-error";
 
 import { server } from "../../test-support/msw-node";
-import { MY_TEST_FROB } from "../../test-support/test-frob";
+import {
+  MY_TEST_FROB,
+  TEST_API_KEY,
+  TEST_SHARED_SECRET,
+} from "../../test-support/testing-values";
 
 beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
-describe("RtmClient", (test) => {
+describe("RtmClient", () => {
   it("should correctly call an api method with a correct signature when I make a request", async () => {
-    const rtmClient = new RtmClient(
-      "your_api_key",
-      "your_shared_secret",
-      "delete",
-    );
+    const rtmClient = new RtmClient(TEST_API_KEY, TEST_SHARED_SECRET, "delete");
 
-    const frob = await rtmClient.get("rtm.auth.getFrob", {});
+    const response = await rtmClient.get("rtm.auth.getFrob", {});
 
-    expect(frob).toEqual(MY_TEST_FROB);
+    expect(response).toEqual({
+      rsp: {
+        api_key: TEST_API_KEY,
+        callback: "callback",
+        frob: MY_TEST_FROB,
+        stat: "ok",
+      },
+    });
   });
 
   it("should generate the correct authUrl without frob", () => {
@@ -30,7 +37,7 @@ describe("RtmClient", (test) => {
     );
 
     const expectedAuthUrl =
-      "https://www.rememberthemilk.com/services/auth/?api_key=your_api_key&perms=delete&api_sig=f0b8891dc9b77dfa65aeff1b46bb240d";
+      "https://www.rememberthemilk.com/services/auth?api_key=your_api_key&perms=delete&api_sig=f0b8891dc9b77dfa65aeff1b46bb240d";
 
     const authUrl = rtmClient.getAuthUrl();
 

@@ -1,7 +1,6 @@
 import { ApiMethods, SuccessResponse } from "../types";
-import fetch from "node-fetch-commonjs";
 import { ClientPermissions } from "../types/permissions";
-import { AUTH_URL, BASE_URL } from "./constants";
+import { AUTH_URL, REST_API_URL } from "./constants";
 import { RtmTypescriptError } from "./core/rtm-typescript-error";
 import crypto from "node:crypto";
 
@@ -34,7 +33,7 @@ export class RtmClient {
     method: M,
     options: ApiMethods[M]["requestArgs"],
   ): Promise<SuccessResponse<M>> {
-    const url = `${BASE_URL}?${this.generateRequestQueryString(
+    const url = `${REST_API_URL}?${this.generateRequestQueryString(
       method,
       options,
     )}`;
