@@ -1,14 +1,9 @@
 import { DefaultBodyType, HttpResponse, StrictRequest } from "msw";
 import { makeFailureResponse } from "./make-failure-response";
-import {
-  INVALID_API_KEY,
-  INVALID_SIGNATURE,
-  MISSING_SIGNATURE,
-  NOT_FOUND,
-} from "../types/response-codes";
-import { HTTP } from "../lib/constants";
 import { checkSignature } from "./check-signature";
 import { TEST_API_KEY } from "./testing-values";
+import { HTTP } from "../src/lib/constants";
+import { API_ERROR_CODES } from "../src/types/response-codes";
 
 export const validateRequest = (request: StrictRequest<DefaultBodyType>) => {
   const url = new URL(request.url);
@@ -17,7 +12,7 @@ export const validateRequest = (request: StrictRequest<DefaultBodyType>) => {
 
   if (!method) {
     return HttpResponse.json(
-      makeFailureResponse(NOT_FOUND, 'Method "" not found'),
+      makeFailureResponse(API_ERROR_CODES.notFound, 'Method "" not found'),
       {
         // @ts-expect-error
         status: HTTP.statusCodes.Ok,
@@ -28,7 +23,10 @@ export const validateRequest = (request: StrictRequest<DefaultBodyType>) => {
   const signature = url.searchParams.get("api_sig");
   if (!signature) {
     return HttpResponse.json(
-      makeFailureResponse(MISSING_SIGNATURE, "Missing signature"),
+      makeFailureResponse(
+        API_ERROR_CODES.missingSignature,
+        "Missing signature",
+      ),
       {
         // @ts-expect-error
         status: HTTP.statusCodes.Ok,
@@ -38,7 +36,10 @@ export const validateRequest = (request: StrictRequest<DefaultBodyType>) => {
 
   if (!checkSignature(request, signature)) {
     return HttpResponse.json(
-      makeFailureResponse(INVALID_SIGNATURE, "Invalid signature"),
+      makeFailureResponse(
+        API_ERROR_CODES.invalidSignature,
+        "Invalid signature",
+      ),
       {
         // @ts-expect-error
         status: HTTP.statusCodes.Ok,
@@ -49,7 +50,7 @@ export const validateRequest = (request: StrictRequest<DefaultBodyType>) => {
   const key = url.searchParams.get("api_key");
   if (!key || key !== TEST_API_KEY) {
     return HttpResponse.json(
-      makeFailureResponse(INVALID_API_KEY, "Invalid API Key"),
+      makeFailureResponse(API_ERROR_CODES.invalidApiKey, "Invalid API Key"),
       {
         // @ts-expect-error
         status: HTTP.statusCodes.Ok,

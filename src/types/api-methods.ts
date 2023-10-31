@@ -40,22 +40,17 @@ type GetStringBeforePeriod<S extends String> =
 type GetStringAfterPeriod<S extends String> =
   S extends `${string}.${infer Rest}` ? Rest : never;
 
-type GetApiMethods<T, N extends string> = {
-  [K in keyof T as K extends `${N}.${string}`
-    ? GetStringAfterPeriod<GetStringAfterPeriod<K>>
-    : never]: string;
-};
-
-type ApiSurface<T> = {
-  [K in keyof T as K extends string
+type ApiSurface = {
+  [K in keyof ApiMethods as K extends string
     ? GetStringBeforePeriod<GetStringAfterPeriod<K>>
     : never]: K extends string
-    ? GetApiMethods<
-        T,
-        `${GetStringBeforePeriod<K>}.${GetStringBeforePeriod<
+    ? {
+        [K in keyof ApiMethods as K extends `${GetStringBeforePeriod<K>}.${GetStringBeforePeriod<
           GetStringAfterPeriod<K>
-        >}`
-      >
+        >}.${string}`
+          ? GetStringAfterPeriod<GetStringAfterPeriod<K>>
+          : never]: (args: ApiMethods[K]) => void
+      }
     : never;
 };
 
@@ -70,7 +65,7 @@ export interface DefaultArgs {
   auth_token?: string;
 }
 
-export type MappedApiSurface = ExpandRecursively<ApiSurface<ApiMethods>>;
+export type MappedApiSurface = ExpandRecursively<ApiSurface>;
 
 export type NameSpace<T extends keyof MappedApiSurface> = MappedApiSurface[T];
 export type MappedTasks = MappedApiSurface["tasks"];

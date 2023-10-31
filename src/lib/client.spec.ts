@@ -1,6 +1,6 @@
 import { it, describe, expect, beforeAll, afterEach, afterAll } from "vitest";
-import { RtmClient } from "../client";
-import { RtmTypescriptError } from "../core/rtm-typescript-error";
+import { RtmClient } from "./client";
+import { RtmTypescriptError } from "./core/rtm-typescript-error";
 
 import { server } from "../../test-support/msw-node";
 import {
@@ -8,6 +8,8 @@ import {
   TEST_API_KEY,
   TEST_SHARED_SECRET,
 } from "../../test-support/testing-values";
+import { RtmApiFailedResponseError } from "./core/rtm-api-failed-response-error";
+import { API_ERROR_CODES } from "../types/response-codes";
 
 beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());
@@ -20,13 +22,41 @@ describe("RtmClient", () => {
     const response = await rtmClient.get("rtm.auth.getFrob", {});
 
     expect(response).toEqual({
-      rsp: {
-        api_key: TEST_API_KEY,
-        callback: "callback",
-        frob: MY_TEST_FROB,
-        stat: "ok",
-      },
+      api_key: TEST_API_KEY,
+      callback: "callback",
+      frob: MY_TEST_FROB,
+      stat: "ok",
     });
+  });
+
+  it("should correctly reject with an apiFailedResponseError if the response is a failure", async () => {
+    const rtmClient = new RtmClient(
+      TEST_API_KEY,
+      "definitely-a-bad-secret",
+      "delete",
+    );
+
+    await expect(rtmClient.get("rtm.auth.getFrob", {})).rejects.toThrow(
+      new RtmApiFailedResponseError(
+        API_ERROR_CODES.invalidSignature,
+        "RTM api returned an error response: Invalid signature",
+      ),
+    );
+  });
+
+  it("should generate the correct authUrl with frob", () => {
+    const rtmClient = new RtmClient(
+      "your_api_key",
+      "your_shared_secret",
+      "delete",
+    );
+
+    const expectedAuthUrl =
+      "https://www.rememberthemilk.com/services/auth?api_key=your_api_key&perms=delete&frob=my-frob&api_sig=89cc38f7da49bca7854f5e9dcd741434";
+
+    const authUrl = rtmClient.getAuthUrl("my-frob");
+
+    expect(authUrl).toBe(expectedAuthUrl);
   });
 
   it("should generate the correct authUrl without frob", () => {

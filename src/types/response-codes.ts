@@ -1,4 +1,9 @@
-export const MISSING_SIGNATURE = 97;
-export const INVALID_SIGNATURE = 96;
-export const NOT_FOUND = 112;
-export const INVALID_API_KEY = 100;
+export const API_ERROR_CODES = {
+  missingSignature: 97,
+  invalidSignature: 96,
+  notFound: 112,
+  invalidApiKey: 100,
+} as const;
+
+export type ValidApiErrorCodes =
+  (typeof API_ERROR_CODES)[keyof typeof API_ERROR_CODES];

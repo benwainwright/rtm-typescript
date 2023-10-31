@@ -1,7 +1,7 @@
 import { http } from "msw";
 import { getFrob } from "./method-handlers/auth/get-frob";
 import { validateRequest } from "./validate-request";
-import { REST_API_URL } from "../lib/constants";
+import { REST_API_URL } from "../src/lib/constants";
 
 export const handlers = [
   http.get(REST_API_URL, ({ request }) => {

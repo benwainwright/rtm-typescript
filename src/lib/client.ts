@@ -1,6 +1,7 @@
-import { ApiMethods, SuccessResponse } from "../types";
+import { ApiMethods, FailResponse, SuccessResponse } from "../types";
 import { ClientPermissions } from "../types/permissions";
 import { AUTH_URL, REST_API_URL } from "./constants";
+import { RtmApiFailedResponseError } from "./core/rtm-api-failed-response-error";
 import { RtmTypescriptError } from "./core/rtm-typescript-error";
 import crypto from "node:crypto";
 
@@ -32,7 +33,7 @@ export class RtmClient {
   public async get<M extends keyof ApiMethods>(
     method: M,
     options: ApiMethods[M]["requestArgs"],
-  ): Promise<SuccessResponse<M>> {
+  ): Promise<SuccessResponse<M>["rsp"]> {
     const url = `${REST_API_URL}?${this.generateRequestQueryString(
       method,
       options,
@@ -45,7 +46,17 @@ export class RtmClient {
     if (!response.ok) {
       throw new RtmTypescriptError("Request failed");
     }
-    return (await response.json()) as SuccessResponse<M>;
+    const { rsp } = (await response.json()) as
+      | SuccessResponse<M>
+      | FailResponse;
+
+    if (rsp.stat === "fail") {
+      throw new RtmApiFailedResponseError(
+        rsp.err.code,
+        `RTM api returned an error response: ${rsp.err.msg}`,
+      );
+    }
+    return rsp;
   }
 
   private md5(text: string) {
@@ -74,9 +85,11 @@ export class RtmClient {
   }
 
   public getAuthUrl(frob?: string) {
-    const params = {
+    const frobObj: { frob: string } | {} = frob ? { frob } : {};
+    const params: Record<string, string> = {
       api_key: this.key,
       perms: this.permissions,
+      ...frobObj,
     };
 
     const api_sig = this.generateSignature(this.secret, params);
