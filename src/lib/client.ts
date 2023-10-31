@@ -16,20 +16,6 @@ export class RtmClient {
     }
   }
 
-  private generateRequestQueryString(
-    method: string,
-    params: Record<string, string>,
-  ) {
-    const finalParams = {
-      format: "json",
-      api_key: this.key,
-      method,
-      ...params,
-    };
-    const api_sig = this.generateSignature(this.secret, finalParams);
-    return this.generateQueryString({ ...finalParams, api_sig });
-  }
-
   public async get<M extends keyof ApiMethods>(
     method: M,
     options: ApiMethods[M]["requestArgs"],
@@ -59,6 +45,20 @@ export class RtmClient {
     return rsp;
   }
 
+  public getAuthUrl(frob?: string) {
+    const frobObj: { frob: string } | {} = frob ? { frob } : {};
+    const params: Record<string, string> = {
+      api_key: this.key,
+      perms: this.permissions,
+      ...frobObj,
+    };
+
+    const api_sig = this.generateSignature(this.secret, params);
+    const queryString = this.generateQueryString({ ...params, api_sig });
+
+    return `${AUTH_URL}?${queryString}`;
+  }
+
   private md5(text: string) {
     return crypto.createHash("md5").update(text).digest("hex");
   }
@@ -84,17 +84,17 @@ export class RtmClient {
       .join("&");
   }
 
-  public getAuthUrl(frob?: string) {
-    const frobObj: { frob: string } | {} = frob ? { frob } : {};
-    const params: Record<string, string> = {
+  private generateRequestQueryString(
+    method: string,
+    params: Record<string, string>,
+  ) {
+    const finalParams = {
+      format: "json",
       api_key: this.key,
-      perms: this.permissions,
-      ...frobObj,
+      method,
+      ...params,
     };
-
-    const api_sig = this.generateSignature(this.secret, params);
-    const queryString = this.generateQueryString({ ...params, api_sig });
-
-    return `${AUTH_URL}?${queryString}`;
+    const api_sig = this.generateSignature(this.secret, finalParams);
+    return this.generateQueryString({ ...finalParams, api_sig });
   }
 }
