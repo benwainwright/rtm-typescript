@@ -4,11 +4,21 @@
   "description": "API Client for Remember The Milk API written in TypeScript",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc --project tsconfig.dist.json",
+    "lint": "eslint .",
+    "types": "tsc --noEmit",
+    "test": "vitest --coverage",
+    "test:watch": "vitest --watch",
+    "test:ui": "vitest --watch --ui"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "typescript": "^5.2.2"
+    "prettier": "^3.0.3",
+    "typescript": "^5.2.2",
+    "vitest": "^0.34.6"
+  },
+  "dependencies": {
+    "@microsoft/api-extractor": "^7.38.1"
   }
 }
