@@ -1,8 +1,27 @@
-import { it, describe, expect } from "vitest";
+import { it, describe, expect, beforeAll, afterEach, afterAll } from "vitest";
 import { RtmClient } from "../client";
 import { RtmTypescriptError } from "../core/rtm-typescript-error";
 
+import { server } from "../../test-support/msw-node";
+import { MY_TEST_FROB } from "../../test-support/test-frob";
+
+beforeAll(() => server.listen());
+afterEach(() => server.resetHandlers());
+afterAll(() => server.close());
+
 describe("RtmClient", (test) => {
+  it("should correctly call an api method with a correct signature when I make a request", async () => {
+    const rtmClient = new RtmClient(
+      "your_api_key",
+      "your_shared_secret",
+      "delete",
+    );
+
+    const frob = await rtmClient.get("rtm.auth.getFrob", {});
+
+    expect(frob).toEqual(MY_TEST_FROB);
+  });
+
   it("should generate the correct authUrl without frob", () => {
     const rtmClient = new RtmClient(
       "your_api_key",

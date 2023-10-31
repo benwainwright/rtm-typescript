@@ -1,5 +1,7 @@
+import { ApiMethods, SuccessResponse } from "../types";
+import fetch from "node-fetch-commonjs";
 import { ClientPermissions } from "../types/permissions";
-import { AUTH_URL } from "./constants";
+import { AUTH_URL, BASE_URL } from "./constants";
 import { RtmTypescriptError } from "./core/rtm-typescript-error";
 import crypto from "node:crypto";
 
@@ -14,10 +16,38 @@ export class RtmClient {
     }
   }
 
-  // public get<M extends keyof ApiMethods>(method: M, options: ApiMethods[M]['requestArgs']): SuccessResponse<M> {
+  private generateRequestQueryString(
+    method: string,
+    params: Record<string, string>,
+  ) {
+    const finalParams = {
+      format: "json",
+      api_key: this.key,
+      method,
+      ...params,
+    };
+    const api_sig = this.generateSignature(this.secret, finalParams);
+    return this.generateQueryString({ ...finalParams, api_sig });
+  }
 
-  // }
-  //
+  public async get<M extends keyof ApiMethods>(
+    method: M,
+    options: ApiMethods[M]["requestArgs"],
+  ): Promise<SuccessResponse<M>> {
+    const url = `${BASE_URL}?${this.generateRequestQueryString(
+      method,
+      options,
+    )}`;
+
+    const response = await fetch(url, {
+      method: "GET",
+    });
+
+    if (!response.ok) {
+      throw new RtmTypescriptError("Request failed");
+    }
+    return (await response.json()) as SuccessResponse<M>;
+  }
 
   private md5(text: string) {
     return crypto.createHash("md5").update(text).digest("hex");
@@ -35,6 +65,15 @@ export class RtmClient {
     );
   }
 
+  private generateQueryString(params: Record<string, string>) {
+    return Object.entries(params)
+      .map(
+        ([key, value]) =>
+          `${encodeURIComponent(key)}=${encodeURIComponent(value)}`,
+      )
+      .join("&");
+  }
+
   public getAuthUrl(frob?: string) {
     const params = {
       api_key: this.key,
@@ -42,13 +81,7 @@ export class RtmClient {
     };
 
     const api_sig = this.generateSignature(this.secret, params);
-
-    const queryString = Object.entries({ ...params, api_sig })
-      .map(
-        ([key, value]) =>
-          `${encodeURIComponent(key)}=${encodeURIComponent(value)}`,
-      )
-      .join("&");
+    const queryString = this.generateQueryString({ ...params, api_sig });
 
     return `${AUTH_URL}?${queryString}`;
   }
