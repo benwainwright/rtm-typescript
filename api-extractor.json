@@ -7,7 +7,7 @@
 
   "apiReport": {
     "enabled": true,
-    "reportFolder": "/"
+    "reportFolder": "/api"
   },
 
   "docModel": {

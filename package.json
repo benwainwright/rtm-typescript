@@ -1,10 +1,12 @@
 {
   "name": "rtm-typescript",
   "version": "1.0.0",
+  "type": "module",
   "description": "API Client for Remember The Milk API written in TypeScript",
   "main": "index.js",
   "scripts": {
-    "build": "tsc --project tsconfig.dist.json",
+    "extract-api": "vitest-node ./api/extract.ts",
+    "build": "tsc --project tsconfig.dist.json && npm run extract-api",
     "lint": "eslint .",
     "types": "tsc --noEmit",
     "test": "vitest --coverage",
