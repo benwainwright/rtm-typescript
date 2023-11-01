@@ -61,7 +61,7 @@ type DeepIntersect<T> = T extends () => unknown
   : T;
 
 /**
- * @internal
+ * @public
  */
 export type ApiSurface = Convert<ApiMethods>["rtm"];
 

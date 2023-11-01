@@ -1,8 +1,3 @@
 export const AUTH_URL = "https://www.rememberthemilk.com/services/auth";
 export const REST_API_URL = "https://api.rememberthemilk.com/services/rest";
 
-export const HTTP = {
-  statusCodes: {
-    Ok: 200,
-  },
-};

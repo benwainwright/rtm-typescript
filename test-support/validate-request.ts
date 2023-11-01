@@ -2,8 +2,8 @@ import { DefaultBodyType, HttpResponse, StrictRequest } from "msw";
 import { makeFailureResponse } from "./make-failure-response";
 import { checkSignature } from "./check-signature";
 import { TEST_API_KEY } from "./testing-values";
-import { HTTP } from "../src/lib/constants";
 import { API_ERROR_CODES } from "../src/types/response-codes";
+import { HTTP_STATUS_CODES } from "../src/lib/http-status-codes";
 
 export const validateRequest = (request: StrictRequest<DefaultBodyType>) => {
   const url = new URL(request.url);
@@ -15,7 +15,7 @@ export const validateRequest = (request: StrictRequest<DefaultBodyType>) => {
       makeFailureResponse(API_ERROR_CODES.notFound, 'Method "" not found'),
       {
         // @ts-expect-error Incorrect types in msw
-        status: HTTP.statusCodes.Ok,
+        status: HTTP_STATUS_CODES.ok,
       },
     );
   }
@@ -29,7 +29,7 @@ export const validateRequest = (request: StrictRequest<DefaultBodyType>) => {
       ),
       {
         // @ts-expect-error Incorrect types in msw
-        status: HTTP.statusCodes.Ok,
+        status: HTTP_STATUS_CODES.ok,
       },
     );
   }
@@ -42,7 +42,7 @@ export const validateRequest = (request: StrictRequest<DefaultBodyType>) => {
       ),
       {
         // @ts-expect-error Incorrect types in msw
-        status: HTTP.statusCodes.Ok,
+        status: HTTP_STATUS_CODES.ok,
       },
     );
   }
@@ -53,7 +53,7 @@ export const validateRequest = (request: StrictRequest<DefaultBodyType>) => {
       makeFailureResponse(API_ERROR_CODES.invalidApiKey, "Invalid API Key"),
       {
         // @ts-expect-error tsc types are incorrect
-        status: HTTP.statusCodes.Ok,
+        status: HTTP_STATUS_CODES.ok,
       },
     );
   }

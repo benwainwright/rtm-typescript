@@ -19,6 +19,7 @@ import { RtmHttpError } from "./core/rtm-http-error";
 beforeAll(() => {
   server.listen();
 });
+
 afterEach(() => {
   server.resetHandlers();
 });

@@ -6,9 +6,8 @@
 
 // Warning: (ae-forgotten-export) The symbol "Convert" needs to be exported by the entry point index.d.ts
 // Warning: (ae-forgotten-export) The symbol "ApiMethods" needs to be exported by the entry point index.d.ts
-// Warning: (ae-internal-missing-underscore) The name "ApiSurface" should be prefixed with an underscore because the declaration is marked as @internal
 //
-// @internal (undocumented)
+// @public (undocumented)
 export type ApiSurface = Convert<ApiMethods>["rtm"];
 
 // Warning: (ae-forgotten-export) The symbol "NameSpace" needs to be exported by the entry point index.d.ts
@@ -17,14 +16,12 @@ export type ApiSurface = Convert<ApiMethods>["rtm"];
 export class Auth implements NameSpace<"auth"> {
     // Warning: (ae-forgotten-export) The symbol "RtmClient" needs to be exported by the entry point index.d.ts
     constructor(client: RtmClient);
-    // (undocumented)
     getFrob(): Promise<{
         stat: "ok";
         api_key?: string | undefined;
         callback: string;
         frob: string;
     }>;
-    // Warning: (ae-forgotten-export) The symbol "GetTokenArgs" needs to be exported by the entry point index.d.ts
     getToken(params: GetTokenArgs): Promise<{
         stat: "ok";
         api_key?: string | undefined;
@@ -48,8 +45,11 @@ export enum ClientPermissions {
     Write = "write"
 }
 
-// Warning: (ae-incompatible-release-tags) The symbol "RememberTheMilkApi" is marked as @public, but its signature references "ApiSurface" which is marked as @internal
-//
+// @public (undocumented)
+export interface GetTokenArgs {
+    frob: string;
+}
+
 // @public
 export class RememberTheMilkApi implements ApiSurface {
     constructor(key: string, secret: string, permissions: ClientPermissions);
@@ -58,13 +58,24 @@ export class RememberTheMilkApi implements ApiSurface {
     tasks: Tasks;
 }
 
-// Warning: (ae-forgotten-export) The symbol "RtmTypescriptError" needs to be exported by the entry point index.d.ts
-//
 // @public
 export class RtmApiFailedResponseError extends RtmTypescriptError {
     constructor(code: number, message: string);
     // (undocumented)
     readonly code: number;
+}
+
+// @public
+export class RtmHttpError extends RtmTypescriptError {
+    constructor(statusCode: number, body: string);
+    // (undocumented)
+    readonly body: string;
+    // (undocumented)
+    readonly statusCode: number;
+}
+
+// @public (undocumented)
+export class RtmTypescriptError extends Error {
 }
 
 // (No @packageDocumentation comment for this package)
