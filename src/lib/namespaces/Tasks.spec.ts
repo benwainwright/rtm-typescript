@@ -1,5 +1,5 @@
 import { expect, describe, it, vi } from "vitest";
-import { Tasks } from "./Tasks";
+import { Tasks } from "./tasks";
 import { RtmClient } from "../core";
 import { ClientPermissions } from "../../types/permissions";
 import { when } from "jest-when";

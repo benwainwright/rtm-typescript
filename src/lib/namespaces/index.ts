@@ -1,2 +1,2 @@
-export { Auth } from "./Auth";
-export { Tasks } from "./Tasks";
+export { Auth } from "./auth";
+export { Tasks } from "./tasks";

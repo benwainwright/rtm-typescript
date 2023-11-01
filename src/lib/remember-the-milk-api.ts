@@ -1,8 +1,8 @@
 import { ApiSurface } from "../types/api-methods";
 import { ClientPermissions } from "../types/permissions";
 import { RtmClient } from "./core";
-import { Auth } from "./namespaces/Auth";
-import { Tasks } from "./namespaces/Tasks";
+import { Auth } from "./namespaces/auth";
+import { Tasks } from "./namespaces/tasks";
 
 /**
  * Remember The Milk API client

@@ -1,7 +1,6 @@
 import { ClientPermissions } from "../types/permissions";
-import { RememberTheMilkApi } from "./RememberTheMilkApi";
-import { Tasks } from "./namespaces";
-import { Auth } from "./namespaces/Auth";
+import { RememberTheMilkApi } from "./remember-the-milk-api";
+import { Tasks, Auth } from "./namespaces";
 
 describe("RememberTheMilkApi", () => {
   it("constructs without errors", () => {

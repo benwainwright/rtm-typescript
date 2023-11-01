@@ -8,10 +8,11 @@ module.exports = {
   parserOptions: {
     project: "./tsconfig.json",
   },
-  plugins: ["@typescript-eslint"],
+  plugins: ["@typescript-eslint", "filenames"],
   root: true,
   rules: {
     "@typescript-eslint/prefer-readonly-parameter-types": "off",
+    "filenames/match-regex": [2, "^[a-z-0-9.]+$", true],
   },
   overrides: [
     {

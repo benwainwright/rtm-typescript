@@ -1,5 +1,5 @@
 import { expect, describe, it, vi } from "vitest";
-import { Auth } from "./Auth";
+import { Auth } from "./auth";
 import { RtmClient } from "../core";
 import { ClientPermissions } from "../../types/permissions";
 import { when } from "jest-when";
