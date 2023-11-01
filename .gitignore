@@ -3,3 +3,4 @@ dist
 coverage
 temp
 tmp-declarations
+tsdoc-metadata.json
