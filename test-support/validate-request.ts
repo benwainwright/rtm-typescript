@@ -52,7 +52,7 @@ export const validateRequest = (request: StrictRequest<DefaultBodyType>) => {
     return HttpResponse.json(
       makeFailureResponse(API_ERROR_CODES.invalidApiKey, "Invalid API Key"),
       {
-        // @ts-expect-error
+        // @ts-expect-error tsc types are incorrect
         status: HTTP.statusCodes.Ok,
       },
     );

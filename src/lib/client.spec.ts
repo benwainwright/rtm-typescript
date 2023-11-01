@@ -11,9 +11,9 @@ import {
 import { RtmApiFailedResponseError } from "./core/rtm-api-failed-response-error";
 import { API_ERROR_CODES } from "../types/response-codes";
 
-beforeAll(() => server.listen());
-afterEach(() => server.resetHandlers());
-afterAll(() => server.close());
+beforeAll(() => { server.listen(); });
+afterEach(() => { server.resetHandlers(); });
+afterAll(() => { server.close(); });
 
 describe("RtmClient", () => {
   it("should correctly call an api method with a correct signature when I make a request", async () => {
