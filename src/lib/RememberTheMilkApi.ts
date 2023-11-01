@@ -18,3 +18,7 @@ export class RememberTheMilkApi implements ApiSurface {
     this.tasks = new Tasks(client);
   }
 }
+
+const foo = new RememberTheMilkApi("foo", "bar", "read");
+
+foo.auth.getToken

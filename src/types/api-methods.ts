@@ -1,6 +1,7 @@
 import { TaskList } from "./task-list";
 import { User } from "./domain-objects/user";
 import { SuccessResponse } from "./responses";
+import { ExpandRecursively } from "./expand-recursively";
 
 export interface ApiMethods {
   "rtm.auth.getToken": {
@@ -60,12 +61,6 @@ type DeepIntersect<T> = T extends Function
   : T;
 
 export type ApiSurface = Convert<ApiMethods>["rtm"];
-
-type ExpandRecursively<T> = T extends object
-  ? T extends infer O
-    ? { [K in keyof O]: ExpandRecursively<O[K]> }
-    : never
-  : T;
 
 export interface DefaultArgs {
   api_key: string;
