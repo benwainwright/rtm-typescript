@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "api:prod": "vite-node ./api/extract.ts '<projectFolder>/dist/index.d.ts'",
-    "api:check": "tsc --project tsconfig.checkapi.json && vite-node ./api/extract.ts '<projectFolder>/tmp-declarations/index.d.ts' && rm -rf tmp-declarations",
+    "api-check": "tsc --project tsconfig.checkapi.json && vite-node ./api/extract.ts '<projectFolder>/tmp-declarations/index.d.ts' && rm -rf tmp-declarations",
     "build": "tsc --project tsconfig.dist.json && npm run api:prod",
     "lint": "eslint .",
     "types": "tsc --noEmit",
