@@ -74,7 +74,7 @@ export class RtmHttpError extends RtmTypescriptError {
     readonly statusCode: number;
 }
 
-// @public (undocumented)
+// @public
 export class RtmTypescriptError extends Error {
 }
 

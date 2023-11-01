@@ -1,6 +1,6 @@
 {
   "extends": "./tsconfig.json",
-  "exclude": ["./src/**/*.spec.ts", "*.config.ts", "./api/extract.ts"],
+  "exclude": ["./src/**/*.spec.ts", "*.config.ts", "./api/extract.ts", "./api/dummy.d.ts"],
   "compilerOptions": {
     "declaration": true,
     "declarationMap": true

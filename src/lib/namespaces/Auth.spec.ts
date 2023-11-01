@@ -21,6 +21,7 @@ describe("the auth namespace", () => {
     async ({ method, clientMethod, params }) => {
       const client = new RtmClient("key", "secret", ClientPermissions.Delete);
 
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const returnValue: any = "foo";
       when(client.get)
         .calledWith(clientMethod, params)
@@ -28,6 +29,7 @@ describe("the auth namespace", () => {
 
       const auth = new Auth(client);
 
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const response = await (auth as any)[method](params);
       expect(response).toEqual(returnValue);
     },
