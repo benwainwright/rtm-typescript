@@ -21,16 +21,14 @@ describe("the auth namespace", () => {
     async ({ method, clientMethod, params }) => {
       const client = new RtmClient("key", "secret", ClientPermissions.Delete);
 
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const returnValue: any = "foo";
+      const returnValue = {} as ReturnType<typeof client.get>
       when(client.get)
         .calledWith(clientMethod, params)
         .mockReturnValue(returnValue);
 
       const auth = new Auth(client);
 
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const response = await (auth as any)[method](params);
+      const response = await auth[method as keyof typeof auth](params);
       expect(response).toEqual(returnValue);
     },
   );
