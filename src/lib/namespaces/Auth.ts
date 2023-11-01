@@ -1,5 +1,5 @@
-import { NameSpace } from "../../types/api-methods";
 import { RtmClient } from "../client";
+import { NameSpace } from "../../types/api-methods";
 
 interface GetTokenArgs {
   /**
@@ -9,6 +9,9 @@ interface GetTokenArgs {
   frob: string;
 }
 
+/**
+ * @public
+ */
 export class Auth implements NameSpace<"auth"> {
   constructor(private client: RtmClient) {}
 

@@ -4,20 +4,67 @@
 
 ```ts
 
-// Warning: (ae-forgotten-export) The symbol "ApiSurface" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "Convert" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "ApiMethods" needs to be exported by the entry point index.d.ts
+// Warning: (ae-internal-missing-underscore) The name "ApiSurface" should be prefixed with an underscore because the declaration is marked as @internal
+//
+// @internal (undocumented)
+export type ApiSurface = Convert<ApiMethods>["rtm"];
+
+// Warning: (ae-forgotten-export) The symbol "NameSpace" needs to be exported by the entry point index.d.ts
+//
+// @public (undocumented)
+export class Auth implements NameSpace<"auth"> {
+    // Warning: (ae-forgotten-export) The symbol "RtmClient" needs to be exported by the entry point index.d.ts
+    constructor(client: RtmClient);
+    // (undocumented)
+    getFrob(): Promise<{
+        stat: "ok";
+        api_key?: string | undefined;
+        callback: string;
+        frob: string;
+    }>;
+    // Warning: (ae-forgotten-export) The symbol "GetTokenArgs" needs to be exported by the entry point index.d.ts
+    getToken(params: GetTokenArgs): Promise<{
+        stat: "ok";
+        api_key?: string | undefined;
+        callback: string;
+        auth: {
+            token: string;
+            perms: string;
+            user: {
+                id: string;
+                username: string;
+                fullname: string;
+            };
+        };
+    }>;
+}
+
+// @public
+export enum ClientPermissions {
+    Delete = "delete",
+    Read = "read",
+    Write = "write"
+}
+
+// Warning: (ae-incompatible-release-tags) The symbol "RememberTheMilkApi" is marked as @public, but its signature references "ApiSurface" which is marked as @internal
 //
 // @public
 export class RememberTheMilkApi implements ApiSurface {
-    // Warning: (ae-forgotten-export) The symbol "ClientPermissions" needs to be exported by the entry point index.d.ts
     constructor(key: string, secret: string, permissions: ClientPermissions);
-    // Warning: (ae-forgotten-export) The symbol "Auth" needs to be exported by the entry point index.d.ts
-    //
-    // (undocumented)
     auth: Auth;
     // Warning: (ae-forgotten-export) The symbol "Tasks" needs to be exported by the entry point index.d.ts
-    //
-    // (undocumented)
     tasks: Tasks;
+}
+
+// Warning: (ae-forgotten-export) The symbol "RtmTypescriptError" needs to be exported by the entry point index.d.ts
+//
+// @public
+export class RtmApiFailedResponseError extends RtmTypescriptError {
+    constructor(code: number, message: string);
+    // (undocumented)
+    readonly code: number;
 }
 
 // (No @packageDocumentation comment for this package)

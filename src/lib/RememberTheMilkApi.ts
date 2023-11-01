@@ -9,7 +9,14 @@ import { Tasks } from "./namespaces/Tasks";
  * @public
  */
 export class RememberTheMilkApi implements ApiSurface {
+  /**
+   * API methods relating to authentication
+   */
   public auth: Auth;
+
+  /**
+   * API methods relating to RTM Tasks
+   */
   public tasks: Tasks;
 
   public constructor(
@@ -22,7 +29,3 @@ export class RememberTheMilkApi implements ApiSurface {
     this.tasks = new Tasks(client);
   }
 }
-
-const foo = new RememberTheMilkApi("foo", "bar", "read");
-
-foo.auth.getToken;

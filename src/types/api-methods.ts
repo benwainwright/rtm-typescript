@@ -60,6 +60,9 @@ type DeepIntersect<T> = T extends Function
   ? { [K in keyof T]: DeepIntersect<T[K]> }
   : T;
 
+/**
+ * @internal
+ */
 export type ApiSurface = Convert<ApiMethods>["rtm"];
 
 export interface DefaultArgs {
