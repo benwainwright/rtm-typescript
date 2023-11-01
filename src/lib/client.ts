@@ -2,6 +2,7 @@ import { ApiMethods, FailResponse, SuccessResponse } from "../types";
 import { ClientPermissions } from "../types/permissions";
 import { AUTH_URL, REST_API_URL } from "./constants";
 import { RtmApiFailedResponseError } from "./core/rtm-api-failed-response-error";
+import { RtmHttpError } from "./core/rtm-http-error";
 import { RtmTypescriptError } from "./core/rtm-typescript-error";
 import crypto from "node:crypto";
 
@@ -30,7 +31,8 @@ export class RtmClient {
     });
 
     if (!response.ok) {
-      throw new RtmTypescriptError("Request failed");
+      const body = await response.text();
+      throw new RtmHttpError(response.status, body);
     }
     const { rsp } = (await response.json()) as
       | SuccessResponse<ApiMethods, M>

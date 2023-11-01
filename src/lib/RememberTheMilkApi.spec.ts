@@ -14,13 +14,14 @@ describe("RememberTheMilkApi", () => {
     namespace  | instance
     ${"auth"}  | ${Auth}
     ${"tasks"} | ${Tasks}
-  `("$namespace is wired up correctly", async ({ namespace, instance }) => {
+  `("$namespace is wired up correctly", ({ namespace, instance }) => {
     const client = new RememberTheMilkApi(
       "key",
       "secret",
       ClientPermissions.Write,
     );
 
-    expect(client[namespace]).toBeInstanceOf(instance);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    expect((client as any)[namespace]).toBeInstanceOf(instance);
   });
 });

@@ -10,9 +10,9 @@ export default defineConfig({
       cleanOnRerun: true,
       thresholdAutoUpdate: true,
       functions: 100,
-      lines: 97.72,
-      statements: 97.77,
-      branches: 92.85,
+      lines: 100,
+      statements: 100,
+      branches: 100,
     },
   },
 });

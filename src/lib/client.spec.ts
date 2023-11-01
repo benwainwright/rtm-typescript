@@ -11,6 +11,10 @@ import {
 import { RtmApiFailedResponseError } from "./core/rtm-api-failed-response-error";
 import { API_ERROR_CODES } from "../types/response-codes";
 import { ClientPermissions } from "../types/permissions";
+import { HttpResponse, http } from "msw";
+import { REST_API_URL } from "./constants";
+import { HTTP_STATUS_CODES } from "./http-status-codes";
+import { RtmHttpError } from "./core/rtm-http-error";
 
 beforeAll(() => {
   server.listen();
@@ -23,6 +27,26 @@ afterAll(() => {
 });
 
 describe("RtmClient", () => {
+  it("should raise a http-error containing the error code if the api returns with a 5xx response", async () => {
+    server.use(
+      http.get(REST_API_URL, () => {
+        return HttpResponse.text("Whoops!", {
+          // @ts-expect-error incorrect types in msw
+          status: HTTP_STATUS_CODES.internalServerError,
+        });
+      }),
+    );
+    const rtmClient = new RtmClient(
+      TEST_API_KEY,
+      TEST_SHARED_SECRET,
+      ClientPermissions.Delete,
+    );
+
+    await expect(rtmClient.get("rtm.auth.getFrob", {})).rejects.toThrow(
+      new RtmHttpError(HTTP_STATUS_CODES.internalServerError, "Whoops!"),
+    );
+  });
+
   it("should correctly call an api method with a correct signature when I make a request", async () => {
     const rtmClient = new RtmClient(
       TEST_API_KEY,
