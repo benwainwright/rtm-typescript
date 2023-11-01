@@ -1,5 +1,5 @@
 import { NameSpace } from "../../types/api-methods";
-import { RtmClient } from "../client";
+import { RtmClient } from "../core";
 
 export class Tasks implements NameSpace<"tasks"> {
   public constructor(private client: RtmClient) {}

@@ -10,6 +10,7 @@
     "build": "tsc --project tsconfig.dist.json && npm run api:prod",
     "lint": "eslint .",
     "types": "tsc --noEmit",
+    "types:watch": "tsc --noEmit --watch",
     "test": "vitest --coverage",
     "test:watch": "vitest --watch",
     "test:ui": "vitest --watch --ui",

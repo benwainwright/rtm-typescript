@@ -1,6 +1,6 @@
 import { ApiSurface } from "../types/api-methods";
 import { ClientPermissions } from "../types/permissions";
-import { RtmClient } from "./client";
+import { RtmClient } from "./core";
 import { Auth } from "./namespaces/Auth";
 import { Tasks } from "./namespaces/Tasks";
 

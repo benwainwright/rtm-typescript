@@ -1,4 +1,4 @@
-import { RtmClient } from "../client";
+import { RtmClient } from "../core/client";
 import { NameSpace } from "../../types/api-methods";
 
 /**

@@ -1,10 +1,10 @@
 import { expect, describe, it, vi } from "vitest";
 import { Auth } from "./Auth";
-import { RtmClient } from "../client";
+import { RtmClient } from "../core";
 import { ClientPermissions } from "../../types/permissions";
 import { when } from "jest-when";
 
-vi.mock("../client");
+vi.mock("../core");
 
 describe("the auth namespace", () => {
   it("constructs without errors", () => {

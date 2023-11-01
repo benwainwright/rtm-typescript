@@ -3,7 +3,7 @@ import { makeFailureResponse } from "./make-failure-response";
 import { checkSignature } from "./check-signature";
 import { TEST_API_KEY } from "./testing-values";
 import { API_ERROR_CODES } from "../src/types/response-codes";
-import { HTTP_STATUS_CODES } from "../src/lib/http-status-codes";
+import { HTTP_STATUS_CODES } from "../src/lib/core/http-status-codes";
 
 export const validateRequest = (request: StrictRequest<DefaultBodyType>) => {
   const url = new URL(request.url);

@@ -1,20 +1,21 @@
 import { it, describe, expect, beforeAll, afterEach, afterAll } from "vitest";
 import { RtmClient } from "./client";
-import { RtmTypescriptError } from "./core/rtm-typescript-error";
-
-import { server } from "../../test-support/msw-node";
+import {
+  RtmTypescriptError,
+  RtmApiFailedResponseError,
+  RtmHttpError,
+} from "../core";
+import { server } from "../../../test-support/msw-node";
 import {
   MY_TEST_FROB,
   TEST_API_KEY,
   TEST_SHARED_SECRET,
-} from "../../test-support/testing-values";
-import { RtmApiFailedResponseError } from "./core/rtm-api-failed-response-error";
-import { API_ERROR_CODES } from "../types/response-codes";
-import { ClientPermissions } from "../types/permissions";
+} from "../../../test-support/testing-values";
+import { API_ERROR_CODES } from "../../types/response-codes";
+import { ClientPermissions } from "../../types/permissions";
 import { HttpResponse, http } from "msw";
 import { REST_API_URL } from "./constants";
 import { HTTP_STATUS_CODES } from "./http-status-codes";
-import { RtmHttpError } from "./core/rtm-http-error";
 
 beforeAll(() => {
   server.listen();

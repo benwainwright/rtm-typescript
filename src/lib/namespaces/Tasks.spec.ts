@@ -1,10 +1,10 @@
 import { expect, describe, it, vi } from "vitest";
 import { Tasks } from "./Tasks";
-import { RtmClient } from "../client";
+import { RtmClient } from "../core";
 import { ClientPermissions } from "../../types/permissions";
 import { when } from "jest-when";
 
-vi.mock("../client");
+vi.mock("../core");
 
 describe("the task namespace", () => {
   it("constructs without errors", () => {

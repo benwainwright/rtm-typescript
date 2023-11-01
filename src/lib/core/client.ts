@@ -1,9 +1,13 @@
-import { ApiMethods, FailResponse, SuccessResponse } from "../types";
-import { ClientPermissions } from "../types/permissions";
+import { ApiMethods, FailResponse, SuccessResponse } from "../../types";
+import { ClientPermissions } from "../../types/permissions";
 import { AUTH_URL, REST_API_URL } from "./constants";
-import { RtmApiFailedResponseError } from "./core/rtm-api-failed-response-error";
-import { RtmHttpError } from "./core/rtm-http-error";
-import { RtmTypescriptError } from "./core/rtm-typescript-error";
+
+import {
+  RtmApiFailedResponseError,
+  RtmHttpError,
+  RtmTypescriptError,
+} from "../core";
+
 import crypto from "node:crypto";
 
 export class RtmClient {
