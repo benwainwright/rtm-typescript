@@ -77,7 +77,8 @@ export class RtmClient {
   ): string {
     return this.md5(
       `${secret}${Object.entries(params)
-        .toSorted((a, b) => (a[0] > b[0] ? 1 : -1))
+        .slice()
+        .sort((a, b) => (a[0] > b[0] ? 1 : -1))
         .flat()
         .join("")}`,
     );
