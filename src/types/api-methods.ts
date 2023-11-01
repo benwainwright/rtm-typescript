@@ -1,5 +1,6 @@
 import { TaskList } from "./task-list";
 import { User } from "./domain-objects/user";
+import { SuccessResponse } from "./responses";
 
 export interface ApiMethods {
   "rtm.auth.getToken": {
@@ -40,7 +41,7 @@ type GetStringBeforePeriod<S extends String> =
 type GetStringAfterPeriod<S extends String> =
   S extends `${string}.${infer Rest}` ? Rest : never;
 
-type ApiSurface = {
+export type ApiSurface = {
   [K in keyof ApiMethods as K extends string
     ? GetStringBeforePeriod<GetStringAfterPeriod<K>>
     : never]: K extends string
@@ -49,7 +50,7 @@ type ApiSurface = {
           GetStringAfterPeriod<K>
         >}.${string}`
           ? GetStringAfterPeriod<GetStringAfterPeriod<K>>
-          : never]: (args: ApiMethods[K]) => void
+          : never]: (args: ApiMethods[K]["requestArgs"]) => SuccessResponse<K>;
       }
     : never;
 };
@@ -67,5 +68,4 @@ export interface DefaultArgs {
 
 export type MappedApiSurface = ExpandRecursively<ApiSurface>;
 
-export type NameSpace<T extends keyof MappedApiSurface> = MappedApiSurface[T];
-export type MappedTasks = MappedApiSurface["tasks"];
+export type NameSpace<T extends keyof ApiSurface> = ApiSurface[T];
