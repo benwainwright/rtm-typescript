@@ -10,14 +10,25 @@ import {
 } from "../../test-support/testing-values";
 import { RtmApiFailedResponseError } from "./core/rtm-api-failed-response-error";
 import { API_ERROR_CODES } from "../types/response-codes";
+import { ClientPermissions } from "../types/permissions";
 
-beforeAll(() => { server.listen(); });
-afterEach(() => { server.resetHandlers(); });
-afterAll(() => { server.close(); });
+beforeAll(() => {
+  server.listen();
+});
+afterEach(() => {
+  server.resetHandlers();
+});
+afterAll(() => {
+  server.close();
+});
 
 describe("RtmClient", () => {
   it("should correctly call an api method with a correct signature when I make a request", async () => {
-    const rtmClient = new RtmClient(TEST_API_KEY, TEST_SHARED_SECRET, "delete");
+    const rtmClient = new RtmClient(
+      TEST_API_KEY,
+      TEST_SHARED_SECRET,
+      ClientPermissions.Delete,
+    );
 
     const response = await rtmClient.get("rtm.auth.getFrob", {});
 
@@ -33,7 +44,7 @@ describe("RtmClient", () => {
     const rtmClient = new RtmClient(
       TEST_API_KEY,
       "definitely-a-bad-secret",
-      "delete",
+      ClientPermissions.Delete,
     );
 
     await expect(rtmClient.get("rtm.auth.getFrob", {})).rejects.toThrow(
@@ -48,7 +59,7 @@ describe("RtmClient", () => {
     const rtmClient = new RtmClient(
       "your_api_key",
       "your_shared_secret",
-      "delete",
+      ClientPermissions.Delete,
     );
 
     const expectedAuthUrl =
@@ -63,7 +74,7 @@ describe("RtmClient", () => {
     const rtmClient = new RtmClient(
       "your_api_key",
       "your_shared_secret",
-      "delete",
+      ClientPermissions.Delete,
     );
 
     const expectedAuthUrl =
@@ -75,14 +86,14 @@ describe("RtmClient", () => {
   });
 
   it("constructor should throw an error if the key is empty", () => {
-    expect(() => new RtmClient("", "your_shared_secret", "delete")).toThrow(
-      new RtmTypescriptError("API key and secret must not be empty"),
-    );
+    expect(
+      () => new RtmClient("", "your_shared_secret", ClientPermissions.Delete),
+    ).toThrow(new RtmTypescriptError("API key and secret must not be empty"));
   });
 
   it("constructor should throw an error if the secret is empty", () => {
-    expect(() => new RtmClient("your_api_key", "", "delete")).toThrow(
-      new RtmTypescriptError("API key and secret must not be empty"),
-    );
+    expect(
+      () => new RtmClient("your_api_key", "", ClientPermissions.Delete),
+    ).toThrow(new RtmTypescriptError("API key and secret must not be empty"));
   });
 });

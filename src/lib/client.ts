@@ -51,7 +51,7 @@ export class RtmClient {
       : {};
     const params: Record<string, string> = {
       api_key: this.key,
-      perms: this.permissions,
+      perms: this.permissions.toLowerCase(),
       ...frobObj,
     };
 
