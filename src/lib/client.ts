@@ -19,7 +19,7 @@ export class RtmClient {
   public async get<M extends keyof ApiMethods>(
     method: M,
     options: ApiMethods[M]["requestArgs"],
-  ): Promise<SuccessResponse<M>["rsp"]> {
+  ): Promise<SuccessResponse<ApiMethods, M>["rsp"]> {
     const url = `${REST_API_URL}?${this.generateRequestQueryString(
       method,
       options,
@@ -33,7 +33,7 @@ export class RtmClient {
       throw new RtmTypescriptError("Request failed");
     }
     const { rsp } = (await response.json()) as
-      | SuccessResponse<M>
+      | SuccessResponse<ApiMethods, M>
       | FailResponse;
 
     if (rsp.stat === "fail") {

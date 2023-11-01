@@ -34,26 +34,32 @@ export interface ApiMethods {
     };
   };
 }
+type DeepRecord<K extends string, V> = K extends `${infer K0}.${infer KR}`
+  ? { [P in K0]: DeepRecord<KR, V> }
+  : { [P in K]: V };
 
-type GetStringBeforePeriod<S extends String> =
-  S extends `${infer First}.${string}` ? First : never;
+type Convert<
+  T extends Record<keyof T, { requestArgs: any; responseArgs: any }>,
+> = DeepIntersect<
+  {
+    [K in string & keyof T]: (
+      x: DeepRecord<
+        K,
+        (arg: T[K]["requestArgs"]) => Promise<SuccessResponse<T, K>["rsp"]>
+      >,
+    ) => void;
+  } extends Record<string, (x: infer I) => void>
+    ? I
+    : never
+>;
 
-type GetStringAfterPeriod<S extends String> =
-  S extends `${string}.${infer Rest}` ? Rest : never;
+type DeepIntersect<T> = T extends Function
+  ? T
+  : T extends object
+  ? { [K in keyof T]: DeepIntersect<T[K]> }
+  : T;
 
-export type ApiSurface = {
-  [K in keyof ApiMethods as K extends string
-    ? GetStringBeforePeriod<GetStringAfterPeriod<K>>
-    : never]: K extends string
-    ? {
-        [K in keyof ApiMethods as K extends `${GetStringBeforePeriod<K>}.${GetStringBeforePeriod<
-          GetStringAfterPeriod<K>
-        >}.${string}`
-          ? GetStringAfterPeriod<GetStringAfterPeriod<K>>
-          : never]: (args: ApiMethods[K]["requestArgs"]) => SuccessResponse<K>;
-      }
-    : never;
-};
+export type ApiSurface = Convert<ApiMethods>["rtm"];
 
 type ExpandRecursively<T> = T extends object
   ? T extends infer O

@@ -1,7 +1,14 @@
 import { NameSpace } from "../../types/api-methods";
+import { RtmClient } from "../client";
 
 export class Tasks implements NameSpace<"tasks"> {
-    getToken: (args: { frob: string; }) => void;
-    getFrob: (args: Record<string, string>) => void;
-    getList: (args: { list_id?: string | undefined; filter?: string | undefined; last_sync?: string | undefined; }) => void;
+  public constructor(private client: RtmClient) {}
+
+  public async getList(params: {
+    list_id?: string;
+    filter?: string;
+    last_sync?: string;
+  }) {
+    return this.client.get("rtm.tasks.getList", params);
+  }
 }
