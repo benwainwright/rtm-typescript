@@ -5,7 +5,7 @@
   "description": "API Client for Remember The Milk API written in TypeScript",
   "main": "index.js",
   "scripts": {
-    "extract-api": "vitest-node ./api/extract.ts",
+    "extract-api": "vite-node ./api/extract.ts",
     "build": "tsc --project tsconfig.dist.json && npm run extract-api",
     "lint": "eslint .",
     "types": "tsc --noEmit",
@@ -21,6 +21,7 @@
     "msw": "2.0.1",
     "prettier": "3.0.3",
     "typescript": "5.2.2",
+    "vite-node": "^0.34.6",
     "vitest": "0.34.6"
   },
   "dependencies": {

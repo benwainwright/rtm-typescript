@@ -1,4 +1,9 @@
 {
   "extends": "./tsconfig.json",
-  "exclude": ["./src/**/*.spec.ts", "*.config.ts"]
+  "exclude": ["./src/**/*.spec.ts", "*.config.ts"],
+  "compilerOptions": {
+    "declaration": true,
+    "declarationMap": true
+  },
+  "$schema": "https://json.schemastore.org/tsconfig"
 }
