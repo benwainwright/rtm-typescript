@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.dist.json",
+  "compilerOptions": {
+    "emitDeclarationOnly": true,
+    "outDir": "tmp-declarations",
+    "isolatedModules": true
+  },
+  "$schema": "https://json.schemastore.org/tsconfig"
+}

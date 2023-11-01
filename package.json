@@ -5,19 +5,22 @@
   "description": "API Client for Remember The Milk API written in TypeScript",
   "main": "index.js",
   "scripts": {
-    "extract-api": "vite-node ./api/extract.ts",
-    "build": "tsc --project tsconfig.dist.json && npm run extract-api",
+    "api:prod": "vite-node ./api/extract.ts '<projectFolder>/dist/index.d.ts'",
+    "api:check": "tsc --project tsconfig.checkapi.json && vite-node ./api/extract.ts '<projectFolder>/tmp-declarations/index.d.ts' && rm -rf tmp-declarations",
+    "build": "tsc --project tsconfig.dist.json && npm run api:prod",
     "lint": "eslint .",
     "types": "tsc --noEmit",
     "test": "vitest --coverage",
     "test:watch": "vitest --watch",
-    "test:ui": "vitest --watch --ui"
+    "test:ui": "vitest --watch --ui",
+    "prepare": "husky install"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@vitest/coverage-istanbul": "0.34.6",
     "@vitest/ui": "0.34.6",
+    "husky": "^8.0.3",
     "msw": "2.0.1",
     "prettier": "3.0.3",
     "typescript": "5.2.2",

@@ -1,2 +1,2 @@
-export { FailResponse } from "./fail-response";
-export { SuccessResponse } from "./success-response";
+export type { FailResponse } from "./fail-response";
+export type { SuccessResponse } from "./success-response";
