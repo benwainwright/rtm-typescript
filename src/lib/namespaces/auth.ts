@@ -15,8 +15,32 @@ export interface GetTokenArgs {
 /**
  * @public
  */
+export interface CheckTokenArgs {
+  /**
+   * The authentication token to check
+   */
+  auth_token: string;
+}
+
+/**
+ * @public
+ */
 export class Auth implements NameSpace<"auth"> {
   constructor(private client: RtmClient) {}
+
+  /**
+   *
+   * Returns the credentials attached to an authentication token.
+   *
+   * @see {@link https://www.rememberthemilk.com/services/api/methods/rtm.auth.checkToken.rtm|RTM Api Documentation} for more information
+   *
+   * @returns Remember the milk API response
+   * @throws {@link RtmApiFailedResponseError} if the API responds with a failure
+   * @throws {@link RtmHttpError} if the API responds with a non 200 response
+   */
+  async checkToken(args: CheckTokenArgs) {
+    return await this.client.get("rtm.auth.checkToken", args);
+  }
 
   /**
    *

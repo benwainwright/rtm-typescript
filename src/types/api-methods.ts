@@ -4,6 +4,18 @@ import { SuccessResponse } from "./responses";
 import { ExpandRecursively } from "./expand-recursively";
 
 export interface ApiMethods {
+  "rtm.auth.checkToken": {
+    requestArgs: {
+      auth_token: string;
+    };
+    responseArgs: {
+      auth: {
+        token: string;
+        perms: string;
+        user: User;
+      };
+    };
+  };
   "rtm.auth.getToken": {
     requestArgs: {
       frob: string;
@@ -35,6 +47,7 @@ export interface ApiMethods {
     };
   };
 }
+
 type DeepRecord<K extends string, V> = K extends `${infer K0}.${infer KR}`
   ? { [P in K0]: DeepRecord<KR, V> }
   : { [P in K]: V };

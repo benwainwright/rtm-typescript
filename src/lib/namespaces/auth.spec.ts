@@ -13,15 +13,16 @@ describe("the auth namespace", () => {
   });
 
   it.each`
-    method        | clientMethod           | params
-    ${"getFrob"}  | ${"rtm.auth.getFrob"}  | ${{}}
-    ${"getToken"} | ${"rtm.auth.getToken"} | ${{ frob: "foo" }}
+    method          | clientMethod             | params
+    ${"checkToken"} | ${"rtm.auth.checkToken"} | ${{ auth_token: "token" }}
+    ${"getFrob"}    | ${"rtm.auth.getFrob"}    | ${{}}
+    ${"getToken"}   | ${"rtm.auth.getToken"}   | ${{ frob: "foo" }}
   `(
     "calls the $method method and returns the result",
     async ({ method, clientMethod, params }) => {
       const client = new RtmClient("key", "secret", ClientPermissions.Delete);
 
-      const returnValue = {} as ReturnType<typeof client.get>
+      const returnValue = {} as ReturnType<typeof client.get>;
       when(client.get)
         .calledWith(clientMethod, params)
         .mockReturnValue(returnValue);

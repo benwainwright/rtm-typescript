@@ -16,6 +16,20 @@ export type ApiSurface = Convert<ApiMethods>["rtm"];
 export class Auth implements NameSpace<"auth"> {
     // Warning: (ae-forgotten-export) The symbol "RtmClient" needs to be exported by the entry point index.d.ts
     constructor(client: RtmClient);
+    checkToken(args: CheckTokenArgs): Promise<{
+        stat: "ok";
+        api_key?: string | undefined;
+        callback: string;
+        auth: {
+            token: string;
+            perms: string;
+            user: {
+                id: string;
+                username: string;
+                fullname: string;
+            };
+        };
+    }>;
     getFrob(): Promise<{
         stat: "ok";
         api_key?: string | undefined;
@@ -36,6 +50,11 @@ export class Auth implements NameSpace<"auth"> {
             };
         };
     }>;
+}
+
+// @public (undocumented)
+export interface CheckTokenArgs {
+    auth_token: string;
 }
 
 // @public
