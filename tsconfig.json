@@ -14,6 +14,6 @@
     "forceConsistentCasingInFileNames": true
   },
   "$schema": "https://json.schemastore.org/tsconfig",
-  "files": ["vitest.config.ts", "index.ts"],
+  "files": ["vitest.config.ts", "index.ts", "./api/extract.ts"],
   "include": ["src/**/*.ts"]
 }

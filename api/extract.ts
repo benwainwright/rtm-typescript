@@ -16,7 +16,7 @@ const extractorConfig: ExtractorConfig =
   ExtractorConfig.loadFileAndPrepare(apiExtractorJsonPath);
 
 const newConfig = Object.assign(
-  Object.create(Object.getPrototypeOf(extractorConfig)),
+  Object.create(Object.getPrototypeOf(extractorConfig) as object),
   {
     ...extractorConfig,
     mainEntryPointFilePath: entryPoint.replace(
@@ -24,7 +24,7 @@ const newConfig = Object.assign(
       process.cwd(),
     ),
   },
-);
+) as ExtractorConfig;
 
 const extractorResult: ExtractorResult = Extractor.invoke(newConfig, {
   localBuild: true,

@@ -46,7 +46,9 @@ export class RtmClient {
   }
 
   public getAuthUrl(frob?: string) {
-    const frobObj: { frob: string } | {} = frob ? { frob } : {};
+    const frobObj: { frob: string } | Record<string, never> = frob
+      ? { frob }
+      : {};
     const params: Record<string, string> = {
       api_key: this.key,
       perms: this.permissions,
