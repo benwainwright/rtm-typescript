@@ -1,7 +1,7 @@
 import { ExpandRecursively } from "../expand-recursively";
 
 export interface SuccessResponse<
-  T extends Record<keyof T, { requestArgs: any; responseArgs: any }>,
+  T extends Record<keyof T, { requestArgs: unknown; responseArgs: unknown }>,
   M extends keyof T,
 > {
   rsp: ExpandRecursively<

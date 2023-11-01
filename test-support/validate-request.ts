@@ -14,7 +14,7 @@ export const validateRequest = (request: StrictRequest<DefaultBodyType>) => {
     return HttpResponse.json(
       makeFailureResponse(API_ERROR_CODES.notFound, 'Method "" not found'),
       {
-        // @ts-expect-error
+        // @ts-expect-error Incorrect types in msw
         status: HTTP.statusCodes.Ok,
       },
     );
@@ -28,7 +28,7 @@ export const validateRequest = (request: StrictRequest<DefaultBodyType>) => {
         "Missing signature",
       ),
       {
-        // @ts-expect-error
+        // @ts-expect-error Incorrect types in msw
         status: HTTP.statusCodes.Ok,
       },
     );
@@ -41,7 +41,7 @@ export const validateRequest = (request: StrictRequest<DefaultBodyType>) => {
         "Invalid signature",
       ),
       {
-        // @ts-expect-error
+        // @ts-expect-error Incorrect types in msw
         status: HTTP.statusCodes.Ok,
       },
     );

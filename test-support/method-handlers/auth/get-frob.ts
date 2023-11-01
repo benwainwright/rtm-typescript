@@ -8,7 +8,7 @@ export const getFrob = (
 ) => {
   return HttpResponse.json(
     makeSuccessResponse(apiKey, "callback", { frob: MY_TEST_FROB }),
-    // @ts-expect-error
+    // @ts-expect-error incorrect types in msw
     { status: 200 },
   );
 };

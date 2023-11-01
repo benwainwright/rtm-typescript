@@ -40,7 +40,7 @@ type DeepRecord<K extends string, V> = K extends `${infer K0}.${infer KR}`
   : { [P in K]: V };
 
 type Convert<
-  T extends Record<keyof T, { requestArgs: any; responseArgs: any }>,
+  T extends Record<keyof T, { requestArgs: unknown; responseArgs: unknown }>,
 > = DeepIntersect<
   {
     [K in string & keyof T]: (
@@ -54,7 +54,7 @@ type Convert<
     : never
 >;
 
-type DeepIntersect<T> = T extends Function
+type DeepIntersect<T> = T extends () => unknown
   ? T
   : T extends object
   ? { [K in keyof T]: DeepIntersect<T[K]> }
