@@ -9,6 +9,7 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    name: Run unit tests
     strategy:
       fail-fast: false
       matrix:
@@ -23,8 +24,9 @@ jobs:
     - run: npm install
     - run: npm run test
 
-  build:
+  checks:
     runs-on: ubuntu-latest
+    name: Run static checks
     strategy:
       fail-fast: false
       matrix:
