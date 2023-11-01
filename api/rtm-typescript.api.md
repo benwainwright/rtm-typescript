@@ -6,7 +6,7 @@
 
 // Warning: (ae-forgotten-export) The symbol "ApiSurface" needs to be exported by the entry point index.d.ts
 //
-// @public (undocumented)
+// @public
 export class RememberTheMilkApi implements ApiSurface {
     // Warning: (ae-forgotten-export) The symbol "ClientPermissions" needs to be exported by the entry point index.d.ts
     constructor(key: string, secret: string, permissions: ClientPermissions);

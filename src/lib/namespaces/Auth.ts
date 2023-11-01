@@ -14,7 +14,7 @@ export class Auth implements NameSpace<"auth"> {
 
   /**
    * @returns Remember the milk API response
-   * @throws {RtmApiFailedResponseError} if the API responds with a failure
+   * @throws {@link RtmApiFailedResponseError} if the API responds with a failure
    */
   async getFrob() {
     return await this.client.get("rtm.auth.getFrob", {});
@@ -25,7 +25,7 @@ export class Auth implements NameSpace<"auth"> {
    *
    * @see {@link https://www.rememberthemilk.com/services/api/methods/rtm.auth.getFrob.rtm|RTM Api Documentation} for more information
    * @returns Remember the milk API response
-   * @throws {RtmApiFailedResponseError} if the API responds with a failure
+   * @throws {@link RtmApiFailedResponseError} if the API responds with a failure
    */
   async getToken(params: GetTokenArgs) {
     return await this.client.get("rtm.auth.getToken", params);

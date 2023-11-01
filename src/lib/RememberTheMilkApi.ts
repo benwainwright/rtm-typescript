@@ -4,6 +4,10 @@ import { RtmClient } from "./client";
 import { Auth } from "./namespaces/Auth";
 import { Tasks } from "./namespaces/Tasks";
 
+/**
+ * Remember The Milk API client
+ * @public
+ */
 export class RememberTheMilkApi implements ApiSurface {
   public auth: Auth;
   public tasks: Tasks;
@@ -21,4 +25,4 @@ export class RememberTheMilkApi implements ApiSurface {
 
 const foo = new RememberTheMilkApi("foo", "bar", "read");
 
-foo.auth.getToken
+foo.auth.getToken;
