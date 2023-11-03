@@ -1,17 +1,10 @@
+import { getCredsFromEnvironment } from "../../test-support/get-creds-from-environment";
 import { RememberTheMilkApi } from "../../test-support/package-intercept";
 import { ClientPermissions } from "../types/permissions";
 
 describe("The RTM Api Client", () => {
   it("client correctly calls the live RTM API and returns the response", async () => {
-    const key = process.env["RTM_API_KEY"];
-    if (!key) {
-      throw new Error("E2E Test misconfigured: Missing API key");
-    }
-
-    const secret = process.env["RTM_API_SECRET"];
-    if (!secret) {
-      throw new Error("E2E Test misconfigured: Missing API key");
-    }
+    const { key, secret } = getCredsFromEnvironment();
 
     const client = new RememberTheMilkApi(
       key,
