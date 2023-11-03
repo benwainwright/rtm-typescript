@@ -88,6 +88,6 @@ jobs:
       - name: Release
         uses: cycjimmy/semantic-release-action@v3.4.0
         env:
-          HUSKY: 1
+          HUSKY: 0
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
