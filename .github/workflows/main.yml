@@ -97,7 +97,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Check test results and unpublish if failed 
     if: always()
-    needs: [e2e-test-post-release]
+    needs: [e2e-test-post-release, release]
     steps:
     - uses: actions/checkout@v3
     - name: Setup job
