@@ -1,4 +1,4 @@
-[rtm-typescript](../README.md) / [Exports](../modules.md) / CheckTokenArgs
+[rtm-typescript](../README.md) / CheckTokenArgs
 
 # Interface: CheckTokenArgs
 

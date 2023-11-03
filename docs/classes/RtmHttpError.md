@@ -1,4 +1,4 @@
-[rtm-typescript](../README.md) / [Exports](../modules.md) / RtmHttpError
+[rtm-typescript](../README.md) / RtmHttpError
 
 # Class: RtmHttpError
 

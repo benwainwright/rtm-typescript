@@ -1,4 +1,4 @@
-[rtm-typescript](../README.md) / [Exports](../modules.md) / ClientPermissions
+[rtm-typescript](../README.md) / ClientPermissions
 
 # Enumeration: ClientPermissions
 

@@ -1,33 +1,36 @@
-rtm-typescript / [Exports](modules.md)
+rtm-typescript
 
 # rtm-typescript
 
-*WARNING: THIS PACKAGE IS NOT READY FOR CONSUMPTION YET. USE AT YOUR OWN RISK*
+## Table of contents
 
-## Install
+### Enumerations
 
-```
-npm install rtm-typescript
-```
+- [ClientPermissions](enums/ClientPermissions.md)
 
-## Features
+### Classes
 
-This package currently only supports a few of the RTM API methods. Please come
-back later
+- [Auth](classes/Auth.md)
+- [RememberTheMilkApi](classes/RememberTheMilkApi.md)
+- [RtmApiFailedResponseError](classes/RtmApiFailedResponseError.md)
+- [RtmHttpError](classes/RtmHttpError.md)
+- [RtmTypescriptError](classes/RtmTypescriptError.md)
 
-## Usage
+### Interfaces
 
-```TypeScript
-import { RememberTheMilkApi, ClientPermissions } from "rtm-typescript"
+- [CheckTokenArgs](interfaces/CheckTokenArgs.md)
+- [GetTokenArgs](interfaces/GetTokenArgs.md)
 
-const runMyCode = async () => {
-    const key = "my-api-key"
-    const secret = "my-shared-secret"
+### Type Aliases
 
-    const client = new RememberTheMilkApi(key, secret, ClientPermissions.Read)
+- [ApiSurface](README.md#apisurface)
 
-    const result = await client.tasks.getList()
+## Type Aliases
 
-    console.log(result);
-}
-```
+### ApiSurface
+
+Ƭ **ApiSurface**: `Convert`\<`ApiMethods`\>[``"rtm"``]
+
+#### Defined in
+
+src/types/api-methods.ts:95

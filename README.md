@@ -11,8 +11,7 @@ npm install rtm-typescript
 ## Features
 
 This package currently only supports a few of the RTM API methods. Please come
-back later
-
+back later.
 
 ## Usage
 
@@ -32,3 +31,4 @@ const runMyCode = async () => {
 }
 ```
 
+For more information, check out the [API Documentation](./docs/README.md)

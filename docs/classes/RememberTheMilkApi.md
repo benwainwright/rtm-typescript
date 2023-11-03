@@ -1,4 +1,4 @@
-[rtm-typescript](../README.md) / [Exports](../modules.md) / RememberTheMilkApi
+[rtm-typescript](../README.md) / RememberTheMilkApi
 
 # Class: RememberTheMilkApi
 
@@ -20,7 +20,7 @@ const { frob } = await client.auth.getFrob()
 
 ## Implements
 
-- [`ApiSurface`](../modules.md#apisurface)
+- [`ApiSurface`](../README.md#apisurface)
 
 ## Table of contents
 

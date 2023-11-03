@@ -1,4 +1,4 @@
-[rtm-typescript](../README.md) / [Exports](../modules.md) / Auth
+[rtm-typescript](../README.md) / Auth
 
 # Class: Auth
 

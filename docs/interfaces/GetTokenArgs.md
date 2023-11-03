@@ -1,4 +1,4 @@
-[rtm-typescript](../README.md) / [Exports](../modules.md) / GetTokenArgs
+[rtm-typescript](../README.md) / GetTokenArgs
 
 # Interface: GetTokenArgs
 

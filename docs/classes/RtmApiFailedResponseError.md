@@ -1,4 +1,4 @@
-[rtm-typescript](../README.md) / [Exports](../modules.md) / RtmApiFailedResponseError
+[rtm-typescript](../README.md) / RtmApiFailedResponseError
 
 # Class: RtmApiFailedResponseError
 
