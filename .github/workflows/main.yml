@@ -101,9 +101,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Setup job
-      if: needs.e2e-test-post-release.result == 'faiure'
+      if: needs.e2e-test-post-release.result == 'failure'
       uses: ./.github/actions/install-dependencies
     - run: npm unpublish rtm-typescript@${{ needs.release.outputs.new_release_version }}
-      if: needs.e2e-test-post-release.result == 'faiure'
+      if: needs.e2e-test-post-release.result == 'failure'
 
 
