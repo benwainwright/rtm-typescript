@@ -111,3 +111,22 @@ jobs:
         RTM_API_KEY: ${{ secrets.RTM_API_KEY }}
         RTM_API_SECRET : ${{ secrets.RTM_API_SECRET }}
 
+  rollback-release:
+    runs-on: ubuntu-latest
+    name: Run Post-release E2E tests
+    needs: [e2e-test-post-release]
+      #if: needs.release.outputs.new_release_published	== 'true'
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js 21.x
+      uses: actions/setup-node@v3
+      with:
+        node-version: 21.x
+        cache: 'npm'
+    - run: npm install
+    - run: npm run test:e2e:post-release
+      env:
+        RTM_API_KEY: ${{ secrets.RTM_API_KEY }}
+        RTM_API_SECRET : ${{ secrets.RTM_API_SECRET }}
+
+
