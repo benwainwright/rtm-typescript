@@ -21,26 +21,18 @@ jobs:
       matrix:
         node-version: ['18.x', '20.x', '21.x']
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
+    - name: Setup job
+      uses: ./.github/actions/install-dependencies
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm install
     - run: npm run test
 
   e2e-test:
     runs-on: ubuntu-latest
     name: Run E2E tests
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js 21.x
-      uses: actions/setup-node@v3
-      with:
-        node-version: 21.x
-        cache: 'npm'
-    - run: npm install
+    - name: Setup job
+      uses: ./.github/actions/install-dependencies
     - run: npm run test:e2e
       env:
         RTM_API_KEY: ${{ secrets.RTM_API_KEY }}
@@ -56,13 +48,8 @@ jobs:
         check: [api-check, build, lint]
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm install
+    - name: Setup job
+      uses: ./.github/actions/install-dependencies
     - run: npm run ${{ matrix.check }}
 
   release:
@@ -71,15 +58,8 @@ jobs:
     needs: [test, checks, e2e-test]
 
     steps:
-      - uses: actions/checkout@v3
-      - name: Configure node 21.x 
-        uses: actions/setup-node@v3
-        with:
-          node-version: "18"
-          cache: "npm"
-
-      - name: Install Dependencies
-        run: yarn install
+      - name: Setup job
+        uses: ./.github/actions/install-dependencies
 
       - name: Build Package
         run: yarn build
@@ -100,13 +80,8 @@ jobs:
     needs: [release]
     if: needs.release.outputs.new_release_published	== 'true'
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js 21.x
-      uses: actions/setup-node@v3
-      with:
-        node-version: 21.x
-        cache: 'npm'
-    - run: npm install
+    - name: Setup job
+      uses: ./.github/actions/install-dependencies
     - run: npm run test:e2e:post-release
       env:
         RTM_API_KEY: ${{ secrets.RTM_API_KEY }}
@@ -118,12 +93,8 @@ jobs:
     needs: [e2e-test-post-release]
     if: needs.e2e-test-post-release.result == 'faiure'
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js 21.x
-      uses: actions/setup-node@v3
-      with:
-        node-version: 21.x
-        cache: 'npm'
+    - name: Setup job
+      uses: ./.github/actions/install-dependencies
     - run: echo "go"
 
 
