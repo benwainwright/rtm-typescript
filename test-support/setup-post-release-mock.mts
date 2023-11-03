@@ -4,4 +4,4 @@ import { vi } from "vitest";
 import * as rtmTypescript from "rtm-typescript";
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-vi.doMock("../src/e2e-tests/client", () => rtmTypescript);
+vi.doMock("../test-support/package-intercept", () => rtmTypescript);
