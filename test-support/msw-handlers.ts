@@ -5,6 +5,7 @@ import { REST_API_URL } from "../src/lib/core/constants";
 import { makeFailureResponse } from "./make-failure-response";
 import { API_ERROR_CODES } from "../src/types/response-codes";
 import { HTTP_STATUS_CODES } from "../src/lib/core/http-status-codes";
+import { validateToken } from "./validate-token";
 
 export const handlers = [
   http.get(REST_API_URL, ({ request }) => {
@@ -18,6 +19,16 @@ export const handlers = [
 
     switch (method) {
       case "rtm.auth.getFrob":
+        return getFrob(request, key);
+    }
+
+    const badTokenResponse = validateToken(request);
+    if (badTokenResponse) {
+      return badTokenResponse;
+    }
+
+    switch (method) {
+      case "rtm.tasks.getList":
         return getFrob(request, key);
     }
 

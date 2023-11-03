@@ -6,7 +6,7 @@ export class Test implements NameSpace<"test"> {
 
   /**
    *
-   * A testing method which checks if the caller is logged in.
+   * A testing method which echos all parameters back in the response.
    *
    * @see {@link https://www.rememberthemilk.com/services/api/methods/rtm.test.echo.rtm|RTM Api Documentation} for more information
    *
@@ -16,5 +16,19 @@ export class Test implements NameSpace<"test"> {
    */
   async echo(args: Record<string, string>) {
     return await this.client.get("rtm.test.echo", args);
+  }
+
+  /**
+   *
+   * A testing method which checks if the caller is logged in.
+   *
+   * @see {@link https://www.rememberthemilk.com/services/api/methods/rtm.test.echo.rtm|RTM Api Documentation} for more information
+   *
+   * @returns Remember the milk API response
+   * @throws {@link RtmApiFailedResponseError} if the API responds with a failure
+   * @throws {@link RtmHttpError} if the API responds with a non 200 response
+   */
+  async login() {
+    return await this.client.get("rtm.test.login", {});
   }
 }

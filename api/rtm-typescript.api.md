@@ -71,8 +71,9 @@ export interface GetTokenArgs {
 
 // @public
 export class RememberTheMilkApi implements ApiSurface {
-    constructor(key: string, secret: string, permissions: ClientPermissions);
+    constructor(key: string, secret: string, permissions: ClientPermissions, token?: string);
     auth: Auth;
+    getAuthUrl(frob?: string): string;
     // Warning: (ae-forgotten-export) The symbol "Tasks" needs to be exported by the entry point index.d.ts
     tasks: Tasks;
     // Warning: (ae-forgotten-export) The symbol "Test" needs to be exported by the entry point index.d.ts

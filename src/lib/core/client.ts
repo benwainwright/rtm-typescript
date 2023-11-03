@@ -15,6 +15,7 @@ export class RtmClient {
     private key: string,
     private secret: string,
     private permissions: ClientPermissions,
+    private token?: string,
   ) {
     if (!key || !secret) {
       throw new RtmTypescriptError("API key and secret must not be empty");
@@ -103,7 +104,12 @@ export class RtmClient {
       method,
       ...params,
     };
-    const api_sig = this.generateSignature(this.secret, finalParams);
-    return this.generateQueryString({ ...finalParams, api_sig });
+
+    const finalParamsWithToken = this.token
+      ? { ...finalParams, auth_token: this.token }
+      : finalParams;
+
+    const api_sig = this.generateSignature(this.secret, finalParamsWithToken);
+    return this.generateQueryString({ ...finalParamsWithToken, api_sig });
   }
 }

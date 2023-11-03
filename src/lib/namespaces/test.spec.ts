@@ -13,8 +13,9 @@ describe("the test namespace", () => {
   });
 
   it.each`
-    method    | clientMethod       | params
-    ${"echo"} | ${"rtm.test.echo"} | ${{ bar: "baz" }}
+    method     | clientMethod        | params
+    ${"echo"}  | ${"rtm.test.echo"}  | ${{ bar: "baz" }}
+    ${"login"} | ${"rtm.test.login"} | ${{}}
   `(
     "calls the $method method and returns the result",
     async ({ method, clientMethod, params }) => {

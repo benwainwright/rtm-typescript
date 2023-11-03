@@ -25,14 +25,28 @@ export class RememberTheMilkApi implements ApiSurface {
    */
   public test: Test;
 
+  private client: RtmClient;
+
   public constructor(
     key: string,
     secret: string,
     permissions: ClientPermissions,
+    token?: string,
   ) {
-    const client = new RtmClient(key, secret, permissions);
-    this.auth = new Auth(client);
-    this.tasks = new Tasks(client);
-    this.test = new Test(client);
+    this.client = new RtmClient(key, secret, permissions, token);
+    this.auth = new Auth(this.client);
+    this.tasks = new Tasks(this.client);
+    this.test = new Test(this.client);
+  }
+
+  /**
+   * Return a valid authentication URL for the RTM API
+   *
+   * @see {@link https://www.rememberthemilk.com/services/api/authentication.rtm |RTM Api Documentation} for more information
+   *
+   * @returns A URL in the form of a string
+   */
+  public getAuthUrl(frob?: string) {
+    return this.client.getAuthUrl(frob);
   }
 }

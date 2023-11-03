@@ -4,6 +4,15 @@ import { SuccessResponse } from "./responses";
 import { ExpandRecursively } from "./expand-recursively";
 
 export interface ApiMethods {
+  "rtm.test.login": {
+    requestArgs: Record<string, string>;
+    responseArgs: {
+      user: {
+        id: string;
+        username: string;
+      };
+    } & Record<string, string>;
+  };
   "rtm.test.echo": {
     requestArgs: Record<string, string>;
     responseArgs: {

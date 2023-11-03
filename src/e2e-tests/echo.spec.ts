@@ -21,6 +21,6 @@ describe("The RTM Api Client", () => {
 
     const result = await client.test.echo({ foo: "bar" });
 
-    expect(result).toEqual(expect.objectContaining({ foo: "bar" }));
+    expect(result).toEqual({ foo: "bar" });
   });
 });

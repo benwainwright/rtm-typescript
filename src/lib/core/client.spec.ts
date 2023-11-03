@@ -8,6 +8,7 @@ import {
 import { server } from "../../../test-support/msw-node";
 import {
   MY_TEST_FROB,
+  MY_TEST_TOKEN,
   TEST_API_KEY,
   TEST_SHARED_SECRET,
 } from "../../../test-support/testing-values";
@@ -56,6 +57,24 @@ describe("RtmClient", () => {
     );
 
     const response = await rtmClient.get("rtm.auth.getFrob", {});
+
+    expect(response).toEqual({
+      api_key: TEST_API_KEY,
+      callback: "callback",
+      frob: MY_TEST_FROB,
+      stat: "ok",
+    });
+  });
+
+  it("Should include the token with the api call if one is passed into the constructor", async () => {
+    const rtmClient = new RtmClient(
+      TEST_API_KEY,
+      TEST_SHARED_SECRET,
+      ClientPermissions.Delete,
+      MY_TEST_TOKEN,
+    );
+
+    const response = await rtmClient.get("rtm.tasks.getList", {});
 
     expect(response).toEqual({
       api_key: TEST_API_KEY,
