@@ -1,5 +1,5 @@
 import { RtmClient } from "../core/client";
-import { NameSpace } from "../../types/api-methods";
+import { NameSpace } from "../../types";
 
 /**
  * @public

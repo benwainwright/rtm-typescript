@@ -1,9 +1,6 @@
-import { ApiSurface } from "../types/api-methods";
-import { ClientPermissions } from "../types/permissions";
+import { ApiSurface, ClientPermissions } from "../types";
+import { Auth, Tasks, Test } from "./namespaces";
 import { RtmClient } from "./core";
-import { Auth } from "./namespaces/auth";
-import { Tasks } from "./namespaces/tasks";
-import { Test } from "./namespaces/test";
 
 /**
  * This is the public API for this package. At present it only provides access to a limited number of API

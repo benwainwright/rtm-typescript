@@ -1,4 +1,4 @@
-import { NameSpace } from "../../types/api-methods";
+import { NameSpace } from "../../types";
 import { RtmClient } from "../core";
 
 export class Test implements NameSpace<"test"> {
