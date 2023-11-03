@@ -1,4 +1,4 @@
-import { RememberTheMilkApi } from "../lib/remember-the-milk-api";
+import { RememberTheMilkApi } from "../../test-support/package-intercept";
 import { ClientPermissions } from "../types/permissions";
 
 describe("The RTM Api Client", () => {
