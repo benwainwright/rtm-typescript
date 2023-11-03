@@ -7,7 +7,7 @@
     "dist/src/lib",
     "dist/rtm-typescript.d.ts"
   ],
-  "description": "Strongly typed SDK Client for the Remember the Milk API",
+  "description": "Strongly typed SDK client for the Remember the Milk API",
   "main": "dist/index.js",
   "typings": "dist/rtm-typescript.d.ts",
   "author": "Ben Wainwright",
