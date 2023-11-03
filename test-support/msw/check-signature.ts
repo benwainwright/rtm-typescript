@@ -1,6 +1,6 @@
 import { DefaultBodyType, StrictRequest } from "msw";
 import { generateSignature } from "./generate-signature";
-import { TEST_SHARED_SECRET } from "./testing-values";
+import { TEST_SHARED_SECRET } from "../testing-values";
 
 export const checkSignature = (
   request: StrictRequest<DefaultBodyType>,

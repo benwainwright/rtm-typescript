@@ -1,6 +1,6 @@
 import { DefaultBodyType, HttpResponse, StrictRequest } from "msw";
 import { makeSuccessResponse } from "../../make-success-response";
-import { ApiMethods } from "../../../src/types";
+import { ApiMethods } from "../../../../src/types";
 
 export const getToken = (
   _request: StrictRequest<DefaultBodyType>,

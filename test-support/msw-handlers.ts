@@ -1,11 +1,11 @@
 import { HttpResponse, http } from "msw";
-import { getFrob } from "./method-handlers/auth/get-frob";
-import { validateRequest } from "./validate-request";
+import { getFrob } from "./msw/method-handlers/auth/get-frob";
+import { validateRequest } from "./msw/validate-request";
 import { REST_API_URL } from "../src/lib/core/constants";
-import { makeFailureResponse } from "./make-failure-response";
+import { makeFailureResponse } from "./msw/make-failure-response";
 import { API_ERROR_CODES } from "../src/types/response-codes";
 import { HTTP_STATUS_CODES } from "../src/lib/core/http-status-codes";
-import { validateToken } from "./validate-token";
+import { validateToken } from "./msw/validate-token";
 
 export const handlers = [
   http.get(REST_API_URL, ({ request }) => {
