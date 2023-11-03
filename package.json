@@ -3,7 +3,6 @@
   "version": "1.2.7",
   "files": [
     "dist/index.foo",
-    "dist/src/index.js",
     "dist/src/lib",
     "dist/rtm-typescript.d.ts"
   ],
