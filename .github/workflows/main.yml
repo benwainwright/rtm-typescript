@@ -21,6 +21,7 @@ jobs:
       matrix:
         node-version: ['18.x', '20.x', '21.x']
     steps:
+    - uses: actions/checkout@v3
     - name: Setup job
       uses: ./.github/actions/install-dependencies
       with:
@@ -31,6 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Run E2E tests
     steps:
+    - uses: actions/checkout@v3
     - name: Setup job
       uses: ./.github/actions/install-dependencies
     - run: npm run test:e2e
@@ -48,6 +50,7 @@ jobs:
         check: [api-check, build, lint]
 
     steps:
+    - uses: actions/checkout@v3
     - name: Setup job
       uses: ./.github/actions/install-dependencies
     - run: npm run ${{ matrix.check }}
@@ -58,6 +61,7 @@ jobs:
     needs: [test, checks, e2e-test]
 
     steps:
+      - uses: actions/checkout@v3
       - name: Setup job
         uses: ./.github/actions/install-dependencies
 
@@ -80,6 +84,7 @@ jobs:
     needs: [release]
     if: needs.release.outputs.new_release_published	== 'true'
     steps:
+    - uses: actions/checkout@v3
     - name: Setup job
       uses: ./.github/actions/install-dependencies
     - run: npm run test:e2e:post-release
@@ -93,6 +98,7 @@ jobs:
     needs: [e2e-test-post-release]
     if: needs.e2e-test-post-release.result == 'faiure'
     steps:
+    - uses: actions/checkout@v3
     - name: Setup job
       uses: ./.github/actions/install-dependencies
     - run: echo "go"
