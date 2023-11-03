@@ -6,7 +6,6 @@ concurrency:
 
 permissions:
   contents: write
-
 on:
   push:
     branches: [ "main" ]
@@ -86,18 +85,26 @@ jobs:
         run: yarn build
 
       - name: Release
-        id: do-release
+        id: semantic
         uses: cycjimmy/semantic-release-action@v3.4.0
         env:
           HUSKY: 0
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
+      - name: Do something when a new release published
+        if: steps.semantic.outputs.new_release_published == 'true'
+        run: |
+          echo ${{ steps.semantic.outputs.new_release_version }}
+          echo ${{ steps.semantic.outputs.new_release_major_version }}
+          echo ${{ steps.semantic.outputs.new_release_minor_version }}
+          echo ${{ steps.semantic.outputs.new_release_patch_version }}
+
   e2e-test-post-release:
     runs-on: ubuntu-latest
     name: Run Post-release E2E tests
     needs: [release]
-    if: needs.release.do-release.outputs.new_release_published	== 'true'
+    if: needs.release.semantic.outputs.new_release_published	== 'true'
     steps:
     - uses: actions/checkout@v3
     - name: Use Node.js 21.x
