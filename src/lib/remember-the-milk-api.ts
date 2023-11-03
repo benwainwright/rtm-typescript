@@ -6,7 +6,7 @@ import { Tasks } from "./namespaces/tasks";
 import { Test } from "./namespaces/test";
 
 /**
- * Remember The Milk API client
+ * This is the public API for this package.
  * @public
  */
 export class RememberTheMilkApi implements ApiSurface {
@@ -27,6 +27,12 @@ export class RememberTheMilkApi implements ApiSurface {
 
   private client: RtmClient;
 
+  /**
+   * @param key - Remember the Milk API key
+   * @param secret - Remember the Milk API shared secret
+   * @param permissions - What permissions your client needs access to on the API
+   * @param token - Previously authenticated request token
+   */
   public constructor(
     key: string,
     secret: string,

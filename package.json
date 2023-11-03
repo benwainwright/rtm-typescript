@@ -18,6 +18,7 @@
   "scripts": {
     "api:prod": "vite-node ./api/extract.ts '<projectFolder>/dist/dts/index.d.ts'",
     "api-check": "tsc --project tsconfig.checkapi.json && vite-node ./api/extract.ts '<projectFolder>/tmp-declarations/dts/index.d.ts' && rm -rf tmp-declarations",
+    "docs": "typedoc src/index.ts",
     "build": "tsc --project tsconfig.dist.json && npm run api:prod",
     "lint": "eslint .",
     "types": "tsc --noEmit",

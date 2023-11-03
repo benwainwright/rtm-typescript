@@ -62,6 +62,7 @@ export class Auth implements NameSpace<"auth"> {
    * @see {@link https://www.rememberthemilk.com/services/api/methods/rtm.auth.getToken.rtm|RTM Api Documentation} for more information
    *
    * @returns Remember the milk API response
+   * @param param - Paramaters to be supplied with this method call
    * @throws {@link RtmApiFailedResponseError} if the API responds with a failure
    * @throws {@link RtmHttpError} if the API responds with a non 200 response
    */
