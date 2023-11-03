@@ -14,7 +14,6 @@ export const validateRequest = (request: StrictRequest<DefaultBodyType>) => {
     return HttpResponse.json(
       makeFailureResponse(API_ERROR_CODES.notFound, 'Method "" not found'),
       {
-        // @ts-expect-error Incorrect types in msw
         status: HTTP_STATUS_CODES.ok,
       },
     );
@@ -28,7 +27,6 @@ export const validateRequest = (request: StrictRequest<DefaultBodyType>) => {
         "Missing signature",
       ),
       {
-        // @ts-expect-error Incorrect types in msw
         status: HTTP_STATUS_CODES.ok,
       },
     );
@@ -41,7 +39,6 @@ export const validateRequest = (request: StrictRequest<DefaultBodyType>) => {
         "Invalid signature",
       ),
       {
-        // @ts-expect-error Incorrect types in msw
         status: HTTP_STATUS_CODES.ok,
       },
     );
@@ -52,7 +49,6 @@ export const validateRequest = (request: StrictRequest<DefaultBodyType>) => {
     return HttpResponse.json(
       makeFailureResponse(API_ERROR_CODES.invalidApiKey, "Invalid API Key"),
       {
-        // @ts-expect-error tsc types are incorrect
         status: HTTP_STATUS_CODES.ok,
       },
     );

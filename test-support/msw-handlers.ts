@@ -27,7 +27,6 @@ export const handlers = [
         `Method "${method}" not found`,
       ),
       {
-        // @ts-expect-error incorrect types in msw
         status: HTTP_STATUS_CODES.ok,
       },
     );

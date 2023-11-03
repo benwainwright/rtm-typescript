@@ -7,7 +7,7 @@
     "target": "es2015",
     "module": "commonjs",
     "outDir": "dist",
-    "lib": ["ES2023"],
+    "lib": ["ES2023", "DOM"],
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,

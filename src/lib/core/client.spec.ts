@@ -33,7 +33,6 @@ describe("RtmClient", () => {
     server.use(
       http.get(REST_API_URL, () => {
         return HttpResponse.text("Whoops!", {
-          // @ts-expect-error incorrect types in msw
           status: HTTP_STATUS_CODES.internalServerError,
         });
       }),
