@@ -4,5 +4,4 @@ coverage
 temp
 tmp-declarations
 tsdoc-metadata.json
-docs
 .DS_Store
