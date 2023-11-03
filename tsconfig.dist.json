@@ -1,6 +1,16 @@
 {
   "extends": "./tsconfig.json",
-  "exclude": ["src/**/*.spec.ts", "*.config.ts", "api/extract.ts", "api/dummy.d.ts", "/test-support/**/*.ts", "**/*.js", "dist/**/*.ts", "tmp-declarations/**/*.ts"],
+  "exclude": [
+    "src/**/*.spec.ts",
+    "*.config.ts",
+    "*.config.mts",
+    "api/extract.ts",
+    "api/dummy.d.ts",
+    "test-support/**/*",
+    "**/*.js",
+    "dist/**/*",
+    "tmp-declarations/**/*"
+  ],
   "compilerOptions": {
     "declaration": true,
     "declarationDir": "dist/dts"

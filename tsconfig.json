@@ -5,7 +5,7 @@
   },
   "compilerOptions": {
     "target": "es2015",
-    "module": "commonjs",
+    "module": "nodenext",
     "outDir": "dist",
     "lib": ["ES2023", "DOM"],
     "strict": true,
@@ -15,5 +15,5 @@
     "forceConsistentCasingInFileNames": true
   },
   "$schema": "https://json.schemastore.org/tsconfig",
-  "include": ["**/*.ts", "**/*.js"]
+  "include": ["**/*.ts", "**/*.js", "**/*.mts", ".eslintrc.js"]
 }
