@@ -16,7 +16,7 @@ bacxk later
 
 ## Usage
 
-```
+```TypeScript
 import { RememberTheMilkApi, ClientPermissions } from "rtm-typescript"
 
 
