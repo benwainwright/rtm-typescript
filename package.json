@@ -1,6 +1,6 @@
 {
   "name": "rtm-typescript",
-  "version": "1.2.10",
+  "version": "1.2.11",
   "files": [
     "dist/index.foo",
     "dist/src/lib",
