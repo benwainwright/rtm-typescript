@@ -2,7 +2,21 @@
 
 # Class: RememberTheMilkApi
 
-This is the public API for this package.
+This is the public API for this package. At present it only provides access to a limited number of API
+methods, but in the future, you will be access the entire API surface here. At the present time, you will have to call
+the correct API methods (all of which _are_ implemented) to get the the token from the API, then pass it into the fourth constructor
+parameter in order to authenticate
+
+**`Example`**
+
+```TypeScript
+import { RememberTheMilkApi, ClientPermissions } from "rtm-typescript"
+
+// Some code
+
+const client = new RememberTheMilkApi("my-key", "my-secret", ClientPermissions.Delete)
+const { frob } = await client.auth.getFrob()
+```
 
 ## Implements
 
@@ -46,7 +60,7 @@ This is the public API for this package.
 
 #### Defined in
 
-src/lib/remember-the-milk-api.ts:36
+src/lib/remember-the-milk-api.ts:50
 
 ## Properties
 
@@ -62,7 +76,7 @@ ApiSurface.auth
 
 #### Defined in
 
-src/lib/remember-the-milk-api.ts:16
+src/lib/remember-the-milk-api.ts:30
 
 ___
 
@@ -72,7 +86,7 @@ ___
 
 #### Defined in
 
-src/lib/remember-the-milk-api.ts:28
+src/lib/remember-the-milk-api.ts:42
 
 ___
 
@@ -88,7 +102,7 @@ ApiSurface.tasks
 
 #### Defined in
 
-src/lib/remember-the-milk-api.ts:21
+src/lib/remember-the-milk-api.ts:35
 
 ___
 
@@ -104,7 +118,7 @@ ApiSurface.test
 
 #### Defined in
 
-src/lib/remember-the-milk-api.ts:26
+src/lib/remember-the-milk-api.ts:40
 
 ## Methods
 
@@ -132,4 +146,4 @@ A URL in the form of a string
 
 #### Defined in
 
-src/lib/remember-the-milk-api.ts:55
+src/lib/remember-the-milk-api.ts:69

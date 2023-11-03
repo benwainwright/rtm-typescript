@@ -6,7 +6,21 @@ import { Tasks } from "./namespaces/tasks";
 import { Test } from "./namespaces/test";
 
 /**
- * This is the public API for this package.
+ * This is the public API for this package. At present it only provides access to a limited number of API
+ * methods, but in the future, you will be access the entire API surface here. At the present time, you will have to call
+ * the correct API methods (all of which _are_ implemented) to get the the token from the API, then pass it into the fourth constructor
+ * parameter in order to authenticate
+ *
+ * @example
+ * ```TypeScript
+ * import { RememberTheMilkApi, ClientPermissions } from "rtm-typescript"
+ *
+ * // Some code
+ *
+ * const client = new RememberTheMilkApi("my-key", "my-secret", ClientPermissions.Delete)
+ * const { frob } = await client.auth.getFrob()
+ * ```
+ *
  * @public
  */
 export class RememberTheMilkApi implements ApiSurface {
