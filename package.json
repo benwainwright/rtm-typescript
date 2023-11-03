@@ -2,6 +2,9 @@
   "name": "rtm-typescript",
   "version": "1.0.0",
   "type": "module",
+  "files": [
+    "dist"
+  ],
   "description": "API Client for Remember The Milk API written in TypeScript",
   "main": "dist/index.js",
   "typings": "dist/rtm-typescript.d.ts",
