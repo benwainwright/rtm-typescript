@@ -11,7 +11,7 @@ npm install rtm-typescript
 ## Features
 
 This package currently only supports a few of the RTM API methods. Please come
-bacxk later
+back later
 
 
 ## Usage
