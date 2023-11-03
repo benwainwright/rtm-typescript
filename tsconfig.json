@@ -11,9 +11,9 @@
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
+    "allowJs": true,
     "forceConsistentCasingInFileNames": true
   },
   "$schema": "https://json.schemastore.org/tsconfig",
-  "files": ["vitest.config.ts", "index.ts", "api/extract.ts", "api/dummy.d.ts"],
-  "include": ["src/**/*.ts", "test-support/**/*.ts"]
+  "include": ["**/*.ts", "**/*.js"]
 }
