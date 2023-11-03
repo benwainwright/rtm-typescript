@@ -4,7 +4,20 @@ type DeepRecord<K extends string, V> = K extends `${infer K0}.${infer KR}`
   ? { [P in K0]: DeepRecord<KR, V> }
   : { [P in K]: V };
 
-export type Convert<
+type DeepIntersect<T> = T extends () => unknown
+  ? T
+  : T extends object
+  ? { [K in keyof T]: DeepIntersect<T[K]> }
+  : T;
+
+/**
+ * An internal helper type that this package uses to convert a simple typed description of
+ *  the entire API surface to something that can be used to typecheck a series of different classes containing
+ *  simple, readable methods
+ *
+ * @public
+ */
+export type ConvertApiDescription<
   T extends Record<keyof T, { requestArgs: unknown; responseArgs: unknown }>,
 > = DeepIntersect<
   {
@@ -18,9 +31,3 @@ export type Convert<
     ? I
     : never
 >;
-
-type DeepIntersect<T> = T extends () => unknown
-  ? T
-  : T extends object
-  ? { [K in keyof T]: DeepIntersect<T[K]> }
-  : T;

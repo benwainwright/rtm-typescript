@@ -4,11 +4,11 @@
 
 ```ts
 
-// Warning: (ae-forgotten-export) The symbol "Convert" needs to be exported by the entry point index.d.ts
+// Warning: (ae-forgotten-export) The symbol "ConvertApiDescription" needs to be exported by the entry point index.d.ts
 // Warning: (ae-forgotten-export) The symbol "ApiMethods" needs to be exported by the entry point index.d.ts
 //
 // @public (undocumented)
-export type ApiSurface = Convert<ApiMethods>["rtm"];
+export type ApiSurface = ConvertApiDescription<ApiMethods>["rtm"];
 
 // Warning: (ae-forgotten-export) The symbol "NameSpace" needs to be exported by the entry point index.d.ts
 //
