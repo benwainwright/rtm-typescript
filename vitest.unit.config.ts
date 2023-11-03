@@ -3,9 +3,10 @@ import { defineConfig } from "vitest/config";
 export default defineConfig({
   test: {
     globals: true,
+    include: ["src/lib/**/*.spec.ts"],
     coverage: {
       all: true,
-      include: ["src/**/*.ts"],
+      include: ["src/lib/**/*.ts"],
       provider: "istanbul",
       cleanOnRerun: true,
       thresholdAutoUpdate: true,

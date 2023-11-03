@@ -4,6 +4,13 @@ import { SuccessResponse } from "./responses";
 import { ExpandRecursively } from "./expand-recursively";
 
 export interface ApiMethods {
+  "rtm.test.echo": {
+    requestArgs: Record<string, string>;
+    responseArgs: {
+      method: string;
+    } & Record<string, string>;
+  };
+
   "rtm.auth.checkToken": {
     requestArgs: {
       auth_token: string;

@@ -75,6 +75,8 @@ export class RememberTheMilkApi implements ApiSurface {
     auth: Auth;
     // Warning: (ae-forgotten-export) The symbol "Tasks" needs to be exported by the entry point index.d.ts
     tasks: Tasks;
+    // Warning: (ae-forgotten-export) The symbol "Test" needs to be exported by the entry point index.d.ts
+    test: Test;
 }
 
 // @public
