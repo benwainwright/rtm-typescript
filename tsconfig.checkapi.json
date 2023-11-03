@@ -1,8 +1,10 @@
 {
   "extends": "./tsconfig.dist.json",
+  
   "compilerOptions": {
     "emitDeclarationOnly": true,
     "outDir": "tmp-declarations",
+    "declarationDir": "tmp-declarations/dts",
     "isolatedModules": true
   },
   "$schema": "https://json.schemastore.org/tsconfig"

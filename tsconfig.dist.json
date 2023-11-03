@@ -1,9 +1,9 @@
 {
   "extends": "./tsconfig.json",
-  "exclude": ["src/**/*.spec.ts", "*.config.ts", "api/extract.ts", "api/dummy.d.ts", "/test-support/**/*.ts", "**/*.js"],
+  "exclude": ["src/**/*.spec.ts", "*.config.ts", "api/extract.ts", "api/dummy.d.ts", "/test-support/**/*.ts", "**/*.js", "dist/**/*.ts", "tmp-declarations/**/*.ts"],
   "compilerOptions": {
     "declaration": true,
-    "declarationMap": true
+    "declarationDir": "dist/dts"
   },
   "$schema": "https://json.schemastore.org/tsconfig"
 }

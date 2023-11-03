@@ -3,10 +3,17 @@
   "version": "1.0.0",
   "type": "module",
   "description": "API Client for Remember The Milk API written in TypeScript",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "typings": "dist/rtm-typescript.d.ts",
+  "author": "Ben Wainwright",
+  "license": {
+      "type": "MIT",
+      "url": "https://www.opensource.org/licenses/mit-license.php"
+  },
+
   "scripts": {
-    "api:prod": "vite-node ./api/extract.ts '<projectFolder>/dist/index.d.ts'",
-    "api-check": "tsc --project tsconfig.checkapi.json && vite-node ./api/extract.ts '<projectFolder>/tmp-declarations/index.d.ts' && rm -rf tmp-declarations",
+    "api:prod": "vite-node ./api/extract.ts '<projectFolder>/dist/dts/index.d.ts'",
+    "api-check": "tsc --project tsconfig.checkapi.json && vite-node ./api/extract.ts '<projectFolder>/tmp-declarations/dts/index.d.ts' && rm -rf tmp-declarations",
     "build": "tsc --project tsconfig.dist.json && npm run api:prod",
     "lint": "eslint .",
     "types": "tsc --noEmit",
@@ -16,8 +23,6 @@
     "test:ui": "vitest --watch --ui",
     "prepare": "husky install"
   },
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "@commitlint/cli": "^18.2.0",
     "@commitlint/config-conventional": "^18.1.0",
@@ -31,9 +36,7 @@
     "prettier": "3.0.3",
     "typescript": "5.2.2",
     "vite-node": "^0.34.6",
-    "vitest": "0.34.6"
-  },
-  "dependencies": {
+    "vitest": "0.34.6",
     "@microsoft/api-extractor": "^7.38.1",
     "@types/jest-when": "^3.5.4",
     "jest-when": "^3.6.0"
