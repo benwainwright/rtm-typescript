@@ -103,7 +103,10 @@ jobs:
     - name: Setup job
       if: needs.e2e-test-post-release.result == 'failure'
       uses: ./.github/actions/install-dependencies
+
     - run: npm unpublish rtm-typescript@${{ needs.release.outputs.new_release_version }}
+      env:
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       if: needs.e2e-test-post-release.result == 'failure'
 
 
