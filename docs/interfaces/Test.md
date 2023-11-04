@@ -49,7 +49,7 @@ A testing method which echos all parameters back in the response.
 
 #### Defined in
 
-src/types/namespaces/test.ts:20
+[src/types/namespaces/test.ts:20](https://github.com/benwainwright/rtm-typescript/blob/3311c46/src/types/namespaces/test.ts#L20)
 
 ___
 
@@ -83,4 +83,4 @@ A testing method which checks if the caller is logged in.
 
 #### Defined in
 
-src/types/namespaces/test.ts:34
+[src/types/namespaces/test.ts:34](https://github.com/benwainwright/rtm-typescript/blob/3311c46/src/types/namespaces/test.ts#L34)

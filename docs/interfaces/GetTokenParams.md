@@ -21,4 +21,4 @@ call to rtm.auth.getFrob
 
 #### Defined in
 
-src/types/namespaces/auth.ts:26
+[src/types/namespaces/auth.ts:26](https://github.com/benwainwright/rtm-typescript/blob/3311c46/src/types/namespaces/auth.ts#L26)
