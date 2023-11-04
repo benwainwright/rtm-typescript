@@ -20,6 +20,10 @@ Base error type thrown by this package
 
 - [constructor](RtmTypescriptError.md#constructor)
 
+### Methods
+
+- [captureStackTrace](RtmTypescriptError.md#capturestacktrace)
+
 ### Properties
 
 - [cause](RtmTypescriptError.md#cause)
@@ -28,10 +32,6 @@ Base error type thrown by this package
 - [stack](RtmTypescriptError.md#stack)
 - [prepareStackTrace](RtmTypescriptError.md#preparestacktrace)
 - [stackTraceLimit](RtmTypescriptError.md#stacktracelimit)
-
-### Methods
-
-- [captureStackTrace](RtmTypescriptError.md#capturestacktrace)
 
 ## Constructors
 
@@ -77,6 +77,33 @@ Error.constructor
 #### Defined in
 
 node_modules/typescript/lib/lib.es2022.error.d.ts:28
+
+## Methods
+
+### captureStackTrace
+
+▸ **captureStackTrace**(`targetObject`, `constructorOpt?`): `void`
+
+Create .stack property on a target object
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `targetObject` | `object` |
+| `constructorOpt?` | `Function` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+Error.captureStackTrace
+
+#### Defined in
+
+node_modules/@types/node/globals.d.ts:4
 
 ## Properties
 
@@ -182,30 +209,3 @@ Error.stackTraceLimit
 #### Defined in
 
 node_modules/@types/node/globals.d.ts:13
-
-## Methods
-
-### captureStackTrace
-
-▸ **captureStackTrace**(`targetObject`, `constructorOpt?`): `void`
-
-Create .stack property on a target object
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `targetObject` | `object` |
-| `constructorOpt?` | `Function` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-Error.captureStackTrace
-
-#### Defined in
-
-node_modules/@types/node/globals.d.ts:4

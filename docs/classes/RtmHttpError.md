@@ -16,6 +16,10 @@ Raised when the API returns a non 200 HTTP response
 
 - [constructor](RtmHttpError.md#constructor)
 
+### Methods
+
+- [captureStackTrace](RtmHttpError.md#capturestacktrace)
+
 ### Properties
 
 - [body](RtmHttpError.md#body)
@@ -26,10 +30,6 @@ Raised when the API returns a non 200 HTTP response
 - [statusCode](RtmHttpError.md#statuscode)
 - [prepareStackTrace](RtmHttpError.md#preparestacktrace)
 - [stackTraceLimit](RtmHttpError.md#stacktracelimit)
-
-### Methods
-
-- [captureStackTrace](RtmHttpError.md#capturestacktrace)
 
 ## Constructors
 
@@ -54,7 +54,34 @@ Raised when the API returns a non 200 HTTP response
 
 #### Defined in
 
-[src/lib/core/rtm-http-error.ts:22](https://github.com/benwainwright/rtm-typescript/blob/3311c46/src/lib/core/rtm-http-error.ts#L22)
+[src/lib/core/rtm-http-error.ts:22](https://github.com/benwainwright/rtm-typescript/blob/d628068/src/lib/core/rtm-http-error.ts#L22)
+
+## Methods
+
+### captureStackTrace
+
+▸ **captureStackTrace**(`targetObject`, `constructorOpt?`): `void`
+
+Create .stack property on a target object
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `targetObject` | `object` |
+| `constructorOpt?` | `Function` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[RtmTypescriptError](RtmTypescriptError.md).[captureStackTrace](RtmTypescriptError.md#capturestacktrace)
+
+#### Defined in
+
+node_modules/@types/node/globals.d.ts:4
 
 ## Properties
 
@@ -66,7 +93,7 @@ The response body of the error message
 
 #### Defined in
 
-[src/lib/core/rtm-http-error.ts:17](https://github.com/benwainwright/rtm-typescript/blob/3311c46/src/lib/core/rtm-http-error.ts#L17)
+[src/lib/core/rtm-http-error.ts:17](https://github.com/benwainwright/rtm-typescript/blob/d628068/src/lib/core/rtm-http-error.ts#L17)
 
 ___
 
@@ -134,7 +161,7 @@ The HTTP status code that was returned
 
 #### Defined in
 
-[src/lib/core/rtm-http-error.ts:12](https://github.com/benwainwright/rtm-typescript/blob/3311c46/src/lib/core/rtm-http-error.ts#L12)
+[src/lib/core/rtm-http-error.ts:12](https://github.com/benwainwright/rtm-typescript/blob/d628068/src/lib/core/rtm-http-error.ts#L12)
 
 ___
 
@@ -184,30 +211,3 @@ ___
 #### Defined in
 
 node_modules/@types/node/globals.d.ts:13
-
-## Methods
-
-### captureStackTrace
-
-▸ **captureStackTrace**(`targetObject`, `constructorOpt?`): `void`
-
-Create .stack property on a target object
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `targetObject` | `object` |
-| `constructorOpt?` | `Function` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[RtmTypescriptError](RtmTypescriptError.md).[captureStackTrace](RtmTypescriptError.md#capturestacktrace)
-
-#### Defined in
-
-node_modules/@types/node/globals.d.ts:4

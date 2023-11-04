@@ -20,6 +20,10 @@ Thrown if the API returns an error response
 
 - [constructor](RtmApiFailedResponseError.md#constructor)
 
+### Methods
+
+- [captureStackTrace](RtmApiFailedResponseError.md#capturestacktrace)
+
 ### Properties
 
 - [cause](RtmApiFailedResponseError.md#cause)
@@ -29,10 +33,6 @@ Thrown if the API returns an error response
 - [stack](RtmApiFailedResponseError.md#stack)
 - [prepareStackTrace](RtmApiFailedResponseError.md#preparestacktrace)
 - [stackTraceLimit](RtmApiFailedResponseError.md#stacktracelimit)
-
-### Methods
-
-- [captureStackTrace](RtmApiFailedResponseError.md#capturestacktrace)
 
 ## Constructors
 
@@ -57,7 +57,34 @@ Thrown if the API returns an error response
 
 #### Defined in
 
-[src/lib/core/rtm-api-failed-response-error.ts:24](https://github.com/benwainwright/rtm-typescript/blob/3311c46/src/lib/core/rtm-api-failed-response-error.ts#L24)
+[src/lib/core/rtm-api-failed-response-error.ts:24](https://github.com/benwainwright/rtm-typescript/blob/d628068/src/lib/core/rtm-api-failed-response-error.ts#L24)
+
+## Methods
+
+### captureStackTrace
+
+▸ **captureStackTrace**(`targetObject`, `constructorOpt?`): `void`
+
+Create .stack property on a target object
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `targetObject` | `object` |
+| `constructorOpt?` | `Function` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[RtmTypescriptError](RtmTypescriptError.md).[captureStackTrace](RtmTypescriptError.md#capturestacktrace)
+
+#### Defined in
+
+node_modules/@types/node/globals.d.ts:4
 
 ## Properties
 
@@ -83,7 +110,7 @@ The response code returned from the RTM Api
 
 #### Defined in
 
-[src/lib/core/rtm-api-failed-response-error.ts:13](https://github.com/benwainwright/rtm-typescript/blob/3311c46/src/lib/core/rtm-api-failed-response-error.ts#L13)
+[src/lib/core/rtm-api-failed-response-error.ts:13](https://github.com/benwainwright/rtm-typescript/blob/d628068/src/lib/core/rtm-api-failed-response-error.ts#L13)
 
 ___
 
@@ -99,7 +126,7 @@ The error message returned from the RTM Api
 
 #### Defined in
 
-[src/lib/core/rtm-api-failed-response-error.ts:18](https://github.com/benwainwright/rtm-typescript/blob/3311c46/src/lib/core/rtm-api-failed-response-error.ts#L18)
+[src/lib/core/rtm-api-failed-response-error.ts:18](https://github.com/benwainwright/rtm-typescript/blob/d628068/src/lib/core/rtm-api-failed-response-error.ts#L18)
 
 ___
 
@@ -177,30 +204,3 @@ ___
 #### Defined in
 
 node_modules/@types/node/globals.d.ts:13
-
-## Methods
-
-### captureStackTrace
-
-▸ **captureStackTrace**(`targetObject`, `constructorOpt?`): `void`
-
-Create .stack property on a target object
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `targetObject` | `object` |
-| `constructorOpt?` | `Function` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[RtmTypescriptError](RtmTypescriptError.md).[captureStackTrace](RtmTypescriptError.md#capturestacktrace)
-
-#### Defined in
-
-node_modules/@types/node/globals.d.ts:4
