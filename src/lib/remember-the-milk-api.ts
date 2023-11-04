@@ -3,9 +3,9 @@ import { Tasks, Test, Auth } from "./namespaces";
 import { RtmClient } from "./core";
 
 export class RememberTheMilkApi implements ApiSurface {
-  public auth: Auth;
-  public tasks: Tasks;
-  public test: Test;
+  public readonly auth: Auth;
+  public readonly tasks: Tasks;
+  public readonly test: Test;
 
   private client: RtmClient;
 
