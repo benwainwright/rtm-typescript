@@ -54,7 +54,7 @@ Raised when the API returns a non 200 HTTP response
 
 #### Defined in
 
-src/lib/core/rtm-http-error.ts:22
+[src/lib/core/rtm-http-error.ts:22](https://github.com/benwainwright/rtm-typescript/blob/3311c46/src/lib/core/rtm-http-error.ts#L22)
 
 ## Properties
 
@@ -66,7 +66,7 @@ The response body of the error message
 
 #### Defined in
 
-src/lib/core/rtm-http-error.ts:17
+[src/lib/core/rtm-http-error.ts:17](https://github.com/benwainwright/rtm-typescript/blob/3311c46/src/lib/core/rtm-http-error.ts#L17)
 
 ___
 
@@ -134,7 +134,7 @@ The HTTP status code that was returned
 
 #### Defined in
 
-src/lib/core/rtm-http-error.ts:12
+[src/lib/core/rtm-http-error.ts:12](https://github.com/benwainwright/rtm-typescript/blob/3311c46/src/lib/core/rtm-http-error.ts#L12)
 
 ___
 

@@ -50,7 +50,7 @@ in editor tooltips
 
 #### Defined in
 
-src/types/expand-recursively.ts:7
+[src/types/expand-recursively.ts:7](https://github.com/benwainwright/rtm-typescript/blob/3311c46/src/types/expand-recursively.ts#L7)
 
 ## Functions
 
@@ -75,4 +75,4 @@ Entry point to the API. Calling it with valid credentials will initialise and re
 
 #### Defined in
 
-src/lib/core/initialise-api.ts:14
+[src/lib/core/initialise-api.ts:14](https://github.com/benwainwright/rtm-typescript/blob/3311c46/src/lib/core/initialise-api.ts#L14)
