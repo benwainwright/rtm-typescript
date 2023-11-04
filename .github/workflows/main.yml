@@ -8,9 +8,9 @@ permissions:
   contents: write
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   test:
@@ -19,27 +19,26 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node-version: ['18.x', '20.x', '21.x']
+        node-version: ["18.x", "20.x", "21.x"]
     steps:
-    - uses: actions/checkout@v3
-    - name: Setup job
-      uses: ./.github/actions/install-dependencies
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm run test
+      - uses: actions/checkout@v3
+      - name: Setup job
+        uses: ./.github/actions/install-dependencies
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm run test
 
   e2e-test:
     runs-on: ubuntu-latest
     name: Run E2E tests
     steps:
-    - uses: actions/checkout@v3
-    - name: Setup job
-      uses: ./.github/actions/install-dependencies
-    - run: npm run test:e2e
-      env:
-        RTM_API_KEY: ${{ secrets.RTM_API_KEY }}
-        RTM_API_SECRET : ${{ secrets.RTM_API_SECRET }}
-
+      - uses: actions/checkout@v3
+      - name: Setup job
+        uses: ./.github/actions/install-dependencies
+      - run: npm run test:e2e
+        env:
+          RTM_API_KEY: ${{ secrets.RTM_API_KEY }}
+          RTM_API_SECRET: ${{ secrets.RTM_API_SECRET }}
 
   checks:
     runs-on: ubuntu-latest
@@ -50,10 +49,10 @@ jobs:
         check: [api-check, build, lint]
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Setup job
-      uses: ./.github/actions/install-dependencies
-    - run: npm run ${{ matrix.check }}
+      - uses: actions/checkout@v3
+      - name: Setup job
+        uses: ./.github/actions/install-dependencies
+      - run: npm run ${{ matrix.check }}
 
   release:
     name: Release
@@ -66,7 +65,10 @@ jobs:
         uses: ./.github/actions/install-dependencies
 
       - name: Build Package
-        run: yarn build
+        run: npm run build
+
+      - name: Generate Documentation
+        run: npm run docs
 
       - name: Release
         id: semantic
@@ -85,28 +87,26 @@ jobs:
     needs: [release]
     if: needs.release.outputs.new_release_published	== 'true'
     steps:
-    - uses: actions/checkout@v3
-    - name: Setup job
-      uses: ./.github/actions/install-dependencies
-    - run: npm run test:e2e:post-release
-      env:
-        RTM_API_KEY: ${{ secrets.RTM_API_KEY }}
-        RTM_API_SECRET : ${{ secrets.RTM_API_SECRET }}
+      - uses: actions/checkout@v3
+      - name: Setup job
+        uses: ./.github/actions/install-dependencies
+      - run: npm run test:e2e:post-release
+        env:
+          RTM_API_KEY: ${{ secrets.RTM_API_KEY }}
+          RTM_API_SECRET: ${{ secrets.RTM_API_SECRET }}
 
   rollback-release:
     runs-on: ubuntu-latest
-    name: Check test results and unpublish if failed 
+    name: Check test results and unpublish if failed
     if: always()
     needs: [e2e-test-post-release, release]
     steps:
-    - uses: actions/checkout@v3
-    - name: Setup job
-      if: needs.e2e-test-post-release.result == 'failure'
-      uses: ./.github/actions/install-dependencies
+      - uses: actions/checkout@v3
+      - name: Setup job
+        if: needs.e2e-test-post-release.result == 'failure'
+        uses: ./.github/actions/install-dependencies
 
-    - run: npm unpublish rtm-typescript@${{ needs.release.outputs.new_release_version }}
-      env:
-        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      if: needs.e2e-test-post-release.result == 'failure'
-
-
+      - run: npm unpublish rtm-typescript@${{ needs.release.outputs.new_release_version }}
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        if: needs.e2e-test-post-release.result == 'failure'
