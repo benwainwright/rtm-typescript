@@ -23,7 +23,7 @@ Optional callback to wrap JSON response in
 
 #### Defined in
 
-[src/types/namespaces/tasks.ts:28](https://github.com/benwainwright/rtm-typescript/blob/d628068/src/types/namespaces/tasks.ts#L28)
+[src/types/namespaces/tasks.ts:28](https://github.com/benwainwright/rtm-typescript/blob/de9f694/src/types/namespaces/tasks.ts#L28)
 
 ___
 
@@ -35,7 +35,7 @@ If specified, only tasks matching the desired criteria are returned. See here fo
 
 #### Defined in
 
-[src/types/namespaces/tasks.ts:18](https://github.com/benwainwright/rtm-typescript/blob/d628068/src/types/namespaces/tasks.ts#L18)
+[src/types/namespaces/tasks.ts:18](https://github.com/benwainwright/rtm-typescript/blob/de9f694/src/types/namespaces/tasks.ts#L18)
 
 ___
 
@@ -47,7 +47,7 @@ An ISO 8601 formatted time value. If last_sync is provided, only tasks modified 
 
 #### Defined in
 
-[src/types/namespaces/tasks.ts:23](https://github.com/benwainwright/rtm-typescript/blob/d628068/src/types/namespaces/tasks.ts#L23)
+[src/types/namespaces/tasks.ts:23](https://github.com/benwainwright/rtm-typescript/blob/de9f694/src/types/namespaces/tasks.ts#L23)
 
 ___
 
@@ -59,4 +59,4 @@ The id of the list to perform an action on.
 
 #### Defined in
 
-[src/types/namespaces/tasks.ts:13](https://github.com/benwainwright/rtm-typescript/blob/d628068/src/types/namespaces/tasks.ts#L13)
+[src/types/namespaces/tasks.ts:13](https://github.com/benwainwright/rtm-typescript/blob/de9f694/src/types/namespaces/tasks.ts#L13)
