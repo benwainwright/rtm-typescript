@@ -42,10 +42,10 @@ Thrown if the API returns an error response
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `code` | `number` |
-| `message` | `string` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `code` | `number` | The response code returned from the RTM Api |
+| `message` | `string` | The error message returned from the RTM Api |
 
 #### Returns
 
@@ -57,7 +57,7 @@ Thrown if the API returns an error response
 
 #### Defined in
 
-src/lib/core/rtm-api-failed-response-error.ts:10
+src/lib/core/rtm-api-failed-response-error.ts:24
 
 ## Properties
 
@@ -79,23 +79,27 @@ ___
 
 • `Readonly` **code**: `number`
 
+The response code returned from the RTM Api
+
 #### Defined in
 
-src/lib/core/rtm-api-failed-response-error.ts:11
+src/lib/core/rtm-api-failed-response-error.ts:13
 
 ___
 
 ### message
 
-• **message**: `string`
+• `Readonly` **message**: `string`
 
-#### Inherited from
+The error message returned from the RTM Api
+
+#### Overrides
 
 [RtmTypescriptError](RtmTypescriptError.md).[message](RtmTypescriptError.md#message)
 
 #### Defined in
 
-node_modules/typescript/lib/lib.es5.d.ts:1068
+src/lib/core/rtm-api-failed-response-error.ts:18
 
 ___
 

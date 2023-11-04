@@ -2,7 +2,7 @@
 
 # Class: RtmHttpError
 
-Raised when the Api returns a non 200 HTTP response
+Raised when the API returns a non 200 HTTP response
 
 ## Hierarchy
 
@@ -39,10 +39,10 @@ Raised when the Api returns a non 200 HTTP response
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `statusCode` | `number` |
-| `body` | `string` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `statusCode` | `number` | The HTTP status code that was returned |
+| `body` | `string` | The response body of the error message |
 
 #### Returns
 
@@ -54,7 +54,7 @@ Raised when the Api returns a non 200 HTTP response
 
 #### Defined in
 
-src/lib/core/rtm-http-error.ts:9
+src/lib/core/rtm-http-error.ts:22
 
 ## Properties
 
@@ -62,9 +62,11 @@ src/lib/core/rtm-http-error.ts:9
 
 • `Readonly` **body**: `string`
 
+The response body of the error message
+
 #### Defined in
 
-src/lib/core/rtm-http-error.ts:11
+src/lib/core/rtm-http-error.ts:17
 
 ___
 
@@ -128,9 +130,11 @@ ___
 
 • `Readonly` **statusCode**: `number`
 
+The HTTP status code that was returned
+
 #### Defined in
 
-src/lib/core/rtm-http-error.ts:10
+src/lib/core/rtm-http-error.ts:12
 
 ___
 

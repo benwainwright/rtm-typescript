@@ -1,6 +1,6 @@
 # rtm-typescript
 
-*WARNING: THIS PACKAGE IS NOT READY FOR CONSUMPTION YET. USE AT YOUR OWN RISK*
+_WARNING: THIS PACKAGE IS NOT READY FOR CONSUMPTION YET. USE AT YOUR OWN RISK_
 
 ## Install
 
@@ -16,14 +16,14 @@ back later.
 ## Usage
 
 ```TypeScript
-import { RememberTheMilkApi, ClientPermissions } from "rtm-typescript"
+import { initialiseApi, ClientPermissions } from "rtm-typescript"
 
 
 const runMyCode = async () => {
     const key = "my-api-key"
     const secret = "my-shared-secret"
 
-    const client = new RememberTheMilkApi(key, secret, ClientPermissions.Read)
+    const client = initialiseApi(key, secret, ClientPermissions.Read)
 
     const result = await client.tasks.getList()
 
