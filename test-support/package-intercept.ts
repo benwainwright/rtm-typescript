@@ -1,1 +1,1 @@
-export { RememberTheMilkApi } from "../index";
+export { initialiseApi } from "../index";

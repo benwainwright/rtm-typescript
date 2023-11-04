@@ -1,6 +1,11 @@
 import { ApiSurface, ClientPermissions } from "../types";
-import { Auth, Tasks, Test } from "./namespaces";
+import { Tasks, Test, Auth } from "./namespaces";
 import { RtmClient } from "./core";
+import {
+  Auth as IAuth,
+  Test as ITest,
+  Tasks as ITasks,
+} from "../types/namespaces";
 
 /**
  * This is the public API for this package. At present it only provides access to a limited number of API
@@ -10,7 +15,7 @@ import { RtmClient } from "./core";
  *
  * @example
  * ```TypeScript
- * import { RememberTheMilkApi, ClientPermissions } from "rtm-typescript"
+ * import { RememberTnheMilkApi, ClientPermissions } from "rtm-typescript"
  *
  * // Some code
  *
@@ -24,17 +29,17 @@ export class RememberTheMilkApi implements ApiSurface {
   /**
    * API methods relating to authentication
    */
-  public auth: Auth;
+  public auth: IAuth;
 
   /**
    * API methods relating to RTM Tasks
    */
-  public tasks: Tasks;
+  public tasks: ITasks;
 
   /**
    * API methods that exist to test the API
    */
-  public test: Test;
+  public test: ITest;
 
   private client: RtmClient;
 
@@ -56,13 +61,6 @@ export class RememberTheMilkApi implements ApiSurface {
     this.test = new Test(this.client);
   }
 
-  /**
-   * Return a valid authentication URL for the RTM API
-   *
-   * @see {@link https://www.rememberthemilk.com/services/api/authentication.rtm |RTM Api Documentation} for more information
-   *
-   * @returns A URL in the form of a string
-   */
   public getAuthUrl(frob?: string) {
     return this.client.getAuthUrl(frob);
   }

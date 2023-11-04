@@ -7,10 +7,23 @@ import { RtmTypescriptError } from "./rtm-typescript-error";
  * @public
  */
 export class RtmApiFailedResponseError extends RtmTypescriptError {
-  public constructor(
-    public readonly code: number,
-    message: string,
-  ) {
+  /**
+   * The response code returned from the RTM Api
+   */
+  public readonly code: number;
+
+  /**
+   * The error message returned from the RTM Api
+   */
+  public readonly message: string;
+
+  /**
+   * @param code - The response code returned from the RTM Api
+   * @param message - The error message returned from the RTM Api
+   */
+  public constructor(code: number, message: string) {
     super(message);
+    this.code = code;
+    this.message = message;
   }
 }

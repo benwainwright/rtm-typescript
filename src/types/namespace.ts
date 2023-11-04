@@ -1,2 +1,17 @@
-import { ApiSurface } from "./api-surface";
-export type NameSpace<T extends keyof ApiSurface> = ApiSurface[T];
+export type NameSpaces =
+  | "auth"
+  | "contacts"
+  | "groups"
+  | "lists"
+  | "locations"
+  | "push"
+  | "reflection"
+  | "scripts"
+  | "settings"
+  | "tags"
+  | "tasks"
+  | "test"
+  | "time"
+  | "timelines"
+  | "timezones"
+  | "transactions";

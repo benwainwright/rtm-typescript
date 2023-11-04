@@ -1,6 +1,12 @@
 import { TaskList } from "./task-list";
 import { User } from "./domain-objects/user";
 
+/**
+ * A simple typed description of the RTM api surface. This interface
+ * is the source of truth that is used to type check the rest of the SDK
+ *
+ * @public
+ */
 export interface ApiMethods {
   "rtm.test.login": {
     requestArgs: Record<string, string>;
@@ -53,6 +59,7 @@ export interface ApiMethods {
       list_id?: string;
       filter?: string;
       last_sync?: string;
+      callback?: string;
     };
     responseArgs: {
       tasks: {

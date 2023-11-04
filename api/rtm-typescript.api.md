@@ -4,56 +4,16 @@
 
 ```ts
 
-// Warning: (ae-forgotten-export) The symbol "ConvertApiDescription" needs to be exported by the entry point index.d.ts
-// Warning: (ae-forgotten-export) The symbol "ApiMethods" needs to be exported by the entry point index.d.ts
-//
-// @public (undocumented)
-export type ApiSurface = ConvertApiDescription<ApiMethods>["rtm"];
-
-// Warning: (ae-forgotten-export) The symbol "NameSpace" needs to be exported by the entry point index.d.ts
-//
-// @public (undocumented)
-export class Auth implements NameSpace<"auth"> {
-    // Warning: (ae-forgotten-export) The symbol "RtmClient" needs to be exported by the entry point index.d.ts
-    constructor(client: RtmClient);
-    checkToken(args: CheckTokenArgs): Promise<{
-        stat: "ok";
-        api_key?: string | undefined;
-        callback: string;
-        auth: {
-            token: string;
-            perms: string;
-            user: {
-                id: string;
-                username: string;
-                fullname: string;
-            };
-        };
-    }>;
-    getFrob(): Promise<{
-        stat: "ok";
-        api_key?: string | undefined;
-        callback: string;
-        frob: string;
-    }>;
-    getToken(params: GetTokenArgs): Promise<{
-        stat: "ok";
-        api_key?: string | undefined;
-        callback: string;
-        auth: {
-            token: string;
-            perms: string;
-            user: {
-                id: string;
-                username: string;
-                fullname: string;
-            };
-        };
-    }>;
+// @public
+export interface Auth {
+    // Warning: (ae-forgotten-export) The symbol "ApiMethods" needs to be exported by the entry point index.d.ts
+    checkToken: (args: CheckTokenParams) => Promise<SuccessResponse<ApiMethods, "rtm.auth.checkToken">["rsp"]>;
+    getFrob: () => Promise<SuccessResponse<ApiMethods, "rtm.auth.getFrob">["rsp"]>;
+    getToken: (args: GetTokenParams) => Promise<SuccessResponse<ApiMethods, "rtm.auth.getToken">["rsp"]>;
 }
 
-// @public (undocumented)
-export interface CheckTokenArgs {
+// @public
+export interface CheckTokenParams {
     auth_token: string;
 }
 
@@ -64,40 +24,75 @@ export enum ClientPermissions {
     Write = "write"
 }
 
-// @public (undocumented)
-export interface GetTokenArgs {
+// @public
+export type ExpandRecursively<T> = T extends object ? T extends infer O ? {
+    [K in keyof O]: ExpandRecursively<O[K]>;
+} : never : T;
+
+// @public
+export interface GetListParams {
+    callback?: string;
+    filter?: string;
+    last_sync?: string;
+    list_id?: string;
+}
+
+// @public
+export interface GetTokenParams {
     frob: string;
 }
 
 // @public
-export class RememberTheMilkApi implements ApiSurface {
-    constructor(key: string, secret: string, permissions: ClientPermissions, token?: string);
+export const initialiseApi: (key: string, secret: string, permissions: ClientPermissions, token?: string) => IRememberTheMilkApi;
+
+// @public
+export interface IRememberTheMilkApi {
     auth: Auth;
-    getAuthUrl(frob?: string): string;
-    // Warning: (ae-forgotten-export) The symbol "Tasks" needs to be exported by the entry point index.d.ts
+    getAuthUrl: (frob?: string) => string;
     tasks: Tasks;
-    // Warning: (ae-forgotten-export) The symbol "Test" needs to be exported by the entry point index.d.ts
     test: Test;
 }
 
 // @public
 export class RtmApiFailedResponseError extends RtmTypescriptError {
     constructor(code: number, message: string);
-    // (undocumented)
     readonly code: number;
+    readonly message: string;
 }
 
 // @public
 export class RtmHttpError extends RtmTypescriptError {
     constructor(statusCode: number, body: string);
-    // (undocumented)
     readonly body: string;
-    // (undocumented)
     readonly statusCode: number;
 }
 
 // @public
 export class RtmTypescriptError extends Error {
+}
+
+// @public
+export interface SuccessResponse<T extends Record<keyof T, {
+    requestArgs: unknown;
+    responseArgs: unknown;
+}>, M extends keyof T> {
+    // (undocumented)
+    rsp: ExpandRecursively<{
+        stat: "ok";
+        api_key?: string;
+        callback: string;
+    } & T[M]["responseArgs"]>;
+}
+
+// @public
+export interface Tasks {
+    getList: (params: GetListParams) => Promise<SuccessResponse<ApiMethods, "rtm.tasks.getList">["rsp"]>;
+}
+
+// @public
+export interface Test {
+    echo: (args: Record<string, string>) => Promise<SuccessResponse<ApiMethods, "rtm.test.echo">["rsp"]>;
+    login: () => Promise<SuccessResponse<ApiMethods, "rtm.test.login">["rsp"]>;
 }
 
 // (No @packageDocumentation comment for this package)
