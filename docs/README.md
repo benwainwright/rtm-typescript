@@ -4,15 +4,9 @@ rtm-typescript
 
 ## Table of contents
 
-### Enumerations
+### Functions
 
-- [ClientPermissions](enums/ClientPermissions.md)
-
-### Classes
-
-- [RtmApiFailedResponseError](classes/RtmApiFailedResponseError.md)
-- [RtmHttpError](classes/RtmHttpError.md)
-- [RtmTypescriptError](classes/RtmTypescriptError.md)
+- [initialiseApi](README.md#initialiseapi)
 
 ### Interfaces
 
@@ -25,32 +19,19 @@ rtm-typescript
 - [Tasks](interfaces/Tasks.md)
 - [Test](interfaces/Test.md)
 
+### Classes
+
+- [RtmApiFailedResponseError](classes/RtmApiFailedResponseError.md)
+- [RtmHttpError](classes/RtmHttpError.md)
+- [RtmTypescriptError](classes/RtmTypescriptError.md)
+
+### Enumerations
+
+- [ClientPermissions](enums/ClientPermissions.md)
+
 ### Type Aliases
 
 - [ExpandRecursively](README.md#expandrecursively)
-
-### Functions
-
-- [initialiseApi](README.md#initialiseapi)
-
-## Type Aliases
-
-### ExpandRecursively
-
-Ƭ **ExpandRecursively**\<`T`\>: `T` extends `object` ? `T` extends infer O ? \{ [K in keyof O]: ExpandRecursively\<O[K]\> } : `never` : `T`
-
-A helper type that expands types so that they resolve to their final forma
-in editor tooltips
-
-#### Type parameters
-
-| Name |
-| :------ |
-| `T` |
-
-#### Defined in
-
-[src/types/expand-recursively.ts:7](https://github.com/benwainwright/rtm-typescript/blob/3311c46/src/types/expand-recursively.ts#L7)
 
 ## Functions
 
@@ -75,4 +56,23 @@ Entry point to the API. Calling it with valid credentials will initialise and re
 
 #### Defined in
 
-[src/lib/core/initialise-api.ts:14](https://github.com/benwainwright/rtm-typescript/blob/3311c46/src/lib/core/initialise-api.ts#L14)
+[src/lib/core/initialise-api.ts:14](https://github.com/benwainwright/rtm-typescript/blob/d628068/src/lib/core/initialise-api.ts#L14)
+
+## Type Aliases
+
+### ExpandRecursively
+
+Ƭ **ExpandRecursively**\<`T`\>: `T` extends `object` ? `T` extends infer O ? \{ [K in keyof O]: ExpandRecursively\<O[K]\> } : `never` : `T`
+
+A helper type that expands types so that they resolve to their final forma
+in editor tooltips
+
+#### Type parameters
+
+| Name |
+| :------ |
+| `T` |
+
+#### Defined in
+
+[src/types/expand-recursively.ts:7](https://github.com/benwainwright/rtm-typescript/blob/d628068/src/types/expand-recursively.ts#L7)
