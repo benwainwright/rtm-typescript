@@ -4,7 +4,7 @@ type DeepRecord<K extends string, V> = K extends `${infer K0}.${infer KR}`
   ? { [P in K0]: DeepRecord<KR, V> }
   : { [P in K]: V };
 
-type DeepIntersect<T> = T extends () => unknown
+type DeepIntersect<T> = [T] extends [(...args: unknown[]) => unknown]
   ? T
   : T extends object
   ? { [K in keyof T]: DeepIntersect<T[K]> }
