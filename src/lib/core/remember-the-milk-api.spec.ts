@@ -2,14 +2,18 @@ import { vi } from "vitest";
 import { when } from "jest-when";
 import { mock } from "vitest-mock-extended";
 
-import { ClientPermissions } from "@types";
+import { ApiMethods, ClientPermissions } from "@types";
 
 import { RememberTheMilkApi } from "./remember-the-milk-api";
 import { Tasks, Auth } from "@namespaces";
 
 import { RtmClient } from "./client";
+import { ClientThrottleWrapper } from "./client-throttle-wrapper";
+import { SuccessResponse } from "tmp-declarations/dts/src/lib/types";
+import { API_THROTTLE_DELAY } from "../constants/api-throttle-delay";
 
 vi.mock("./client");
+vi.mock("./client-throttle-wrapper");
 
 beforeEach(() => {
   vi.resetAllMocks();
@@ -41,6 +45,42 @@ describe("RememberTheMilkApi", () => {
 
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       expect((client as any)[namespace]).toBeInstanceOf(instance);
+    });
+
+    it("wraps the client with the throttling decorator if throttle is true", async () => {
+      const key = "key";
+      const secret = "secret";
+      const permissions = ClientPermissions.Write;
+
+      const mockWrapper = mock<ClientThrottleWrapper>();
+      const mockClient = mock<RtmClient>();
+
+      when(vi.mocked(RtmClient))
+        .calledWith(key, secret, permissions, undefined)
+        .mockReturnValue(mockClient);
+
+      when(vi.mocked(ClientThrottleWrapper))
+        .calledWith(mockClient, API_THROTTLE_DELAY)
+        .mockReturnValue(mockWrapper);
+
+      const mockResponse =
+        mock<SuccessResponse<ApiMethods, "rtm.auth.getFrob">["rsp"]>();
+
+      when(mockWrapper.get)
+        .calledWith("rtm.auth.getFrob", {})
+        .mockResolvedValue(mockResponse);
+
+      const client = new RememberTheMilkApi({
+        key,
+        secret,
+        permissions,
+        throttle: true,
+      });
+
+      const result = await client.auth.getFrob();
+      expect(mockWrapper.get).toHaveBeenCalledWith("rtm.auth.getFrob", {});
+      expect(mockClient.get).not.toHaveBeenCalled();
+      expect(result).toEqual(mockResponse);
     });
   });
 

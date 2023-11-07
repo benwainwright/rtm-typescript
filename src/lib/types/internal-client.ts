@@ -5,6 +5,4 @@ export interface InternalClient {
     method: M,
     options: ApiMethods[M]["requestArgs"],
   ): Promise<SuccessResponse<ApiMethods, M>["rsp"]>;
-
-  getAuthUrl(frob?: string): string;
 }

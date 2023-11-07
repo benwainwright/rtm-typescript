@@ -1,8 +1,12 @@
-import { CheckTokenParams, GetTokenParams, NameSpaceClient } from "@types";
-import { RtmClient } from "@core";
+import {
+  CheckTokenParams,
+  GetTokenParams,
+  NameSpaceClient,
+  InternalClient,
+} from "@types";
 
 export class Auth implements NameSpaceClient<"auth"> {
-  constructor(private client: RtmClient) {}
+  constructor(private client: InternalClient) {}
 
   async checkToken(args: CheckTokenParams) {
     return await this.client.get("rtm.auth.checkToken", args);

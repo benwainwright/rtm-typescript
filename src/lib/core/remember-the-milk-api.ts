@@ -1,8 +1,10 @@
 import { ApiSurface } from "@types";
 import { Tasks, Test, Auth } from "@namespaces";
+import { API_THROTTLE_DELAY } from "@constants";
 
 import { RtmClient } from "./client";
 import { RtmApiConfig } from "./initialise-api";
+import { ClientThrottleWrapper } from "./client-throttle-wrapper";
 
 export class RememberTheMilkApi implements ApiSurface {
   public auth: Auth;
@@ -18,9 +20,14 @@ export class RememberTheMilkApi implements ApiSurface {
       config.permissions,
       config.token,
     );
-    this.auth = new Auth(this.client);
-    this.tasks = new Tasks(this.client);
-    this.test = new Test(this.client);
+
+    const throttledClient = config.throttle
+      ? new ClientThrottleWrapper(this.client, API_THROTTLE_DELAY)
+      : this.client;
+
+    this.auth = new Auth(throttledClient);
+    this.tasks = new Tasks(throttledClient);
+    this.test = new Test(throttledClient);
   }
 
   public getAuthUrl(frob?: string) {

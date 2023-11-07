@@ -33,20 +33,4 @@ describe("ClientThrottleWrapper", () => {
     expect(ThrottledFunctionExecutor.prototype.execute).toHaveBeenCalled();
     expect(result).toEqual(mockResponse);
   });
-
-  describe("getAuthUrl", () => {
-    it("delegates to the underlying client", () => {
-      const mockClient = mock<InternalClient>();
-
-      const frob = "frob";
-      const url = "url";
-
-      when(mockClient.getAuthUrl).calledWith(frob).mockReturnValue(url);
-
-      const client = new ClientThrottleWrapper(mockClient, 1000);
-
-      const finalUrl = client.getAuthUrl(frob);
-      expect(finalUrl).toEqual(url);
-    });
-  });
 });

@@ -20,8 +20,4 @@ export class ClientThrottleWrapper implements InternalClient {
     };
     return await this.throttledExecutor.execute(call);
   }
-
-  public getAuthUrl(frob?: string | undefined): string {
-    return this.client.getAuthUrl(frob);
-  }
 }
