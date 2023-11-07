@@ -13,15 +13,16 @@ export class RememberTheMilkApi implements ApiSurface {
 
   private client: RtmClient;
 
-  public constructor(config: RtmApiConfig) {
-    this.client = new RtmClient(
-      config.key,
-      config.secret,
-      config.permissions,
-      config.token,
-    );
+  public constructor({
+    key,
+    secret,
+    permissions,
+    token,
+    throttle = true,
+  }: RtmApiConfig) {
+    this.client = new RtmClient(key, secret, permissions, token);
 
-    const throttledClient = config.throttle
+    const throttledClient = throttle
       ? new ClientThrottleWrapper(this.client, API_THROTTLE_DELAY)
       : this.client;
 

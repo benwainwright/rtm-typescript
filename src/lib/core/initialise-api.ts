@@ -30,6 +30,8 @@ export interface RtmApiConfig {
 
   /**
    * Throttle requests to the API to avoid hitting rate limits
+   *
+   * @default true
    */
   throttle?: boolean;
 }

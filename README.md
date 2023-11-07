@@ -13,22 +13,28 @@ npm install rtm-typescript
 This package currently only supports a few of the RTM API methods. Please come
 back later.
 
+### API Request Throttling
+
+To avoid hitting the RTM Api [rate limit](https://www.rememberthemilk.com/services/api/ratelimit.rtm), this client will throttle requests to once per second. If you wish to disable this behaviour, set `throttle` to `true` in the configuration object.
+
 ## Usage
 
 ```TypeScript
-import { initialiseApi, ClientPermissions } from "rtm-typescript"
-
-
 const runMyCode = async () => {
-    const key = "my-api-key"
-    const secret = "my-shared-secret"
+  const key = "my-api-key";
+  const secret = "my-shared-secret";
 
-    const client = initialiseApi(key, secret, ClientPermissions.Read)
+  const client = initialiseApi({
+    key,
+    secret,
+    permissions: ClientPermissions.Read,
+  });
 
-    const result = await client.tasks.getList()
+  const result = await client.tasks.getList();
 
-    console.log(result);
-}
+  console.log(result);
+};
+
 ```
 
 For more information, check out the [API Documentation](./docs/README.md)

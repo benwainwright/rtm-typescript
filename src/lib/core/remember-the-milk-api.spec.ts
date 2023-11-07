@@ -47,7 +47,42 @@ describe("RememberTheMilkApi", () => {
       expect((client as any)[namespace]).toBeInstanceOf(instance);
     });
 
-    it("wraps the client with the throttling decorator if throttle is true", async () => {
+    it("wraps the client with the throttling decorator if throttle is not passed in", async () => {
+      const key = "key";
+      const secret = "secret";
+      const permissions = ClientPermissions.Write;
+
+      const mockWrapper = mock<ClientThrottleWrapper>();
+      const mockClient = mock<RtmClient>();
+
+      when(vi.mocked(RtmClient))
+        .calledWith(key, secret, permissions, undefined)
+        .mockReturnValue(mockClient);
+
+      when(vi.mocked(ClientThrottleWrapper))
+        .calledWith(mockClient, API_THROTTLE_DELAY)
+        .mockReturnValue(mockWrapper);
+
+      const mockResponse =
+        mock<SuccessResponse<ApiMethods, "rtm.auth.getFrob">["rsp"]>();
+
+      when(mockWrapper.get)
+        .calledWith("rtm.auth.getFrob", {})
+        .mockResolvedValue(mockResponse);
+
+      const client = new RememberTheMilkApi({
+        key,
+        secret,
+        permissions,
+      });
+
+      const result = await client.auth.getFrob();
+      expect(mockWrapper.get).toHaveBeenCalledWith("rtm.auth.getFrob", {});
+      expect(mockClient.get).not.toHaveBeenCalled();
+      expect(result).toEqual(mockResponse);
+    });
+
+    it("wraps the client with the throttling decorator if throttle is set to true", async () => {
       const key = "key";
       const secret = "secret";
       const permissions = ClientPermissions.Write;
@@ -80,6 +115,42 @@ describe("RememberTheMilkApi", () => {
       const result = await client.auth.getFrob();
       expect(mockWrapper.get).toHaveBeenCalledWith("rtm.auth.getFrob", {});
       expect(mockClient.get).not.toHaveBeenCalled();
+      expect(result).toEqual(mockResponse);
+    });
+
+    it("doesn't use the throttling decorator if throttle is set to false", async () => {
+      const key = "key";
+      const secret = "secret";
+      const permissions = ClientPermissions.Write;
+
+      const mockWrapper = mock<ClientThrottleWrapper>();
+      const mockClient = mock<RtmClient>();
+
+      when(vi.mocked(RtmClient))
+        .calledWith(key, secret, permissions, undefined)
+        .mockReturnValue(mockClient);
+
+      when(vi.mocked(ClientThrottleWrapper))
+        .calledWith(mockClient, API_THROTTLE_DELAY)
+        .mockReturnValue(mockWrapper);
+
+      const mockResponse =
+        mock<SuccessResponse<ApiMethods, "rtm.auth.getFrob">["rsp"]>();
+
+      when(mockClient.get)
+        .calledWith("rtm.auth.getFrob", {})
+        .mockResolvedValue(mockResponse);
+
+      const client = new RememberTheMilkApi({
+        key,
+        secret,
+        permissions,
+        throttle: false,
+      });
+
+      const result = await client.auth.getFrob();
+      expect(mockClient.get).toHaveBeenCalledWith("rtm.auth.getFrob", {});
+      expect(mockWrapper.get).not.toHaveBeenCalled();
       expect(result).toEqual(mockResponse);
     });
   });
