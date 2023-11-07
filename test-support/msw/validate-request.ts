@@ -2,8 +2,7 @@ import { DefaultBodyType, HttpResponse, StrictRequest } from "msw";
 import { makeFailureResponse } from "./make-failure-response";
 import { checkSignature } from "./check-signature";
 import { TEST_API_KEY } from "../testing-values";
-import { API_ERROR_CODES } from "../../src/types/response-codes";
-import { HTTP_STATUS_CODES } from "../../src/lib/core/http-status-codes";
+import { API_ERROR_CODES, HTTP_STATUS_CODES } from "@constants";
 
 export const validateRequest = (request: StrictRequest<DefaultBodyType>) => {
   const url = new URL(request.url);
@@ -15,7 +14,7 @@ export const validateRequest = (request: StrictRequest<DefaultBodyType>) => {
       makeFailureResponse(API_ERROR_CODES.notFound, 'Method "" not found'),
       {
         status: HTTP_STATUS_CODES.ok,
-      },
+      }
     );
   }
 
@@ -24,11 +23,11 @@ export const validateRequest = (request: StrictRequest<DefaultBodyType>) => {
     return HttpResponse.json(
       makeFailureResponse(
         API_ERROR_CODES.missingSignature,
-        "Missing signature",
+        "Missing signature"
       ),
       {
         status: HTTP_STATUS_CODES.ok,
-      },
+      }
     );
   }
 
@@ -36,11 +35,11 @@ export const validateRequest = (request: StrictRequest<DefaultBodyType>) => {
     return HttpResponse.json(
       makeFailureResponse(
         API_ERROR_CODES.invalidSignature,
-        "Invalid signature",
+        "Invalid signature"
       ),
       {
         status: HTTP_STATUS_CODES.ok,
-      },
+      }
     );
   }
 
@@ -50,7 +49,7 @@ export const validateRequest = (request: StrictRequest<DefaultBodyType>) => {
       makeFailureResponse(API_ERROR_CODES.invalidApiKey, "Invalid API Key"),
       {
         status: HTTP_STATUS_CODES.ok,
-      },
+      }
     );
   }
 

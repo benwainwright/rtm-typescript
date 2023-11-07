@@ -1,10 +1,12 @@
 import { expect, describe, it, vi } from "vitest";
-import { Tasks } from "./tasks";
-import { RtmClient } from "../core";
-import { ClientPermissions } from "../../types/permissions";
 import { when } from "jest-when";
 
-vi.mock("../core");
+import { Tasks } from "./tasks";
+
+import { ClientPermissions } from "@types";
+import { RtmClient } from "@core";
+
+vi.mock("@core");
 
 describe("the task namespace", () => {
   it("constructs without errors", () => {
@@ -20,7 +22,7 @@ describe("the task namespace", () => {
     async ({ method, clientMethod, params }) => {
       const client = new RtmClient("key", "secret", ClientPermissions.Delete);
 
-      const returnValue = {} as ReturnType<typeof client.get>
+      const returnValue = {} as ReturnType<typeof client.get>;
       when(client.get)
         .calledWith(clientMethod, params)
         .mockReturnValue(returnValue);
@@ -29,6 +31,6 @@ describe("the task namespace", () => {
 
       const response = await auth[method as keyof typeof auth](params);
       expect(response).toEqual(returnValue);
-    },
+    }
   );
 });

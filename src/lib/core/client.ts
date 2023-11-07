@@ -1,21 +1,27 @@
-import { ApiMethods, FailResponse, SuccessResponse } from "../../types";
-import { ClientPermissions } from "../../types/permissions";
-import { AUTH_URL, REST_API_URL } from "./constants";
+import crypto from "node:crypto";
+
+import {
+  ApiMethods,
+  FailResponse,
+  SuccessResponse,
+  ClientPermissions,
+  InternalClient,
+} from "@types";
+
+import { AUTH_URL, REST_API_URL } from "@constants";
 
 import {
   RtmApiFailedResponseError,
   RtmHttpError,
   RtmTypescriptError,
-} from "../core";
+} from "@errors";
 
-import crypto from "node:crypto";
-
-export class RtmClient {
+export class RtmClient implements InternalClient {
   public constructor(
     private key: string,
     private secret: string,
     private permissions: ClientPermissions,
-    private token?: string,
+    private token?: string
   ) {
     if (!key || !secret) {
       throw new RtmTypescriptError("API key and secret must not be empty");
@@ -24,11 +30,11 @@ export class RtmClient {
 
   public async get<M extends keyof ApiMethods>(
     method: M,
-    options: ApiMethods[M]["requestArgs"],
+    options: ApiMethods[M]["requestArgs"]
   ): Promise<SuccessResponse<ApiMethods, M>["rsp"]> {
     const url = `${REST_API_URL}?${this.generateRequestQueryString(
       method,
-      options,
+      options
     )}`;
 
     const response = await fetch(url, {
@@ -46,7 +52,7 @@ export class RtmClient {
     if (rsp.stat === "fail") {
       throw new RtmApiFailedResponseError(
         rsp.err.code,
-        `RTM api returned an error response: ${rsp.err.msg}`,
+        `RTM api returned an error response: ${rsp.err.msg}`
       );
     }
     return rsp;
@@ -74,14 +80,14 @@ export class RtmClient {
 
   private generateSignature(
     secret: string,
-    params: Record<string, string>,
+    params: Record<string, string>
   ): string {
     return this.md5(
       `${secret}${Object.entries(params)
         .slice()
         .sort((a, b) => (a[0] > b[0] ? 1 : -1))
         .flat()
-        .join("")}`,
+        .join("")}`
     );
   }
 
@@ -89,14 +95,14 @@ export class RtmClient {
     return Object.entries(params)
       .map(
         ([key, value]) =>
-          `${encodeURIComponent(key)}=${encodeURIComponent(value)}`,
+          `${encodeURIComponent(key)}=${encodeURIComponent(value)}`
       )
       .join("&");
   }
 
   private generateRequestQueryString(
     method: string,
-    params: Record<string, string>,
+    params: Record<string, string>
   ) {
     const finalParams = {
       format: "json",

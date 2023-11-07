@@ -1,12 +1,15 @@
-import { ClientPermissions } from "../types/permissions";
-import { RememberTheMilkApi } from "./remember-the-milk-api";
-import { Tasks, Auth } from "./namespaces";
 import { vi } from "vitest";
 import { when } from "jest-when";
 import { mock } from "vitest-mock-extended";
-import { RtmClient } from "./core";
 
-vi.mock("./core");
+import { ClientPermissions } from "@types";
+
+import { RememberTheMilkApi } from "./remember-the-milk-api";
+import { Tasks, Auth } from "@namespaces";
+
+import { RtmClient } from "./client";
+
+vi.mock("./client");
 
 beforeEach(() => {
   vi.resetAllMocks();
@@ -16,7 +19,12 @@ describe("RememberTheMilkApi", () => {
   describe("constructor", () => {
     it("runs without errors", () => {
       expect(
-        () => new RememberTheMilkApi("key", "secret", ClientPermissions.Write),
+        () =>
+          new RememberTheMilkApi({
+            key: "key",
+            secret: "secret",
+            permissions: ClientPermissions.Write,
+          }),
       ).not.toThrow();
     });
 
@@ -25,11 +33,11 @@ describe("RememberTheMilkApi", () => {
       ${"auth"}  | ${Auth}
       ${"tasks"} | ${Tasks}
     `("$namespace is wired up correctly", ({ namespace, instance }) => {
-      const client = new RememberTheMilkApi(
-        "key",
-        "secret",
-        ClientPermissions.Write,
-      );
+      const client = new RememberTheMilkApi({
+        key: "key",
+        secret: "secret",
+        permissions: ClientPermissions.Write,
+      });
 
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       expect((client as any)[namespace]).toBeInstanceOf(instance);
@@ -49,11 +57,11 @@ describe("RememberTheMilkApi", () => {
         .calledWith("key", "secret", ClientPermissions.Write, undefined)
         .mockReturnValue(mockClient);
 
-      const client = new RememberTheMilkApi(
-        "key",
-        "secret",
-        ClientPermissions.Write,
-      );
+      const client = new RememberTheMilkApi({
+        key: "key",
+        secret: "secret",
+        permissions: ClientPermissions.Write,
+      });
 
       const finalUrl = client.getAuthUrl(frob);
       expect(finalUrl).toEqual(url);

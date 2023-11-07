@@ -4,96 +4,51 @@
 
 ```ts
 
-// @public
-export interface Auth {
-    // Warning: (ae-forgotten-export) The symbol "ApiMethods" needs to be exported by the entry point index.d.ts
-    checkToken: (args: CheckTokenParams) => Promise<SuccessResponse<ApiMethods, "rtm.auth.checkToken">["rsp"]>;
-    getFrob: () => Promise<SuccessResponse<ApiMethods, "rtm.auth.getFrob">["rsp"]>;
-    getToken: (args: GetTokenParams) => Promise<SuccessResponse<ApiMethods, "rtm.auth.getToken">["rsp"]>;
-}
+import { Auth } from '../../src/lib/types';
+import { CheckTokenParams } from '../../src/lib/types';
+import { ClientPermissions } from '../../src/lib/types';
+import { ExpandRecursively } from '../../src/lib/types';
+import { GetListParams } from '../../src/lib/types';
+import { GetTokenParams } from '../../src/lib/types';
+import { initialiseApi } from '../../src/lib/core';
+import { IRememberTheMilkApi } from '../../src/lib/types';
+import { RtmApiConfig } from '../../src/lib/core';
+import { RtmApiFailedResponseError } from '../../src/lib/errors';
+import { RtmHttpError } from '../../src/lib/errors';
+import { RtmTypescriptError } from '../../src/lib/errors';
+import { SuccessResponse } from '../../src/lib/types';
+import { Tasks } from '../../src/lib/types';
+import { Test } from '../../src/lib/types';
 
-// @public
-export interface CheckTokenParams {
-    auth_token: string;
-}
+export { Auth }
 
-// @public
-export enum ClientPermissions {
-    Delete = "delete",
-    Read = "read",
-    Write = "write"
-}
+export { CheckTokenParams }
 
-// @public
-export type ExpandRecursively<T> = T extends object ? T extends infer O ? {
-    [K in keyof O]: ExpandRecursively<O[K]>;
-} : never : T;
+export { ClientPermissions }
 
-// @public
-export interface GetListParams {
-    callback?: string;
-    filter?: string;
-    last_sync?: string;
-    list_id?: string;
-}
+export { ExpandRecursively }
 
-// @public
-export interface GetTokenParams {
-    frob: string;
-}
+export { GetListParams }
 
-// @public
-export const initialiseApi: (key: string, secret: string, permissions: ClientPermissions, token?: string) => IRememberTheMilkApi;
+export { GetTokenParams }
 
-// @public
-export interface IRememberTheMilkApi {
-    auth: Auth;
-    getAuthUrl: (frob?: string) => string;
-    tasks: Tasks;
-    test: Test;
-}
+export { initialiseApi }
 
-// @public
-export class RtmApiFailedResponseError extends RtmTypescriptError {
-    constructor(code: number, message: string);
-    readonly code: number;
-    readonly message: string;
-}
+export { IRememberTheMilkApi }
 
-// @public
-export class RtmHttpError extends RtmTypescriptError {
-    constructor(statusCode: number, body: string);
-    readonly body: string;
-    readonly statusCode: number;
-}
+export { RtmApiConfig }
 
-// @public
-export class RtmTypescriptError extends Error {
-}
+export { RtmApiFailedResponseError }
 
-// @public
-export interface SuccessResponse<T extends Record<keyof T, {
-    requestArgs: unknown;
-    responseArgs: unknown;
-}>, M extends keyof T> {
-    // (undocumented)
-    rsp: ExpandRecursively<{
-        stat: "ok";
-        api_key?: string;
-        callback: string;
-    } & T[M]["responseArgs"]>;
-}
+export { RtmHttpError }
 
-// @public
-export interface Tasks {
-    getList: (params: GetListParams) => Promise<SuccessResponse<ApiMethods, "rtm.tasks.getList">["rsp"]>;
-}
+export { RtmTypescriptError }
 
-// @public
-export interface Test {
-    echo: (args: Record<string, string>) => Promise<SuccessResponse<ApiMethods, "rtm.test.echo">["rsp"]>;
-    login: () => Promise<SuccessResponse<ApiMethods, "rtm.test.login">["rsp"]>;
-}
+export { SuccessResponse }
+
+export { Tasks }
+
+export { Test }
 
 // (No @packageDocumentation comment for this package)
 

@@ -1,22 +1,24 @@
+import { HttpResponse, http } from "msw";
 import { it, describe, expect, beforeAll, afterEach, afterAll } from "vitest";
-import { RtmClient } from "./client";
 import {
   RtmTypescriptError,
   RtmApiFailedResponseError,
   RtmHttpError,
-} from "../core";
-import { server } from "../../../test-support/msw-node";
+} from "@errors";
+
 import {
+  server,
   MY_TEST_FROB,
   MY_TEST_TOKEN,
   TEST_API_KEY,
   TEST_SHARED_SECRET,
-} from "../../../test-support/testing-values";
-import { API_ERROR_CODES } from "../../types/response-codes";
-import { ClientPermissions } from "../../types/permissions";
-import { HttpResponse, http } from "msw";
-import { REST_API_URL } from "./constants";
-import { HTTP_STATUS_CODES } from "./http-status-codes";
+} from "@test-support";
+
+import { API_ERROR_CODES, REST_API_URL, HTTP_STATUS_CODES } from "@constants";
+
+import { ClientPermissions } from "@types";
+
+import { RtmClient } from "./client";
 
 beforeAll(() => {
   server.listen();
@@ -25,6 +27,7 @@ beforeAll(() => {
 afterEach(() => {
   server.resetHandlers();
 });
+
 afterAll(() => {
   server.close();
 });

@@ -1,5 +1,5 @@
-import { NameSpaceClient } from "../../types";
-import { RtmClient } from "../core";
+import { NameSpaceClient } from "@types";
+import { RtmClient } from "@core";
 
 export class Test implements NameSpaceClient<"test"> {
   constructor(private client: RtmClient) {}

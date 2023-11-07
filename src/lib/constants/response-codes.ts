@@ -6,6 +6,3 @@ export const API_ERROR_CODES = {
   invalidToken: 98,
   invalidFrob: 101,
 } as const;
-
-export type ValidApiErrorCodes =
-  (typeof API_ERROR_CODES)[keyof typeof API_ERROR_CODES];

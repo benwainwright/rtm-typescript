@@ -1,5 +1,5 @@
-import { CheckTokenParams, GetTokenParams, NameSpaceClient } from "../../types";
-import { RtmClient } from "../core/client";
+import { CheckTokenParams, GetTokenParams, NameSpaceClient } from "@types";
+import { RtmClient } from "@core";
 
 export class Auth implements NameSpaceClient<"auth"> {
   constructor(private client: RtmClient) {}

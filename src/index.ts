@@ -1,9 +1,11 @@
+export { initialiseApi } from "@core";
+export type { RtmApiConfig } from "@core";
+
 export {
   RtmApiFailedResponseError,
   RtmTypescriptError,
   RtmHttpError,
-  initialiseApi,
-} from "./lib/core";
+} from "@errors";
 
 export type {
   CheckTokenParams,
@@ -15,6 +17,6 @@ export type {
   Tasks,
   Test,
   ExpandRecursively,
-} from "./types";
+} from "@types";
 
-export { ClientPermissions } from "./types/permissions";
+export { ClientPermissions } from "@types";

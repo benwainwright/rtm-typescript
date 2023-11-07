@@ -1,10 +1,16 @@
-import { expect, describe, it, vi } from "vitest";
-import { Auth } from "./auth";
-import { RtmClient } from "../core";
-import { ClientPermissions } from "../../types/permissions";
 import { when } from "jest-when";
+import { expect, describe, it, vi } from "vitest";
 
-vi.mock("../core");
+import { RtmClient } from "@core";
+import { ClientPermissions } from "@types";
+
+import { Auth } from "./auth";
+
+vi.mock("@core");
+
+beforeEach(() => {
+  vi.resetAllMocks();
+});
 
 describe("the auth namespace", () => {
   it("constructs without errors", () => {
@@ -31,6 +37,6 @@ describe("the auth namespace", () => {
 
       const response = await auth[method as keyof typeof auth](params);
       expect(response).toEqual(returnValue);
-    },
+    }
   );
 });

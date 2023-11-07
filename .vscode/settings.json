@@ -1,0 +1,3 @@
+{
+  "vitest.commandLine": "npx vitest --run --api --config vitest.unit.config.mts"
+}

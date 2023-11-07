@@ -1,6 +1,8 @@
-import { ApiSurface, ClientPermissions } from "../types";
-import { Tasks, Test, Auth } from "./namespaces";
-import { RtmClient } from "./core";
+import { ApiSurface } from "@types";
+import { Tasks, Test, Auth } from "@namespaces";
+
+import { RtmClient } from "./client";
+import { RtmApiConfig } from "./initialise-api";
 
 export class RememberTheMilkApi implements ApiSurface {
   public auth: Auth;
@@ -9,13 +11,13 @@ export class RememberTheMilkApi implements ApiSurface {
 
   private client: RtmClient;
 
-  public constructor(
-    key: string,
-    secret: string,
-    permissions: ClientPermissions,
-    token?: string,
-  ) {
-    this.client = new RtmClient(key, secret, permissions, token);
+  public constructor(config: RtmApiConfig) {
+    this.client = new RtmClient(
+      config.key,
+      config.secret,
+      config.permissions,
+      config.token,
+    );
     this.auth = new Auth(this.client);
     this.tasks = new Tasks(this.client);
     this.test = new Test(this.client);

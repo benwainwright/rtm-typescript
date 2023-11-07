@@ -1,7 +1,6 @@
 import { DefaultBodyType, HttpResponse, StrictRequest } from "msw";
 import { makeFailureResponse } from "./make-failure-response";
-import { API_ERROR_CODES } from "../../src/types/response-codes";
-import { HTTP_STATUS_CODES } from "../../src/lib/core/http-status-codes";
+import { API_ERROR_CODES, HTTP_STATUS_CODES } from "@constants";
 
 export const validateToken = (request: StrictRequest<DefaultBodyType>) => {
   const url = new URL(request.url);
@@ -13,7 +12,7 @@ export const validateToken = (request: StrictRequest<DefaultBodyType>) => {
       makeFailureResponse(API_ERROR_CODES.invalidToken, "Token not valid"),
       {
         status: HTTP_STATUS_CODES.ok,
-      },
+      }
     );
   }
 

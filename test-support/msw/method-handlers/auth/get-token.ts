@@ -1,17 +1,17 @@
 import { DefaultBodyType, HttpResponse, StrictRequest } from "msw";
-import { makeSuccessResponse } from "../../make-success-response";
+import { API_ERROR_CODES, HTTP_STATUS_CODES } from "@constants";
+
 import {
   MY_TEST_FROB,
   MY_TEST_TOKEN,
   MY_TEST_USER,
 } from "../../../testing-values";
+import { makeSuccessResponse } from "../../make-success-response";
 import { makeFailureResponse } from "../../make-failure-response";
-import { API_ERROR_CODES } from "../../../../src/types/response-codes";
-import { HTTP_STATUS_CODES } from "../../../../src/lib/core/http-status-codes";
 
 export const getToken = (
   request: StrictRequest<DefaultBodyType>,
-  apiKey: string,
+  apiKey: string
 ) => {
   const url = new URL(request.url);
 
@@ -21,7 +21,7 @@ export const getToken = (
       makeFailureResponse(API_ERROR_CODES.invalidFrob, 'Method "" not found'),
       {
         status: HTTP_STATUS_CODES.ok,
-      },
+      }
     );
   }
 
@@ -33,6 +33,6 @@ export const getToken = (
       perms,
       user: MY_TEST_USER,
     }),
-    { status: 200 },
+    { status: 200 }
   );
 };

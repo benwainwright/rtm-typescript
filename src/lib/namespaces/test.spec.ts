@@ -1,10 +1,12 @@
 import { expect, describe, it, vi } from "vitest";
-import { RtmClient } from "../core";
-import { ClientPermissions } from "../../types/permissions";
 import { when } from "jest-when";
+
+import { RtmClient } from "@core";
+import { ClientPermissions } from "@types";
+
 import { Test } from "./test";
 
-vi.mock("../core");
+vi.mock("@core");
 
 describe("the test namespace", () => {
   it("constructs without errors", () => {
@@ -30,6 +32,6 @@ describe("the test namespace", () => {
 
       const response = await test[method as keyof typeof test](params);
       expect(response).toEqual(returnValue);
-    },
+    }
   );
 });
