@@ -42,9 +42,9 @@ Thrown if the API returns an error response
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `code` | `number` | The response code returned from the RTM Api |
+| Name      | Type     | Description                                 |
+| :-------- | :------- | :------------------------------------------ |
+| `code`    | `number` | The response code returned from the RTM Api |
 | `message` | `string` | The error message returned from the RTM Api |
 
 #### Returns
@@ -69,9 +69,9 @@ Create .stack property on a target object
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `targetObject` | `object` |
+| Name              | Type       |
+| :---------------- | :--------- |
+| `targetObject`    | `object`   |
 | `constructorOpt?` | `Function` |
 
 #### Returns
@@ -100,7 +100,7 @@ node_modules/@types/node/globals.d.ts:4
 
 node_modules/typescript/lib/lib.es2022.error.d.ts:24
 
-___
+---
 
 ### code
 
@@ -112,7 +112,7 @@ The response code returned from the RTM Api
 
 src/lib/errors/rtm-api-failed-response-error.ts:13
 
-___
+---
 
 ### message
 
@@ -128,7 +128,7 @@ The error message returned from the RTM Api
 
 src/lib/errors/rtm-api-failed-response-error.ts:18
 
-___
+---
 
 ### name
 
@@ -142,7 +142,7 @@ ___
 
 node_modules/typescript/lib/lib.es5.d.ts:1067
 
-___
+---
 
 ### stack
 
@@ -156,7 +156,7 @@ ___
 
 node_modules/typescript/lib/lib.es5.d.ts:1069
 
-___
+---
 
 ### prepareStackTrace
 
@@ -170,9 +170,9 @@ Optional override for formatting stack traces
 
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `err` | `Error` |
+| Name          | Type         |
+| :------------ | :----------- |
+| `err`         | `Error`      |
 | `stackTraces` | `CallSite`[] |
 
 ##### Returns
@@ -191,7 +191,7 @@ https://v8.dev/docs/stack-trace-api#customizing-stack-traces
 
 node_modules/@types/node/globals.d.ts:11
 
-___
+---
 
 ### stackTraceLimit
 

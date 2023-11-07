@@ -17,7 +17,7 @@ A permission level is usually requested during the authentication process with t
 
 ### Delete
 
-• **Delete** = ``"delete"``
+• **Delete** = `"delete"`
 
 Gives the ability to delete tasks, contacts, groups and lists (also allows you to read and write).
 
@@ -25,11 +25,11 @@ Gives the ability to delete tasks, contacts, groups and lists (also allows you t
 
 src/lib/types/permissions.ts:21
 
-___
+---
 
 ### Read
 
-• **Read** = ``"read"``
+• **Read** = `"read"`
 
 Gives the ability to read task, contact, group and list details and contents.
 
@@ -37,11 +37,11 @@ Gives the ability to read task, contact, group and list details and contents.
 
 src/lib/types/permissions.ts:11
 
-___
+---
 
 ### Write
 
-• **Write** = ``"write"``
+• **Write** = `"write"`
 
 Gives the ability to add and modify task, contact, group and list details and contents (also allows you to read).
 

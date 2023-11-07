@@ -6,10 +6,10 @@ A successful response from the API
 
 ## Type parameters
 
-| Name | Type |
-| :------ | :------ |
-| `T` | extends `Record`\<keyof `T`, \{ `requestArgs`: `unknown` ; `responseArgs`: `unknown`  }\> |
-| `M` | extends keyof `T` |
+| Name | Type                                                                                     |
+| :--- | :--------------------------------------------------------------------------------------- |
+| `T`  | extends `Record`\<keyof `T`, \{ `requestArgs`: `unknown` ; `responseArgs`: `unknown` }\> |
+| `M`  | extends keyof `T`                                                                        |
 
 ## Table of contents
 
@@ -21,7 +21,7 @@ A successful response from the API
 
 ### rsp
 
-• **rsp**: [`ExpandRecursively`](../README.md#expandrecursively)\<\{ `api_key?`: `string` ; `callback`: `string` ; `stat`: ``"ok"``  } & `T`[`M`][``"responseArgs"``]\>
+• **rsp**: [`ExpandRecursively`](../README.md#expandrecursively)\<\{ `api_key?`: `string` ; `callback`: `string` ; `stat`: `"ok"` } & `T`[`M`][``"responseArgs"``]\>
 
 #### Defined in
 

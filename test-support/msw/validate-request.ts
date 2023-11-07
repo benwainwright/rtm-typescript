@@ -14,7 +14,7 @@ export const validateRequest = (request: StrictRequest<DefaultBodyType>) => {
       makeFailureResponse(API_ERROR_CODES.notFound, 'Method "" not found'),
       {
         status: HTTP_STATUS_CODES.ok,
-      }
+      },
     );
   }
 
@@ -23,11 +23,11 @@ export const validateRequest = (request: StrictRequest<DefaultBodyType>) => {
     return HttpResponse.json(
       makeFailureResponse(
         API_ERROR_CODES.missingSignature,
-        "Missing signature"
+        "Missing signature",
       ),
       {
         status: HTTP_STATUS_CODES.ok,
-      }
+      },
     );
   }
 
@@ -35,11 +35,11 @@ export const validateRequest = (request: StrictRequest<DefaultBodyType>) => {
     return HttpResponse.json(
       makeFailureResponse(
         API_ERROR_CODES.invalidSignature,
-        "Invalid signature"
+        "Invalid signature",
       ),
       {
         status: HTTP_STATUS_CODES.ok,
-      }
+      },
     );
   }
 
@@ -49,7 +49,7 @@ export const validateRequest = (request: StrictRequest<DefaultBodyType>) => {
       makeFailureResponse(API_ERROR_CODES.invalidApiKey, "Invalid API Key"),
       {
         status: HTTP_STATUS_CODES.ok,
-      }
+      },
     );
   }
 

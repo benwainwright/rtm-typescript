@@ -4,7 +4,7 @@ import { ApiMethods } from "../../../../src/lib/types";
 
 export const getToken = (
   _request: StrictRequest<DefaultBodyType>,
-  apiKey: string
+  apiKey: string,
 ) => {
   const response: ApiMethods["rtm.tasks.getList"]["responseArgs"] = {
     tasks: {

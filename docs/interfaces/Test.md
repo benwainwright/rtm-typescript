@@ -15,23 +15,23 @@ Methods used for testing the API
 
 ### echo
 
-• **echo**: (`args`: `Record`\<`string`, `string`\>) => `Promise`\<\{ `api_key?`: `string` ; `callback`: `string` ; `method`: `string` ; `stat`: ``"ok"``  }\>
+• **echo**: (`args`: `Record`\<`string`, `string`\>) => `Promise`\<\{ `api_key?`: `string` ; `callback`: `string` ; `method`: `string` ; `stat`: `"ok"` }\>
 
 #### Type declaration
 
-▸ (`args`): `Promise`\<\{ `api_key?`: `string` ; `callback`: `string` ; `method`: `string` ; `stat`: ``"ok"``  }\>
+▸ (`args`): `Promise`\<\{ `api_key?`: `string` ; `callback`: `string` ; `method`: `string` ; `stat`: `"ok"` }\>
 
 A testing method which echos all parameters back in the response.
 
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name   | Type                           |
+| :----- | :----------------------------- |
 | `args` | `Record`\<`string`, `string`\> |
 
 ##### Returns
 
-`Promise`\<\{ `api_key?`: `string` ; `callback`: `string` ; `method`: `string` ; `stat`: ``"ok"``  }\>
+`Promise`\<\{ `api_key?`: `string` ; `callback`: `string` ; `method`: `string` ; `stat`: `"ok"` }\>
 
 [SuccessResponse](SuccessResponse.md)
 
@@ -51,21 +51,21 @@ A testing method which echos all parameters back in the response.
 
 src/lib/types/namespaces/test.ts:20
 
-___
+---
 
 ### login
 
-• **login**: () => `Promise`\<\{ `api_key?`: `string` ; `callback`: `string` ; `stat`: ``"ok"`` ; `user`: \{ id: string; username: string; }  }\>
+• **login**: () => `Promise`\<\{ `api_key?`: `string` ; `callback`: `string` ; `stat`: `"ok"` ; `user`: \{ id: string; username: string; } }\>
 
 #### Type declaration
 
-▸ (): `Promise`\<\{ `api_key?`: `string` ; `callback`: `string` ; `stat`: ``"ok"`` ; `user`: \{ id: string; username: string; }  }\>
+▸ (): `Promise`\<\{ `api_key?`: `string` ; `callback`: `string` ; `stat`: `"ok"` ; `user`: \{ id: string; username: string; } }\>
 
 A testing method which checks if the caller is logged in.
 
 ##### Returns
 
-`Promise`\<\{ `api_key?`: `string` ; `callback`: `string` ; `stat`: ``"ok"`` ; `user`: \{ id: string; username: string; }  }\>
+`Promise`\<\{ `api_key?`: `string` ; `callback`: `string` ; `stat`: `"ok"` ; `user`: \{ id: string; username: string; } }\>
 
 [SuccessResponse](SuccessResponse.md)
 

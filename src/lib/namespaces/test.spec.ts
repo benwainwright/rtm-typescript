@@ -32,6 +32,6 @@ describe("the test namespace", () => {
 
       const response = await test[method as keyof typeof test](params);
       expect(response).toEqual(returnValue);
-    }
+    },
   );
 });

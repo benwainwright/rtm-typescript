@@ -1,6 +1,6 @@
 {
   "extends": "./tsconfig.dist.json",
-  
+
   "compilerOptions": {
     "emitDeclarationOnly": true,
     "outDir": "tmp-declarations",

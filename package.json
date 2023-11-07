@@ -21,6 +21,7 @@
     "build": "tsc --project tsconfig.dist.json && tsconfig-replace-paths --project tsconfig.dist.json && npm run api:prod",
     "lint": "eslint .",
     "types": "tsc --noEmit",
+    "format": "prettier --write .",
     "types:watch": "tsc --noEmit --watch",
     "test": "vitest --config vitest.unit.config.mts --coverage",
     "test:e2e": "vitest --config vitest.e2e.config.mts",

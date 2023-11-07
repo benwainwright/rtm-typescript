@@ -37,6 +37,6 @@ describe("the auth namespace", () => {
 
       const response = await auth[method as keyof typeof auth](params);
       expect(response).toEqual(returnValue);
-    }
+    },
   );
 });

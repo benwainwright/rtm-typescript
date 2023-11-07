@@ -11,7 +11,7 @@ import { makeFailureResponse } from "../../make-failure-response";
 
 export const getToken = (
   request: StrictRequest<DefaultBodyType>,
-  apiKey: string
+  apiKey: string,
 ) => {
   const url = new URL(request.url);
 
@@ -21,7 +21,7 @@ export const getToken = (
       makeFailureResponse(API_ERROR_CODES.invalidFrob, 'Method "" not found'),
       {
         status: HTTP_STATUS_CODES.ok,
-      }
+      },
     );
   }
 
@@ -33,6 +33,6 @@ export const getToken = (
       perms,
       user: MY_TEST_USER,
     }),
-    { status: 200 }
+    { status: 200 },
   );
 };

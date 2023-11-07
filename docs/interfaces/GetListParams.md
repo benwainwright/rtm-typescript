@@ -10,8 +10,8 @@ Parameters that can be sent with rtm.tasks.getList
 
 - [callback](GetListParams.md#callback)
 - [filter](GetListParams.md#filter)
-- [last\_sync](GetListParams.md#last_sync)
-- [list\_id](GetListParams.md#list_id)
+- [last_sync](GetListParams.md#last_sync)
+- [list_id](GetListParams.md#list_id)
 
 ## Properties
 
@@ -25,7 +25,7 @@ Optional callback to wrap JSON response in
 
 src/lib/types/namespaces/tasks.ts:28
 
-___
+---
 
 ### filter
 
@@ -37,11 +37,11 @@ If specified, only tasks matching the desired criteria are returned. See here fo
 
 src/lib/types/namespaces/tasks.ts:18
 
-___
+---
 
-### last\_sync
+### last_sync
 
-• `Optional` **last\_sync**: `string`
+• `Optional` **last_sync**: `string`
 
 An ISO 8601 formatted time value. If last_sync is provided, only tasks modified since last_sync will be returned, and each element will have an attribute, current, equal to last_sync.
 
@@ -49,11 +49,11 @@ An ISO 8601 formatted time value. If last_sync is provided, only tasks modified 
 
 src/lib/types/namespaces/tasks.ts:23
 
-___
+---
 
-### list\_id
+### list_id
 
-• `Optional` **list\_id**: `string`
+• `Optional` **list_id**: `string`
 
 The id of the list to perform an action on.
 

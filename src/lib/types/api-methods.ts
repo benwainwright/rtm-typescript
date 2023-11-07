@@ -12,7 +12,13 @@ export interface ApiMethods {
     requestArgs: Record<string, string>;
     responseArgs: {
       user: {
+        /**
+         * The id of the user
+         */
         id: string;
+        /**
+         * The username of the user
+         */
         username: string;
       };
     } & Record<string, string>;
@@ -26,6 +32,9 @@ export interface ApiMethods {
 
   "rtm.auth.checkToken": {
     requestArgs: {
+      /**
+       * The auth token to check
+       */
       auth_token: string;
     };
     responseArgs: {

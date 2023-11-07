@@ -31,7 +31,7 @@ Methods attached to the rtm.auth namespace
 
 src/lib/types/i-remember-the-milk-api.ts:17
 
-___
+---
 
 ### getAuthUrl
 
@@ -45,8 +45,8 @@ Return a valid authentication URL for the RTM API
 
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name    | Type     |
+| :------ | :------- |
 | `frob?` | `string` |
 
 ##### Returns
@@ -63,7 +63,7 @@ A URL in the form of a string
 
 src/lib/types/i-remember-the-milk-api.ts:36
 
-___
+---
 
 ### tasks
 
@@ -75,7 +75,7 @@ Methods attached to the rtm.tasks namespace
 
 src/lib/types/i-remember-the-milk-api.ts:22
 
-___
+---
 
 ### test
 

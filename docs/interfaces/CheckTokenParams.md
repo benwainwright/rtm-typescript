@@ -8,13 +8,13 @@ Parameters that can be passed with rtm.auth.checkToken
 
 ### Properties
 
-- [auth\_token](CheckTokenParams.md#auth_token)
+- [auth_token](CheckTokenParams.md#auth_token)
 
 ## Properties
 
-### auth\_token
+### auth_token
 
-• **auth\_token**: `string`
+• **auth_token**: `string`
 
 The authentication token to check
 

@@ -12,7 +12,7 @@ export const validateToken = (request: StrictRequest<DefaultBodyType>) => {
       makeFailureResponse(API_ERROR_CODES.invalidToken, "Token not valid"),
       {
         status: HTTP_STATUS_CODES.ok,
-      }
+      },
     );
   }
 
