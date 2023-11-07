@@ -29,7 +29,7 @@ Methods attached to the rtm.auth namespace
 
 #### Defined in
 
-[src/types/i-remember-the-milk-api.ts:17](https://github.com/benwainwright/rtm-typescript/blob/de9f694/src/types/i-remember-the-milk-api.ts#L17)
+src/lib/types/i-remember-the-milk-api.ts:17
 
 ___
 
@@ -61,7 +61,7 @@ A URL in the form of a string
 
 #### Defined in
 
-[src/types/i-remember-the-milk-api.ts:36](https://github.com/benwainwright/rtm-typescript/blob/de9f694/src/types/i-remember-the-milk-api.ts#L36)
+src/lib/types/i-remember-the-milk-api.ts:36
 
 ___
 
@@ -73,7 +73,7 @@ Methods attached to the rtm.tasks namespace
 
 #### Defined in
 
-[src/types/i-remember-the-milk-api.ts:22](https://github.com/benwainwright/rtm-typescript/blob/de9f694/src/types/i-remember-the-milk-api.ts#L22)
+src/lib/types/i-remember-the-milk-api.ts:22
 
 ___
 
@@ -85,4 +85,4 @@ Methods attached to the rtm.test namespace
 
 #### Defined in
 
-[src/types/i-remember-the-milk-api.ts:27](https://github.com/benwainwright/rtm-typescript/blob/de9f694/src/types/i-remember-the-milk-api.ts#L27)
+src/lib/types/i-remember-the-milk-api.ts:27

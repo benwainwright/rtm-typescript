@@ -15,6 +15,7 @@ rtm-typescript
 - [GetListParams](interfaces/GetListParams.md)
 - [GetTokenParams](interfaces/GetTokenParams.md)
 - [IRememberTheMilkApi](interfaces/IRememberTheMilkApi.md)
+- [RtmApiConfig](interfaces/RtmApiConfig.md)
 - [SuccessResponse](interfaces/SuccessResponse.md)
 - [Tasks](interfaces/Tasks.md)
 - [Test](interfaces/Test.md)
@@ -37,7 +38,7 @@ rtm-typescript
 
 ### initialiseApi
 
-▸ **initialiseApi**(`key`, `secret`, `permissions`, `token?`): [`IRememberTheMilkApi`](interfaces/IRememberTheMilkApi.md)
+▸ **initialiseApi**(`config`): [`IRememberTheMilkApi`](interfaces/IRememberTheMilkApi.md)
 
 Entry point to the API. Calling it with valid credentials will initialise and return an instantiated [IRememberTheMilkApi](interfaces/IRememberTheMilkApi.md)
 
@@ -45,10 +46,7 @@ Entry point to the API. Calling it with valid credentials will initialise and re
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `key` | `string` | Remember the Milk API key |
-| `secret` | `string` | Remember the Milk API shared secret |
-| `permissions` | [`ClientPermissions`](enums/ClientPermissions.md) | What permissions your client needs access to on the API |
-| `token?` | `string` | Previously authenticated request token |
+| `config` | [`RtmApiConfig`](interfaces/RtmApiConfig.md) | Configuration object for the API |
 
 #### Returns
 
@@ -57,20 +55,24 @@ Entry point to the API. Calling it with valid credentials will initialise and re
 **`Example`**
 
 ```TypeScript
-import { initialiseApi, ClientPermissions } from "rtm-typescript"
+import { initialiseApi, ClientPermissions } from "rtm-typescript";
 
 // ...some code
 
-const client = initialiseApi("my-key", "my-secret", ClientPermissions.Read)
+const client = initialiseApi({
+  key: "my-key",
+  secret: "my-secret",
+  permissions: ClientPermissions.Read,
+});
 
-const { frob } = await client.auth.getFrob()
+const { frob } = await client.auth.getFrob();
 
-console.log(frob)
+console.log(frob);
 ```
 
 #### Defined in
 
-[src/lib/core/initialise-api.ts:27](https://github.com/benwainwright/rtm-typescript/blob/de9f694/src/lib/core/initialise-api.ts#L27)
+src/lib/core/initialise-api.ts:60
 
 ## Type Aliases
 
@@ -89,4 +91,4 @@ in editor tooltips
 
 #### Defined in
 
-[src/types/expand-recursively.ts:7](https://github.com/benwainwright/rtm-typescript/blob/de9f694/src/types/expand-recursively.ts#L7)
+src/lib/types/expand-recursively.ts:7

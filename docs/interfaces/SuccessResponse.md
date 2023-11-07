@@ -25,4 +25,4 @@ A successful response from the API
 
 #### Defined in
 
-[src/types/responses/success-response.ts:12](https://github.com/benwainwright/rtm-typescript/blob/de9f694/src/types/responses/success-response.ts#L12)
+src/lib/types/responses/success-response.ts:12
