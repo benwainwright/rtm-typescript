@@ -13,6 +13,7 @@ export default defineConfig({
       provider: "istanbul",
       cleanOnRerun: true,
       thresholdAutoUpdate: true,
+      reporter: ["text", "html", "lcov"],
       functions: 100,
       lines: 100,
       statements: 100,
