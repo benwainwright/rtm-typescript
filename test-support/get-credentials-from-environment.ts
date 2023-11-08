@@ -1,4 +1,4 @@
-export const getCredsFromEnvironment = () => {
+export const getCredentialsFromEnvironment = () => {
   const key = process.env["RTM_API_KEY"];
   if (!key) {
     throw new Error("E2E Test misconfigured: Missing API key");
