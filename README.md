@@ -19,7 +19,7 @@ back later...
 
 ### API Request Throttling
 
-To avoid hitting the RTM Api [rate limit](https://www.rememberthemilk.com/services/api/ratelimit.rtm), this client will throttle requests to once per second. If you wish to disable this behaviour, set `throttle` to `true` in the configuration object.
+To avoid hitting the RTM Api [rate limit](https://www.rememberthemilk.com/services/api/ratelimit.rtm), this client will throttle requests to once per second. If you wish to disable this behaviour, set `throttle` to `false` in the configuration object.
 
 ## Usage
 
