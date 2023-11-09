@@ -57,7 +57,7 @@ Thrown if the API returns an error response
 
 #### Defined in
 
-src/lib/errors/rtm-api-failed-response-error.ts:24
+[src/lib/errors/rtm-api-failed-response-error.ts:24](https://github.com/benwainwright/rtm-typescript/blob/566fc76/src/lib/errors/rtm-api-failed-response-error.ts#L24)
 
 ## Methods
 
@@ -110,7 +110,7 @@ The response code returned from the RTM Api
 
 #### Defined in
 
-src/lib/errors/rtm-api-failed-response-error.ts:13
+[src/lib/errors/rtm-api-failed-response-error.ts:13](https://github.com/benwainwright/rtm-typescript/blob/566fc76/src/lib/errors/rtm-api-failed-response-error.ts#L13)
 
 ___
 
@@ -126,7 +126,7 @@ The error message returned from the RTM Api
 
 #### Defined in
 
-src/lib/errors/rtm-api-failed-response-error.ts:18
+[src/lib/errors/rtm-api-failed-response-error.ts:18](https://github.com/benwainwright/rtm-typescript/blob/566fc76/src/lib/errors/rtm-api-failed-response-error.ts#L18)
 
 ___
 

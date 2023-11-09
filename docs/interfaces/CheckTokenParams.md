@@ -20,4 +20,4 @@ The authentication token to check
 
 #### Defined in
 
-src/lib/types/namespaces/auth.ts:13
+[src/lib/types/namespaces/auth.ts:13](https://github.com/benwainwright/rtm-typescript/blob/566fc76/src/lib/types/namespaces/auth.ts#L13)

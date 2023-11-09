@@ -74,7 +74,7 @@ Entry point to the API. Calling it with valid credentials will initialise and re
 
 #### Defined in
 
-src/lib/core/initialise-api.ts:63
+[src/lib/core/initialise-api.ts:63](https://github.com/benwainwright/rtm-typescript/blob/566fc76/src/lib/core/initialise-api.ts#L63)
 
 ## Type Aliases
 
@@ -93,4 +93,4 @@ in editor tooltips
 
 #### Defined in
 
-src/lib/types/expand-recursively.ts:7
+[src/lib/types/expand-recursively.ts:7](https://github.com/benwainwright/rtm-typescript/blob/566fc76/src/lib/types/expand-recursively.ts#L7)

@@ -23,7 +23,7 @@ Gives the ability to delete tasks, contacts, groups and lists (also allows you t
 
 #### Defined in
 
-src/lib/types/permissions.ts:21
+[src/lib/types/permissions.ts:21](https://github.com/benwainwright/rtm-typescript/blob/566fc76/src/lib/types/permissions.ts#L21)
 
 ___
 
@@ -35,7 +35,7 @@ Gives the ability to read task, contact, group and list details and contents.
 
 #### Defined in
 
-src/lib/types/permissions.ts:11
+[src/lib/types/permissions.ts:11](https://github.com/benwainwright/rtm-typescript/blob/566fc76/src/lib/types/permissions.ts#L11)
 
 ___
 
@@ -47,4 +47,4 @@ Gives the ability to add and modify task, contact, group and list details and co
 
 #### Defined in
 
-src/lib/types/permissions.ts:16
+[src/lib/types/permissions.ts:16](https://github.com/benwainwright/rtm-typescript/blob/566fc76/src/lib/types/permissions.ts#L16)
