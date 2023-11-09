@@ -70,7 +70,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        check: [api, build, lint, check-docs, build]
+        check: [api, lint, check-docs, build]
 
     steps:
       - uses: actions/checkout@v3
