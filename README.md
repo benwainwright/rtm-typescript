@@ -2,6 +2,9 @@
 
 _WARNING: THIS PACKAGE IS NOT READY FOR CONSUMPTION YET. USE AT YOUR OWN RISK_
 
+![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/benwainwright/rtm-typescript/main.yml)
+
+
 ## Install
 
 ```
