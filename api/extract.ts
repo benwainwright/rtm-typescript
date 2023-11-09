@@ -10,23 +10,10 @@ const apiExtractorJsonPath: string = path.join(
   "../api-extractor.json",
 );
 
-const [, , entryPoint] = process.argv;
-
 const extractorConfig: ExtractorConfig =
   ExtractorConfig.loadFileAndPrepare(apiExtractorJsonPath);
 
-const newConfig = Object.assign(
-  Object.create(Object.getPrototypeOf(extractorConfig) as object),
-  {
-    ...extractorConfig,
-    mainEntryPointFilePath: entryPoint.replace(
-      "<projectFolder>",
-      process.cwd(),
-    ),
-  },
-) as ExtractorConfig;
-
-const extractorResult: ExtractorResult = Extractor.invoke(newConfig, {
+const extractorResult: ExtractorResult = Extractor.invoke(extractorConfig, {
   localBuild: true,
   showVerboseMessages: true,
 });

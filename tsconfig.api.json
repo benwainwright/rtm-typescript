@@ -3,8 +3,9 @@
 
   "compilerOptions": {
     "emitDeclarationOnly": true,
-    "outDir": "tmp-declarations",
-    "declarationDir": "tmp-declarations/dts",
+    "declaration": true,
+    "outDir": "dist",
+    "declarationDir": "dist/dts",
     "isolatedModules": true
   },
   "$schema": "https://json.schemastore.org/tsconfig"

@@ -8,12 +8,7 @@
     "api/dummy.d.ts",
     "test-support/**/*",
     "**/*.js",
-    "dist/**/*",
-    "tmp-declarations/**/*"
+    "dist/**/*"
   ],
-  "compilerOptions": {
-    "declaration": true,
-    "declarationDir": "dist/dts"
-  },
   "$schema": "https://json.schemastore.org/tsconfig"
 }

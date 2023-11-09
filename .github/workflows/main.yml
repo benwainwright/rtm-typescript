@@ -64,6 +64,9 @@ jobs:
       - name: Setup job
         uses: ./.github/actions/install-dependencies
 
+      - name: Generate API
+        run: npm run api
+
       - name: Build Package
         run: npm run build
 
