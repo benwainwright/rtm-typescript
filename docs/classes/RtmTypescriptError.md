@@ -41,8 +41,8 @@ Base error type thrown by this package
 
 #### Parameters
 
-| Name       | Type     |
-| :--------- | :------- |
+| Name | Type |
+| :------ | :------ |
 | `message?` | `string` |
 
 #### Returns
@@ -61,9 +61,9 @@ node_modules/typescript/lib/lib.es5.d.ts:1073
 
 #### Parameters
 
-| Name       | Type           |
-| :--------- | :------------- |
-| `message?` | `string`       |
+| Name | Type |
+| :------ | :------ |
+| `message?` | `string` |
 | `options?` | `ErrorOptions` |
 
 #### Returns
@@ -88,9 +88,9 @@ Create .stack property on a target object
 
 #### Parameters
 
-| Name              | Type       |
-| :---------------- | :--------- |
-| `targetObject`    | `object`   |
+| Name | Type |
+| :------ | :------ |
+| `targetObject` | `object` |
 | `constructorOpt?` | `Function` |
 
 #### Returns
@@ -119,7 +119,7 @@ Error.cause
 
 node_modules/typescript/lib/lib.es2022.error.d.ts:24
 
----
+___
 
 ### message
 
@@ -133,7 +133,7 @@ Error.message
 
 node_modules/typescript/lib/lib.es5.d.ts:1068
 
----
+___
 
 ### name
 
@@ -147,7 +147,7 @@ Error.name
 
 node_modules/typescript/lib/lib.es5.d.ts:1067
 
----
+___
 
 ### stack
 
@@ -161,7 +161,7 @@ Error.stack
 
 node_modules/typescript/lib/lib.es5.d.ts:1069
 
----
+___
 
 ### prepareStackTrace
 
@@ -175,9 +175,9 @@ Optional override for formatting stack traces
 
 ##### Parameters
 
-| Name          | Type         |
-| :------------ | :----------- |
-| `err`         | `Error`      |
+| Name | Type |
+| :------ | :------ |
+| `err` | `Error` |
 | `stackTraces` | `CallSite`[] |
 
 ##### Returns
@@ -196,7 +196,7 @@ Error.prepareStackTrace
 
 node_modules/@types/node/globals.d.ts:11
 
----
+___
 
 ### stackTraceLimit
 

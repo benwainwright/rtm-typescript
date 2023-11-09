@@ -39,10 +39,10 @@ Raised when the API returns a non 200 HTTP response
 
 #### Parameters
 
-| Name         | Type     | Description                            |
-| :----------- | :------- | :------------------------------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `statusCode` | `number` | The HTTP status code that was returned |
-| `body`       | `string` | The response body of the error message |
+| `body` | `string` | The response body of the error message |
 
 #### Returns
 
@@ -54,7 +54,7 @@ Raised when the API returns a non 200 HTTP response
 
 #### Defined in
 
-src/lib/errors/rtm-http-error.ts:22
+[src/lib/errors/rtm-http-error.ts:22](https://github.com/benwainwright/rtm-typescript/blob/57c8754/src/lib/errors/rtm-http-error.ts#L22)
 
 ## Methods
 
@@ -66,9 +66,9 @@ Create .stack property on a target object
 
 #### Parameters
 
-| Name              | Type       |
-| :---------------- | :--------- |
-| `targetObject`    | `object`   |
+| Name | Type |
+| :------ | :------ |
+| `targetObject` | `object` |
 | `constructorOpt?` | `Function` |
 
 #### Returns
@@ -93,9 +93,9 @@ The response body of the error message
 
 #### Defined in
 
-src/lib/errors/rtm-http-error.ts:17
+[src/lib/errors/rtm-http-error.ts:17](https://github.com/benwainwright/rtm-typescript/blob/57c8754/src/lib/errors/rtm-http-error.ts#L17)
 
----
+___
 
 ### cause
 
@@ -109,7 +109,7 @@ src/lib/errors/rtm-http-error.ts:17
 
 node_modules/typescript/lib/lib.es2022.error.d.ts:24
 
----
+___
 
 ### message
 
@@ -123,7 +123,7 @@ node_modules/typescript/lib/lib.es2022.error.d.ts:24
 
 node_modules/typescript/lib/lib.es5.d.ts:1068
 
----
+___
 
 ### name
 
@@ -137,7 +137,7 @@ node_modules/typescript/lib/lib.es5.d.ts:1068
 
 node_modules/typescript/lib/lib.es5.d.ts:1067
 
----
+___
 
 ### stack
 
@@ -151,7 +151,7 @@ node_modules/typescript/lib/lib.es5.d.ts:1067
 
 node_modules/typescript/lib/lib.es5.d.ts:1069
 
----
+___
 
 ### statusCode
 
@@ -161,9 +161,9 @@ The HTTP status code that was returned
 
 #### Defined in
 
-src/lib/errors/rtm-http-error.ts:12
+[src/lib/errors/rtm-http-error.ts:12](https://github.com/benwainwright/rtm-typescript/blob/57c8754/src/lib/errors/rtm-http-error.ts#L12)
 
----
+___
 
 ### prepareStackTrace
 
@@ -177,9 +177,9 @@ Optional override for formatting stack traces
 
 ##### Parameters
 
-| Name          | Type         |
-| :------------ | :----------- |
-| `err`         | `Error`      |
+| Name | Type |
+| :------ | :------ |
+| `err` | `Error` |
 | `stackTraces` | `CallSite`[] |
 
 ##### Returns
@@ -198,7 +198,7 @@ https://v8.dev/docs/stack-trace-api#customizing-stack-traces
 
 node_modules/@types/node/globals.d.ts:11
 
----
+___
 
 ### stackTraceLimit
 

@@ -16,23 +16,23 @@ Authentication methods
 
 ### checkToken
 
-• **checkToken**: (`args`: [`CheckTokenParams`](CheckTokenParams.md)) => `Promise`\<\{ `api_key?`: `string` ; `auth`: \{ token: string; perms: string; user: \{ id: string; username: string; fullname: string; }; } ; `callback`: `string` ; `stat`: `"ok"` }\>
+• **checkToken**: (`args`: [`CheckTokenParams`](CheckTokenParams.md)) => `Promise`\<\{ `api_key?`: `string` ; `auth`: \{ token: string; perms: string; user: \{ id: string; username: string; fullname: string; }; } ; `callback`: `string` ; `stat`: ``"ok"``  }\>
 
 #### Type declaration
 
-▸ (`args`): `Promise`\<\{ `api_key?`: `string` ; `auth`: \{ token: string; perms: string; user: \{ id: string; username: string; fullname: string; }; } ; `callback`: `string` ; `stat`: `"ok"` }\>
+▸ (`args`): `Promise`\<\{ `api_key?`: `string` ; `auth`: \{ token: string; perms: string; user: \{ id: string; username: string; fullname: string; }; } ; `callback`: `string` ; `stat`: ``"ok"``  }\>
 
 Returns the credentials attached to an authentication token.
 
 ##### Parameters
 
-| Name   | Type                                      |
-| :----- | :---------------------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `args` | [`CheckTokenParams`](CheckTokenParams.md) |
 
 ##### Returns
 
-`Promise`\<\{ `api_key?`: `string` ; `auth`: \{ token: string; perms: string; user: \{ id: string; username: string; fullname: string; }; } ; `callback`: `string` ; `stat`: `"ok"` }\>
+`Promise`\<\{ `api_key?`: `string` ; `auth`: \{ token: string; perms: string; user: \{ id: string; username: string; fullname: string; }; } ; `callback`: `string` ; `stat`: ``"ok"``  }\>
 
 [SuccessResponse](SuccessResponse.md)
 
@@ -50,23 +50,23 @@ Returns the credentials attached to an authentication token.
 
 #### Defined in
 
-src/lib/types/namespaces/auth.ts:44
+[src/lib/types/namespaces/auth.ts:44](https://github.com/benwainwright/rtm-typescript/blob/57c8754/src/lib/types/namespaces/auth.ts#L44)
 
----
+___
 
 ### getFrob
 
-• **getFrob**: () => `Promise`\<\{ `api_key?`: `string` ; `callback`: `string` ; `frob`: `string` ; `stat`: `"ok"` }\>
+• **getFrob**: () => `Promise`\<\{ `api_key?`: `string` ; `callback`: `string` ; `frob`: `string` ; `stat`: ``"ok"``  }\>
 
 #### Type declaration
 
-▸ (): `Promise`\<\{ `api_key?`: `string` ; `callback`: `string` ; `frob`: `string` ; `stat`: `"ok"` }\>
+▸ (): `Promise`\<\{ `api_key?`: `string` ; `callback`: `string` ; `frob`: `string` ; `stat`: ``"ok"``  }\>
 
 Returns a frob for use during authentication
 
 ##### Returns
 
-`Promise`\<\{ `api_key?`: `string` ; `callback`: `string` ; `frob`: `string` ; `stat`: `"ok"` }\>
+`Promise`\<\{ `api_key?`: `string` ; `callback`: `string` ; `frob`: `string` ; `stat`: ``"ok"``  }\>
 
 Remember the milk API response
 
@@ -84,29 +84,29 @@ Remember the milk API response
 
 #### Defined in
 
-src/lib/types/namespaces/auth.ts:72
+[src/lib/types/namespaces/auth.ts:72](https://github.com/benwainwright/rtm-typescript/blob/57c8754/src/lib/types/namespaces/auth.ts#L72)
 
----
+___
 
 ### getToken
 
-• **getToken**: (`args`: [`GetTokenParams`](GetTokenParams.md)) => `Promise`\<\{ `api_key?`: `string` ; `auth`: \{ token: string; perms: string; user: \{ id: string; username: string; fullname: string; }; } ; `callback`: `string` ; `stat`: `"ok"` }\>
+• **getToken**: (`args`: [`GetTokenParams`](GetTokenParams.md)) => `Promise`\<\{ `api_key?`: `string` ; `auth`: \{ token: string; perms: string; user: \{ id: string; username: string; fullname: string; }; } ; `callback`: `string` ; `stat`: ``"ok"``  }\>
 
 #### Type declaration
 
-▸ (`args`): `Promise`\<\{ `api_key?`: `string` ; `auth`: \{ token: string; perms: string; user: \{ id: string; username: string; fullname: string; }; } ; `callback`: `string` ; `stat`: `"ok"` }\>
+▸ (`args`): `Promise`\<\{ `api_key?`: `string` ; `auth`: \{ token: string; perms: string; user: \{ id: string; username: string; fullname: string; }; } ; `callback`: `string` ; `stat`: ``"ok"``  }\>
 
 Returns the auth token for the given frob, if one has been attached.
 
 ##### Parameters
 
-| Name   | Type                                  |
-| :----- | :------------------------------------ |
+| Name | Type |
+| :------ | :------ |
 | `args` | [`GetTokenParams`](GetTokenParams.md) |
 
 ##### Returns
 
-`Promise`\<\{ `api_key?`: `string` ; `auth`: \{ token: string; perms: string; user: \{ id: string; username: string; fullname: string; }; } ; `callback`: `string` ; `stat`: `"ok"` }\>
+`Promise`\<\{ `api_key?`: `string` ; `auth`: \{ token: string; perms: string; user: \{ id: string; username: string; fullname: string; }; } ; `callback`: `string` ; `stat`: ``"ok"``  }\>
 
 [SuccessResponse](SuccessResponse.md)
 
@@ -124,4 +124,4 @@ Returns the auth token for the given frob, if one has been attached.
 
 #### Defined in
 
-src/lib/types/namespaces/auth.ts:58
+[src/lib/types/namespaces/auth.ts:58](https://github.com/benwainwright/rtm-typescript/blob/57c8754/src/lib/types/namespaces/auth.ts#L58)

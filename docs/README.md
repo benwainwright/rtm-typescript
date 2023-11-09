@@ -44,8 +44,8 @@ Entry point to the API. Calling it with valid credentials will initialise and re
 
 #### Parameters
 
-| Name     | Type                                         | Description                      |
-| :------- | :------------------------------------------- | :------------------------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `config` | [`RtmApiConfig`](interfaces/RtmApiConfig.md) | Configuration object for the API |
 
 #### Returns
@@ -72,7 +72,7 @@ console.log(frob);
 
 #### Defined in
 
-src/lib/core/initialise-api.ts:60
+[src/lib/core/initialise-api.ts:62](https://github.com/benwainwright/rtm-typescript/blob/57c8754/src/lib/core/initialise-api.ts#L62)
 
 ## Type Aliases
 
@@ -86,9 +86,9 @@ in editor tooltips
 #### Type parameters
 
 | Name |
-| :--- |
-| `T`  |
+| :------ |
+| `T` |
 
 #### Defined in
 
-src/lib/types/expand-recursively.ts:7
+[src/lib/types/expand-recursively.ts:7](https://github.com/benwainwright/rtm-typescript/blob/57c8754/src/lib/types/expand-recursively.ts#L7)

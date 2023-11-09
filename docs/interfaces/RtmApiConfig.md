@@ -24,9 +24,9 @@ Remember the Milk API key
 
 #### Defined in
 
-src/lib/core/initialise-api.ts:14
+[src/lib/core/initialise-api.ts:14](https://github.com/benwainwright/rtm-typescript/blob/57c8754/src/lib/core/initialise-api.ts#L14)
 
----
+___
 
 ### permissions
 
@@ -36,9 +36,9 @@ What permissions your client needs access to on the API
 
 #### Defined in
 
-src/lib/core/initialise-api.ts:24
+[src/lib/core/initialise-api.ts:24](https://github.com/benwainwright/rtm-typescript/blob/57c8754/src/lib/core/initialise-api.ts#L24)
 
----
+___
 
 ### secret
 
@@ -48,9 +48,9 @@ Remember the Milk API shared secret
 
 #### Defined in
 
-src/lib/core/initialise-api.ts:19
+[src/lib/core/initialise-api.ts:19](https://github.com/benwainwright/rtm-typescript/blob/57c8754/src/lib/core/initialise-api.ts#L19)
 
----
+___
 
 ### throttle
 
@@ -58,11 +58,17 @@ src/lib/core/initialise-api.ts:19
 
 Throttle requests to the API to avoid hitting rate limits
 
+**`Default`**
+
+```ts
+true
+```
+
 #### Defined in
 
-src/lib/core/initialise-api.ts:34
+[src/lib/core/initialise-api.ts:36](https://github.com/benwainwright/rtm-typescript/blob/57c8754/src/lib/core/initialise-api.ts#L36)
 
----
+___
 
 ### token
 
@@ -72,4 +78,4 @@ Previously authenticated request token
 
 #### Defined in
 
-src/lib/core/initialise-api.ts:29
+[src/lib/core/initialise-api.ts:29](https://github.com/benwainwright/rtm-typescript/blob/57c8754/src/lib/core/initialise-api.ts#L29)

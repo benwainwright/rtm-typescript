@@ -14,11 +14,11 @@ API methods related to tasks
 
 ### getList
 
-• **getList**: (`params`: [`GetListParams`](GetListParams.md)) => `Promise`\<\{ `api_key?`: `string` ; `callback`: `string` ; `stat`: `"ok"` ; `tasks`: \{ list: \{ id: string; taskseries: \{ id: string; created: string; modified: string; name: string; source: string; url: string; location_id: string; tags: \{ tag: string[]; }; participants: never[]; notes: \{ note: \{ ...; }[]; }; task: \{ ...; }[] \| undefined; }[]; }[]; } }\>
+• **getList**: (`params`: [`GetListParams`](GetListParams.md)) => `Promise`\<\{ `api_key?`: `string` ; `callback`: `string` ; `stat`: ``"ok"`` ; `tasks`: \{ list: \{ id: string; taskseries: \{ id: string; created: string; modified: string; name: string; source: string; url: string; location\_id: string; tags: \{ tag: string[]; }; participants: never[]; notes: \{ note: \{ ...; }[]; }; task: \{ ...; }[] \| undefined; }[]; }[]; }  }\>
 
 #### Type declaration
 
-▸ (`params`): `Promise`\<\{ `api_key?`: `string` ; `callback`: `string` ; `stat`: `"ok"` ; `tasks`: \{ list: \{ id: string; taskseries: \{ id: string; created: string; modified: string; name: string; source: string; url: string; location_id: string; tags: \{ tag: string[]; }; participants: never[]; notes: \{ note: \{ ...; }[]; }; task: \{ ...; }[] \| undefined; }[]; }[]; } }\>
+▸ (`params`): `Promise`\<\{ `api_key?`: `string` ; `callback`: `string` ; `stat`: ``"ok"`` ; `tasks`: \{ list: \{ id: string; taskseries: \{ id: string; created: string; modified: string; name: string; source: string; url: string; location\_id: string; tags: \{ tag: string[]; }; participants: never[]; notes: \{ note: \{ ...; }[]; }; task: \{ ...; }[] \| undefined; }[]; }[]; }  }\>
 
 Retrieves a list of tasks.
 
@@ -27,13 +27,13 @@ If last_sync is provided, only tasks modified since last_sync will be returned, 
 
 ##### Parameters
 
-| Name     | Type                                |
-| :------- | :---------------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `params` | [`GetListParams`](GetListParams.md) |
 
 ##### Returns
 
-`Promise`\<\{ `api_key?`: `string` ; `callback`: `string` ; `stat`: `"ok"` ; `tasks`: \{ list: \{ id: string; taskseries: \{ id: string; created: string; modified: string; name: string; source: string; url: string; location_id: string; tags: \{ tag: string[]; }; participants: never[]; notes: \{ note: \{ ...; }[]; }; task: \{ ...; }[] \| undefined; }[]; }[]; } }\>
+`Promise`\<\{ `api_key?`: `string` ; `callback`: `string` ; `stat`: ``"ok"`` ; `tasks`: \{ list: \{ id: string; taskseries: \{ id: string; created: string; modified: string; name: string; source: string; url: string; location\_id: string; tags: \{ tag: string[]; }; participants: never[]; notes: \{ note: \{ ...; }[]; }; task: \{ ...; }[] \| undefined; }[]; }[]; }  }\>
 
 [SuccessResponse](SuccessResponse.md)
 
@@ -47,4 +47,4 @@ If last_sync is provided, only tasks modified since last_sync will be returned, 
 
 #### Defined in
 
-src/lib/types/namespaces/tasks.ts:47
+[src/lib/types/namespaces/tasks.ts:47](https://github.com/benwainwright/rtm-typescript/blob/57c8754/src/lib/types/namespaces/tasks.ts#L47)
