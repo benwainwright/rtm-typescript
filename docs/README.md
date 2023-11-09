@@ -44,8 +44,8 @@ Entry point to the API. Calling it with valid credentials will initialise and re
 
 #### Parameters
 
-| Name     | Type                                         | Description                      |
-| :------- | :------------------------------------------- | :------------------------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `config` | [`RtmApiConfig`](interfaces/RtmApiConfig.md) | Configuration object for the API |
 
 #### Returns
@@ -88,8 +88,8 @@ in editor tooltips
 #### Type parameters
 
 | Name |
-| :--- |
-| `T`  |
+| :------ |
+| `T` |
 
 #### Defined in
 
