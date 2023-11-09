@@ -4,14 +4,14 @@
   "files": [
     "docs/**",
     "dist/index.js",
+    "dist/index.d.ts",
     "dist/src/index.js",
     "dist/src/lib",
-    "dist/src/types",
-    "dist/rtm-typescript.d.ts"
+    "dist/src/types"
   ],
   "description": "Strongly typed SDK client for the Remember the Milk API",
   "main": "dist/index.js",
-  "typings": "dist/rtm-typescript.d.ts",
+  "typings": "dist/index.d.ts",
   "author": "Ben Wainwright",
   "repository": {
     "url": "https://github.com/benwainwright/rtm-typescript",
@@ -38,6 +38,7 @@
     "@commitlint/config-conventional": "18.1.0",
     "@microsoft/api-extractor": "7.38.2",
     "@types/jest-when": "3.5.4",
+    "@types/lint-staged": "^13.2.2",
     "@typescript-eslint/eslint-plugin": "^6.10.0",
     "@vitest/coverage-istanbul": "0.34.6",
     "@vitest/ui": "0.34.6",
@@ -46,8 +47,10 @@
     "eslint-plugin-import": "^2.29.0",
     "husky": "8.0.3",
     "jest-when": "3.6.0",
+    "lint-staged": "^15.0.2",
     "msw": "2.0.1",
     "prettier": "3.0.3",
+    "tsc-files": "^1.1.4",
     "tsconfig-replace-paths": "^0.0.14",
     "typedoc": "0.25.3",
     "typedoc-plugin-markdown": "3.17.0",

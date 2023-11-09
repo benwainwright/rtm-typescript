@@ -2,3 +2,5 @@ dist
 docs
 coverage
 tmp-declarations
+api
+temp

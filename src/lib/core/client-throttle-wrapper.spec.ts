@@ -13,7 +13,7 @@ beforeEach(() => {
 });
 
 describe("ClientThrottleWrapper", () => {
-  it("passes the calls to the throttled executor", async () => {
+  it("passes calls to the throttled executor", async () => {
     const mockClient = mock<InternalClient>();
     const wrapper = new ClientThrottleWrapper(mockClient, 1000);
 
