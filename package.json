@@ -20,7 +20,7 @@
   "license": "MIT",
   "scripts": {
     "api": "rm -rf dist && tsc --project tsconfig.api.json && tsconfig-replace-paths --project tsconfig.api.json && vite-node ./api/extract.ts",
-    "build": "rm -rf dist && tsc --project tsconfig.dist.json && tsconfig-replace-paths",
+    "build": "rm -rf dist && npm run api && tsc --project tsconfig.dist.json && tsconfig-replace-paths",
     "docs": "typedoc src/index.ts",
     "lint": "eslint .",
     "types": "tsc --noEmit",
