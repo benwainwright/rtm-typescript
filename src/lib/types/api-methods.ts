@@ -1,5 +1,5 @@
-import { TaskList } from "./task-list";
-import { User } from "./domain-objects/user";
+import { RawTaskList } from "./task-list";
+import { RawUser } from "./domain-objects/user";
 
 /**
  * A simple typed description of the RTM api surface. This interface
@@ -20,6 +20,7 @@ export interface ApiMethods {
          * The username of the user
          */
         username: string;
+        fullname: string;
       };
     } & Record<string, string>;
   };
@@ -41,7 +42,7 @@ export interface ApiMethods {
       auth: {
         token: string;
         perms: string;
-        user: User;
+        user: RawUser;
       };
     };
   };
@@ -53,7 +54,7 @@ export interface ApiMethods {
       auth: {
         token: string;
         perms: string;
-        user: User;
+        user: RawUser;
       };
     };
   };
@@ -72,7 +73,7 @@ export interface ApiMethods {
     };
     responseArgs: {
       tasks: {
-        list: TaskList[];
+        list: RawTaskList[];
       };
     };
   };

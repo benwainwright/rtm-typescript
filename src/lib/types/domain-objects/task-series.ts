@@ -1,7 +1,7 @@
 import { Note } from "./note";
-import { Task } from "./task";
+import { RawTask } from "./task";
 
-export interface TaskSeries {
+export interface RawTaskSeries {
   id: string;
   created: string;
   modified: string;
@@ -12,5 +12,5 @@ export interface TaskSeries {
   tags: { tag: string[] };
   participants: never[];
   notes: { note: Note[] };
-  task: Task[] | undefined;
+  task: RawTask[] | undefined;
 }

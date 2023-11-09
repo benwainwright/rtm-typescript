@@ -6,7 +6,7 @@ export { ClientPermissions } from "./permissions";
 export type { ConvertApiDescription } from "./convert-api-description";
 export type { IRememberTheMilkApi } from "./i-remember-the-milk-api";
 export type { FailResponse, SuccessResponse } from "./responses";
-export type { TaskList } from "./task-list";
+export type { RawTaskList as TaskList } from "./task-list";
 export type { Note, TaskSeries, Task, User } from "./domain-objects";
 export type { ExpandRecursively } from "./expand-recursively";
 

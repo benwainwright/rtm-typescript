@@ -1,4 +1,4 @@
-export interface Task {
+export interface RawTask {
   id: string;
   due: string;
   has_due_time: string;

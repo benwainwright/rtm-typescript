@@ -1,6 +1,6 @@
-import { TaskSeries } from "./domain-objects/task-series";
+import { RawTaskSeries } from "./domain-objects/task-series";
 
-export interface TaskList {
+export interface RawTaskList {
   id: string;
-  taskseries: TaskSeries[];
+  taskseries: RawTaskSeries[];
 }
