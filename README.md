@@ -14,7 +14,7 @@ npm install rtm-typescript
 ## Features
 
 This package currently only supports a few of the RTM API methods. Please come
-back later.
+back later...
 
 ### API Request Throttling
 
