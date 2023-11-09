@@ -13,20 +13,42 @@ on:
     branches: ["main"]
 
 jobs:
-  test:
+  test-18:
     runs-on: ubuntu-latest
-    name: Run unit tests
-    strategy:
-      fail-fast: false
-      matrix:
-        node-version: ["18.x", "20.x", "21.x"]
+    name: Run unit tests for Node 18.x
     steps:
       - uses: actions/checkout@v3
       - name: Setup job
         uses: ./.github/actions/install-dependencies
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 18.x
       - run: npm run test
+
+  test-20:
+    runs-on: ubuntu-latest
+    name: Run unit tests for Node 20.x
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup job
+        uses: ./.github/actions/install-dependencies
+        with:
+          node-version: 20.x
+      - run: npm run test
+
+  test-21:
+    runs-on: ubuntu-latest
+    name: Run unit tests for Node 21.x
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup job
+        uses: ./.github/actions/install-dependencies
+        with:
+          node-version: 21.x
+      - run: npm run test
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
   e2e-test:
     runs-on: ubuntu-latest
@@ -46,7 +68,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        check: [api, build, lint]
+        check: [api, build, lint, test-18, test-20, test-21]
 
     steps:
       - uses: actions/checkout@v3
