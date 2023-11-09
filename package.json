@@ -21,8 +21,8 @@
   "scripts": {
     "api": "rm -rf dist && tsc --project tsconfig.api.json && tsconfig-replace-paths --project tsconfig.api.json && vite-node ./api/extract.ts",
     "build": "rm -rf dist && npm run api && tsc --project tsconfig.dist.json && tsconfig-replace-paths",
-    "docs": "typedoc src/index.ts && npm run compile-docs",
-    "compile-docs": "vite-node ./tools/check-docs.ts",
+    "docs": "typedoc src/index.ts",
+    "check-docs": "npm run build && npm run docs && vite-node ./tools/check-docs.ts",
     "lint": "eslint .",
     "types": "tsc --noEmit",
     "format": "prettier --write .",
