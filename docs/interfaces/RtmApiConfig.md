@@ -26,7 +26,7 @@ Remember the Milk API key
 
 src/lib/core/initialise-api.ts:14
 
-___
+---
 
 ### permissions
 
@@ -38,7 +38,7 @@ What permissions your client needs access to on the API
 
 src/lib/core/initialise-api.ts:24
 
-___
+---
 
 ### secret
 
@@ -50,7 +50,7 @@ Remember the Milk API shared secret
 
 src/lib/core/initialise-api.ts:19
 
-___
+---
 
 ### throttle
 
@@ -58,17 +58,11 @@ ___
 
 Throttle requests to the API to avoid hitting rate limits
 
-**`Default`**
-
-```ts
-true
-```
-
 #### Defined in
 
-src/lib/core/initialise-api.ts:36
+src/lib/core/initialise-api.ts:35
 
-___
+---
 
 ### token
 

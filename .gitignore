@@ -5,3 +5,4 @@ temp
 tmp-declarations
 tsdoc-metadata.json
 .DS_Store
+.tmp-compiled-docs

@@ -4,7 +4,6 @@ module.exports = {
     "tsc-files --noEmit",
     "prettier --write",
     () => "npm run test",
-    "npm run api",
   ],
   "*.js": [
     "node_modules/.bin/eslint",
@@ -13,7 +12,7 @@ module.exports = {
   ],
   "*.md": (files) => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
-    const fileList = `${files.join('" "')}`;
+    const fileList = `${files.join(" ")}`;
     return [
       `node_modules/.bin/eslint ${fileList}`,
       `tsc-files --noEmit ${fileList}`,

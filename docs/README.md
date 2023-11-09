@@ -44,8 +44,8 @@ Entry point to the API. Calling it with valid credentials will initialise and re
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
+| Name     | Type                                         | Description                      |
+| :------- | :------------------------------------------- | :------------------------------- |
 | `config` | [`RtmApiConfig`](interfaces/RtmApiConfig.md) | Configuration object for the API |
 
 #### Returns
@@ -68,13 +68,13 @@ Entry point to the API. Calling it with valid credentials will initialise and re
      permissions: ClientPermissions.Read,
    });
 
-   const result = await client.tasks.getList();
+   const result = await client.tasks.getList({ list_id: "2"});
  }
 ```
 
 #### Defined in
 
-src/lib/core/initialise-api.ts:64
+src/lib/core/initialise-api.ts:63
 
 ## Type Aliases
 
@@ -88,8 +88,8 @@ in editor tooltips
 #### Type parameters
 
 | Name |
-| :------ |
-| `T` |
+| :--- |
+| `T`  |
 
 #### Defined in
 

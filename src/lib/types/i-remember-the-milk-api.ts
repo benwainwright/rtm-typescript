@@ -18,7 +18,7 @@ import { Auth, Tasks, Test } from "./namespaces";
  *     permissions: ClientPermissions.Read,
  *   });
  *
- *   const result = await client.tasks.getList();
+ *   const result = await client.tasks.getList({ list_id: "2"});
  * }
  *
  * ```
