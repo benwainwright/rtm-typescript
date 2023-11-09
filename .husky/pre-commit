@@ -4,4 +4,4 @@
 npm run types
 npm run lint
 npm test
-npm run api-check
+npm run api
