@@ -44,6 +44,8 @@ jobs:
         uses: ./.github/actions/install-dependencies
         with:
           node-version: 21.x
+      - name: Run unit tests
+        run: npm run test
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
