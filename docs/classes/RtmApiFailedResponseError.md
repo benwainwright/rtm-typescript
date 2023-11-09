@@ -42,9 +42,9 @@ Thrown if the API returns an error response
 
 #### Parameters
 
-| Name      | Type     | Description                                 |
-| :-------- | :------- | :------------------------------------------ |
-| `code`    | `number` | The response code returned from the RTM Api |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `code` | `number` | The response code returned from the RTM Api |
 | `message` | `string` | The error message returned from the RTM Api |
 
 #### Returns
@@ -57,7 +57,7 @@ Thrown if the API returns an error response
 
 #### Defined in
 
-src/lib/errors/rtm-api-failed-response-error.ts:24
+[src/lib/errors/rtm-api-failed-response-error.ts:24](https://github.com/benwainwright/rtm-typescript/blob/57c8754/src/lib/errors/rtm-api-failed-response-error.ts#L24)
 
 ## Methods
 
@@ -69,9 +69,9 @@ Create .stack property on a target object
 
 #### Parameters
 
-| Name              | Type       |
-| :---------------- | :--------- |
-| `targetObject`    | `object`   |
+| Name | Type |
+| :------ | :------ |
+| `targetObject` | `object` |
 | `constructorOpt?` | `Function` |
 
 #### Returns
@@ -100,7 +100,7 @@ node_modules/@types/node/globals.d.ts:4
 
 node_modules/typescript/lib/lib.es2022.error.d.ts:24
 
----
+___
 
 ### code
 
@@ -110,9 +110,9 @@ The response code returned from the RTM Api
 
 #### Defined in
 
-src/lib/errors/rtm-api-failed-response-error.ts:13
+[src/lib/errors/rtm-api-failed-response-error.ts:13](https://github.com/benwainwright/rtm-typescript/blob/57c8754/src/lib/errors/rtm-api-failed-response-error.ts#L13)
 
----
+___
 
 ### message
 
@@ -126,9 +126,9 @@ The error message returned from the RTM Api
 
 #### Defined in
 
-src/lib/errors/rtm-api-failed-response-error.ts:18
+[src/lib/errors/rtm-api-failed-response-error.ts:18](https://github.com/benwainwright/rtm-typescript/blob/57c8754/src/lib/errors/rtm-api-failed-response-error.ts#L18)
 
----
+___
 
 ### name
 
@@ -142,7 +142,7 @@ src/lib/errors/rtm-api-failed-response-error.ts:18
 
 node_modules/typescript/lib/lib.es5.d.ts:1067
 
----
+___
 
 ### stack
 
@@ -156,7 +156,7 @@ node_modules/typescript/lib/lib.es5.d.ts:1067
 
 node_modules/typescript/lib/lib.es5.d.ts:1069
 
----
+___
 
 ### prepareStackTrace
 
@@ -170,9 +170,9 @@ Optional override for formatting stack traces
 
 ##### Parameters
 
-| Name          | Type         |
-| :------------ | :----------- |
-| `err`         | `Error`      |
+| Name | Type |
+| :------ | :------ |
+| `err` | `Error` |
 | `stackTraces` | `CallSite`[] |
 
 ##### Returns
@@ -191,7 +191,7 @@ https://v8.dev/docs/stack-trace-api#customizing-stack-traces
 
 node_modules/@types/node/globals.d.ts:11
 
----
+___
 
 ### stackTraceLimit
 

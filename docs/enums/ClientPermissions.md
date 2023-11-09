@@ -17,34 +17,34 @@ A permission level is usually requested during the authentication process with t
 
 ### Delete
 
-• **Delete** = `"delete"`
+• **Delete** = ``"delete"``
 
 Gives the ability to delete tasks, contacts, groups and lists (also allows you to read and write).
 
 #### Defined in
 
-src/lib/types/permissions.ts:21
+[src/lib/types/permissions.ts:21](https://github.com/benwainwright/rtm-typescript/blob/57c8754/src/lib/types/permissions.ts#L21)
 
----
+___
 
 ### Read
 
-• **Read** = `"read"`
+• **Read** = ``"read"``
 
 Gives the ability to read task, contact, group and list details and contents.
 
 #### Defined in
 
-src/lib/types/permissions.ts:11
+[src/lib/types/permissions.ts:11](https://github.com/benwainwright/rtm-typescript/blob/57c8754/src/lib/types/permissions.ts#L11)
 
----
+___
 
 ### Write
 
-• **Write** = `"write"`
+• **Write** = ``"write"``
 
 Gives the ability to add and modify task, contact, group and list details and contents (also allows you to read).
 
 #### Defined in
 
-src/lib/types/permissions.ts:16
+[src/lib/types/permissions.ts:16](https://github.com/benwainwright/rtm-typescript/blob/57c8754/src/lib/types/permissions.ts#L16)

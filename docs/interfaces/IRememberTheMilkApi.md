@@ -29,9 +29,9 @@ Methods attached to the rtm.auth namespace
 
 #### Defined in
 
-src/lib/types/i-remember-the-milk-api.ts:17
+[src/lib/types/i-remember-the-milk-api.ts:17](https://github.com/benwainwright/rtm-typescript/blob/57c8754/src/lib/types/i-remember-the-milk-api.ts#L17)
 
----
+___
 
 ### getAuthUrl
 
@@ -45,8 +45,8 @@ Return a valid authentication URL for the RTM API
 
 ##### Parameters
 
-| Name    | Type     |
-| :------ | :------- |
+| Name | Type |
+| :------ | :------ |
 | `frob?` | `string` |
 
 ##### Returns
@@ -61,9 +61,9 @@ A URL in the form of a string
 
 #### Defined in
 
-src/lib/types/i-remember-the-milk-api.ts:36
+[src/lib/types/i-remember-the-milk-api.ts:36](https://github.com/benwainwright/rtm-typescript/blob/57c8754/src/lib/types/i-remember-the-milk-api.ts#L36)
 
----
+___
 
 ### tasks
 
@@ -73,9 +73,9 @@ Methods attached to the rtm.tasks namespace
 
 #### Defined in
 
-src/lib/types/i-remember-the-milk-api.ts:22
+[src/lib/types/i-remember-the-milk-api.ts:22](https://github.com/benwainwright/rtm-typescript/blob/57c8754/src/lib/types/i-remember-the-milk-api.ts#L22)
 
----
+___
 
 ### test
 
@@ -85,4 +85,4 @@ Methods attached to the rtm.test namespace
 
 #### Defined in
 
-src/lib/types/i-remember-the-milk-api.ts:27
+[src/lib/types/i-remember-the-milk-api.ts:27](https://github.com/benwainwright/rtm-typescript/blob/57c8754/src/lib/types/i-remember-the-milk-api.ts#L27)

@@ -8,16 +8,16 @@ Parameters that can be passed with rtm.auth.checkToken
 
 ### Properties
 
-- [auth_token](CheckTokenParams.md#auth_token)
+- [auth\_token](CheckTokenParams.md#auth_token)
 
 ## Properties
 
-### auth_token
+### auth\_token
 
-• **auth_token**: `string`
+• **auth\_token**: `string`
 
 The authentication token to check
 
 #### Defined in
 
-src/lib/types/namespaces/auth.ts:13
+[src/lib/types/namespaces/auth.ts:13](https://github.com/benwainwright/rtm-typescript/blob/57c8754/src/lib/types/namespaces/auth.ts#L13)
