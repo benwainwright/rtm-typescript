@@ -2,14 +2,13 @@ import { vi } from "vitest";
 import { when } from "jest-when";
 import { mock } from "vitest-mock-extended";
 
-import { ApiMethods, ClientPermissions } from "@types";
+import { ApiMethods, ClientPermissions, SuccessResponse } from "@types";
 
 import { RememberTheMilkApi } from "./remember-the-milk-api";
 import { Tasks, Auth } from "@namespaces";
 
 import { RtmClient } from "./client";
 import { ClientThrottleWrapper } from "./client-throttle-wrapper";
-import { SuccessResponse } from "tmp-declarations/dts/src/lib/types";
 import { API_THROTTLE_DELAY } from "../constants/api-throttle-delay";
 
 vi.mock("./client");
