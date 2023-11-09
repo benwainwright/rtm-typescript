@@ -7,11 +7,13 @@ import { RtmApiConfig } from "./initialise-api";
 import { ClientThrottleWrapper } from "./client-throttle-wrapper";
 
 export class RememberTheMilkApi implements ApiSurface {
-  public auth: Auth;
-  public tasks: Tasks;
-  public test: Test;
+  public readonly auth: Auth;
 
-  private client: RtmClient;
+  public readonly tasks: Tasks;
+
+  public readonly test: Test;
+
+  private readonly client: RtmClient;
 
   public constructor({
     key,

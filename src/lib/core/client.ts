@@ -18,10 +18,10 @@ import {
 
 export class RtmClient implements InternalClient {
   public constructor(
-    private key: string,
-    private secret: string,
-    private permissions: ClientPermissions,
-    private token?: string,
+    private readonly key: string,
+    private readonly secret: string,
+    private readonly permissions: ClientPermissions,
+    private readonly token?: string,
   ) {
     if (!key || !secret) {
       throw new RtmTypescriptError("API key and secret must not be empty");
@@ -62,14 +62,18 @@ export class RtmClient implements InternalClient {
     const frobObj: { frob: string } | Record<string, never> = frob
       ? { frob }
       : {};
+
     const params: Record<string, string> = {
       api_key: this.key,
       perms: this.permissions.toLowerCase(),
       ...frobObj,
     };
 
-    const api_sig = this.generateSignature(this.secret, params);
-    const queryString = this.generateQueryString({ ...params, api_sig });
+    const apiSig = this.generateSignature(this.secret, params);
+    const queryString = this.generateQueryString({
+      ...params,
+      api_sig: apiSig,
+    });
 
     return `${AUTH_URL}?${queryString}`;
   }
@@ -115,7 +119,10 @@ export class RtmClient implements InternalClient {
       ? { ...finalParams, auth_token: this.token }
       : finalParams;
 
-    const api_sig = this.generateSignature(this.secret, finalParamsWithToken);
-    return this.generateQueryString({ ...finalParamsWithToken, api_sig });
+    const apiSig = this.generateSignature(this.secret, finalParamsWithToken);
+    return this.generateQueryString({
+      ...finalParamsWithToken,
+      api_sig: apiSig,
+    });
   }
 }

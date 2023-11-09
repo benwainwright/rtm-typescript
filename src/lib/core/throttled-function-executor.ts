@@ -1,11 +1,12 @@
 type Call<T> = () => Promise<T>;
 
 export class ThrottledFunctionExecutor {
-  private queuedRequests: Call<unknown>[] = [];
-  private flushing = false;
-  private nextAllowedCallTime: number | undefined = undefined;
+  private readonly queuedRequests: Call<unknown>[] = [];
 
-  public constructor(private throttleTime: number) {}
+  private nextAllowedCallTime: number | undefined = undefined;
+  private flushing = false;
+
+  public constructor(private readonly throttleTime: number) {}
 
   private async flushCalls() {
     if (this.flushing) {

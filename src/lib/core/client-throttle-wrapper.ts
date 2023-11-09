@@ -2,10 +2,10 @@ import { ApiMethods, SuccessResponse, InternalClient } from "@types";
 import { ThrottledFunctionExecutor } from "./throttled-function-executor";
 
 export class ClientThrottleWrapper implements InternalClient {
-  private throttledExecutor: ThrottledFunctionExecutor;
+  private readonly throttledExecutor: ThrottledFunctionExecutor;
 
   constructor(
-    private client: InternalClient,
+    private readonly client: InternalClient,
     throttle: number,
   ) {
     this.throttledExecutor = new ThrottledFunctionExecutor(throttle);

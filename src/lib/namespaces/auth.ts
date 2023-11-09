@@ -6,7 +6,7 @@ import {
 } from "@types";
 
 export class Auth implements NameSpaceClient<"auth"> {
-  constructor(private client: InternalClient) {}
+  constructor(private readonly client: InternalClient) {}
 
   async checkToken(args: CheckTokenParams) {
     return await this.client.get("rtm.auth.checkToken", args);
