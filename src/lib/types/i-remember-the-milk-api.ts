@@ -5,7 +5,22 @@ import { Auth, Tasks, Test } from "./namespaces";
  *
  * @example
  * ```TypeScript
- * const { frob } = await client.auth.getFrob()
+ * import { initialiseApi, ClientPermissions } from "rtm-typescript";
+ *
+ * const key = "my-api-key";
+ * const secret = "my-shared-secret";
+ *
+ * const myAsyncFunction = async () => {
+ *
+ *   const client = initialiseApi({
+ *     key,
+ *     secret,
+ *     permissions: ClientPermissions.Read,
+ *   });
+ *
+ *   const result = await client.tasks.getList();
+ * }
+ *
  * ```
  *
  * @public

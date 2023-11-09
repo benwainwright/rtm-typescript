@@ -21,7 +21,8 @@
   "scripts": {
     "api": "rm -rf dist && tsc --project tsconfig.api.json && tsconfig-replace-paths --project tsconfig.api.json && vite-node ./api/extract.ts",
     "build": "rm -rf dist && npm run api && tsc --project tsconfig.dist.json && tsconfig-replace-paths",
-    "docs": "typedoc src/index.ts",
+    "docs": "typedoc src/index.ts && npm run compile-docs",
+    "compile-docs": "vite-node ./tools/check-docs.ts",
     "lint": "eslint .",
     "types": "tsc --noEmit",
     "format": "prettier --write .",
@@ -34,9 +35,9 @@
     "prepare": "husky install"
   },
   "devDependencies": {
-    "@commitlint/cli": "18.2.0",
     "@commitlint/config-conventional": "18.1.0",
     "@microsoft/api-extractor": "7.38.2",
+    "@types/eslint-plugin-markdown": "^2.0.2",
     "@types/jest-when": "3.5.4",
     "@types/lint-staged": "^13.2.2",
     "@typescript-eslint/eslint-plugin": "^6.10.0",
@@ -45,6 +46,7 @@
     "eslint": "8.52.0",
     "eslint-plugin-filenames": "1.3.2",
     "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-markdown": "^3.0.1",
     "husky": "8.0.3",
     "jest-when": "3.6.0",
     "lint-staged": "^15.0.2",
@@ -55,9 +57,14 @@
     "typedoc": "0.25.3",
     "typedoc-plugin-markdown": "3.17.0",
     "typescript": "5.2.2",
+    "typescript-docs-verifier": "^2.5.0",
     "vite-node": "0.34.6",
     "vite-tsconfig-paths": "^4.2.1",
     "vitest": "^0.34.6",
     "vitest-mock-extended": "1.3.1"
+  },
+  "dependencies": {
+    "@commitlint/cli": "^18.2.0",
+    "file-tree-walker-ts": "^2.0.2"
   }
 }

@@ -7,7 +7,22 @@ This is the public API surface for this package. At the present time it only exp
 **`Example`**
 
 ```TypeScript
-const { frob } = await client.auth.getFrob()
+import { initialiseApi, ClientPermissions } from "rtm-typescript";
+
+const key = "my-api-key";
+const secret = "my-shared-secret";
+
+const myAsyncFunction = async () => {
+
+  const client = initialiseApi({
+    key,
+    secret,
+    permissions: ClientPermissions.Read,
+  });
+
+  const result = await client.tasks.getList();
+}
+
 ```
 
 ## Table of contents
@@ -29,7 +44,7 @@ Methods attached to the rtm.auth namespace
 
 #### Defined in
 
-[src/lib/types/i-remember-the-milk-api.ts:17](https://github.com/benwainwright/rtm-typescript/blob/bb114b3/src/lib/types/i-remember-the-milk-api.ts#L17)
+src/lib/types/i-remember-the-milk-api.ts:32
 
 ___
 
@@ -61,7 +76,7 @@ A URL in the form of a string
 
 #### Defined in
 
-[src/lib/types/i-remember-the-milk-api.ts:36](https://github.com/benwainwright/rtm-typescript/blob/bb114b3/src/lib/types/i-remember-the-milk-api.ts#L36)
+src/lib/types/i-remember-the-milk-api.ts:51
 
 ___
 
@@ -73,7 +88,7 @@ Methods attached to the rtm.tasks namespace
 
 #### Defined in
 
-[src/lib/types/i-remember-the-milk-api.ts:22](https://github.com/benwainwright/rtm-typescript/blob/bb114b3/src/lib/types/i-remember-the-milk-api.ts#L22)
+src/lib/types/i-remember-the-milk-api.ts:37
 
 ___
 
@@ -85,4 +100,4 @@ Methods attached to the rtm.test namespace
 
 #### Defined in
 
-[src/lib/types/i-remember-the-milk-api.ts:27](https://github.com/benwainwright/rtm-typescript/blob/bb114b3/src/lib/types/i-remember-the-milk-api.ts#L27)
+src/lib/types/i-remember-the-milk-api.ts:42

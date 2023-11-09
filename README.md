@@ -1,4 +1,5 @@
 # rtm-typescript
+
 ![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/benwainwright/rtm-typescript/main.yml)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=benwainwright_rtm-typescript&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=benwainwright_rtm-typescript)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=benwainwright_rtm-typescript&metric=coverage)](https://sonarcloud.io/summary/new_code?id=benwainwright_rtm-typescript)
@@ -14,7 +15,7 @@ npm install rtm-typescript
 ## Features
 
 This package currently only supports a few of the RTM API methods. Please come
-back later...
+back later
 
 ### API Request Throttling
 
@@ -23,6 +24,8 @@ To avoid hitting the RTM Api [rate limit](https://www.rememberthemilk.com/servic
 ## Usage
 
 ```TypeScript
+import { initialiseApi, ClientPermissions } from "rtm-typescript";
+
 const runMyCode = async () => {
   const key = "my-api-key";
   const secret = "my-shared-secret";

@@ -3,6 +3,7 @@ module.exports = {
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/strict-type-checked",
+    "plugin:markdown/recommended",
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {

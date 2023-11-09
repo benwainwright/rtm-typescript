@@ -1,8 +1,0 @@
-{
-  "*.ts": [
-    "node_modules/.bin/eslint",
-    "tsc-files --noEmit",
-    "vitest",
-    "prettier"
-  ]
-}

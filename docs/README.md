@@ -55,24 +55,26 @@ Entry point to the API. Calling it with valid credentials will initialise and re
 **`Example`**
 
 ```TypeScript
-import { initialiseApi, ClientPermissions } from "rtm-typescript";
+ import { initialiseApi, ClientPermissions } from "rtm-typescript";
 
-// ...some code
+ const key = "my-api-key";
+ const secret = "my-shared-secret";
 
-const client = initialiseApi({
-  key: "my-key",
-  secret: "my-secret",
-  permissions: ClientPermissions.Read,
-});
+ const myAsyncFunction = async () => {
 
-const { frob } = await client.auth.getFrob();
+   const client = initialiseApi({
+     key,
+     secret,
+     permissions: ClientPermissions.Read,
+   });
 
-console.log(frob);
+   const result = await client.tasks.getList();
+ }
 ```
 
 #### Defined in
 
-[src/lib/core/initialise-api.ts:62](https://github.com/benwainwright/rtm-typescript/blob/bb114b3/src/lib/core/initialise-api.ts#L62)
+src/lib/core/initialise-api.ts:64
 
 ## Type Aliases
 
@@ -91,4 +93,4 @@ in editor tooltips
 
 #### Defined in
 
-[src/lib/types/expand-recursively.ts:7](https://github.com/benwainwright/rtm-typescript/blob/bb114b3/src/lib/types/expand-recursively.ts#L7)
+src/lib/types/expand-recursively.ts:7

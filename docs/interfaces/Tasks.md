@@ -47,4 +47,4 @@ If last_sync is provided, only tasks modified since last_sync will be returned, 
 
 #### Defined in
 
-[src/lib/types/namespaces/tasks.ts:47](https://github.com/benwainwright/rtm-typescript/blob/bb114b3/src/lib/types/namespaces/tasks.ts#L47)
+src/lib/types/namespaces/tasks.ts:47
