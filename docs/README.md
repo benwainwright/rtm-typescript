@@ -72,7 +72,7 @@ console.log(frob);
 
 #### Defined in
 
-[src/lib/core/initialise-api.ts:62](https://github.com/benwainwright/rtm-typescript/blob/57c8754/src/lib/core/initialise-api.ts#L62)
+[src/lib/core/initialise-api.ts:62](https://github.com/benwainwright/rtm-typescript/blob/bb114b3/src/lib/core/initialise-api.ts#L62)
 
 ## Type Aliases
 
@@ -91,4 +91,4 @@ in editor tooltips
 
 #### Defined in
 
-[src/lib/types/expand-recursively.ts:7](https://github.com/benwainwright/rtm-typescript/blob/57c8754/src/lib/types/expand-recursively.ts#L7)
+[src/lib/types/expand-recursively.ts:7](https://github.com/benwainwright/rtm-typescript/blob/bb114b3/src/lib/types/expand-recursively.ts#L7)

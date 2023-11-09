@@ -50,7 +50,7 @@ Returns the credentials attached to an authentication token.
 
 #### Defined in
 
-[src/lib/types/namespaces/auth.ts:44](https://github.com/benwainwright/rtm-typescript/blob/57c8754/src/lib/types/namespaces/auth.ts#L44)
+[src/lib/types/namespaces/auth.ts:44](https://github.com/benwainwright/rtm-typescript/blob/bb114b3/src/lib/types/namespaces/auth.ts#L44)
 
 ___
 
@@ -84,7 +84,7 @@ Remember the milk API response
 
 #### Defined in
 
-[src/lib/types/namespaces/auth.ts:72](https://github.com/benwainwright/rtm-typescript/blob/57c8754/src/lib/types/namespaces/auth.ts#L72)
+[src/lib/types/namespaces/auth.ts:72](https://github.com/benwainwright/rtm-typescript/blob/bb114b3/src/lib/types/namespaces/auth.ts#L72)
 
 ___
 
@@ -124,4 +124,4 @@ Returns the auth token for the given frob, if one has been attached.
 
 #### Defined in
 
-[src/lib/types/namespaces/auth.ts:58](https://github.com/benwainwright/rtm-typescript/blob/57c8754/src/lib/types/namespaces/auth.ts#L58)
+[src/lib/types/namespaces/auth.ts:58](https://github.com/benwainwright/rtm-typescript/blob/bb114b3/src/lib/types/namespaces/auth.ts#L58)
