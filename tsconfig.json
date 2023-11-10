@@ -1,7 +1,6 @@
 {
   "ts-node": {
-    "files": true,
-    "esm": true
+    "files": true
   },
   "compilerOptions": {
     "target": "es2015",
@@ -16,6 +15,7 @@
     "baseUrl": "./",
     "paths": {
       "@constants": ["src/lib/constants"],
+      "@domain": ["src/lib/domain"],
       "@entry": ["src"],
       "@core": ["src/lib/core"],
       "@namespaces": ["src/lib/namespaces"],

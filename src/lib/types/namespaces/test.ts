@@ -1,5 +1,4 @@
 import { ApiMethods } from "..";
-import { SuccessResponse } from "../responses/success-response";
 
 /**
  * Methods used for testing the API
@@ -19,7 +18,7 @@ export interface Test {
    */
   echo: (
     args: Record<string, string>,
-  ) => Promise<SuccessResponse<ApiMethods, "rtm.test.echo">["rsp"]>;
+  ) => Promise<ApiMethods["rtm.test.echo"]["responseArgs"]>;
 
   /**
    *
@@ -31,5 +30,5 @@ export interface Test {
    * @throws {@link RtmApiFailedResponseError} if the API responds with a failure
    * @throws {@link RtmHttpError} if the API responds with a non 200 response
    */
-  login: () => Promise<SuccessResponse<ApiMethods, "rtm.test.login">["rsp"]>;
+  login: () => Promise<ApiMethods["rtm.test.login"]["responseArgs"]>;
 }

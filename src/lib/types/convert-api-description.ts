@@ -1,5 +1,3 @@
-import { SuccessResponse } from "./responses";
-
 type DeepRecord<K extends string, V> = K extends `${infer K0}.${infer KR}`
   ? { [P in K0]: DeepRecord<KR, V> }
   : { [P in K]: V };
@@ -25,7 +23,7 @@ export type ConvertApiDescription<
     [K in string & keyof T]: (
       x: DeepRecord<
         K,
-        (arg: T[K]["requestArgs"]) => Promise<SuccessResponse<T, K>["rsp"]>
+        (arg: T[K]["requestArgs"]) => Promise<T[K]["responseArgs"]>
       >,
     ) => void;
   } extends Record<string, (x: infer I) => void>

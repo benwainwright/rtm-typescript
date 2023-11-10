@@ -7,3 +7,4 @@ tsdoc-metadata.json
 .DS_Store
 .tmp-compiled-docs
 .scannerwork
+.env

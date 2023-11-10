@@ -1,5 +1,4 @@
 import { ApiMethods } from "..";
-import { SuccessResponse } from "../responses";
 
 /**
  * Parameters that can be sent with rtm.tasks.getList
@@ -46,5 +45,5 @@ export interface Tasks {
    */
   getList: (
     params: GetListParams,
-  ) => Promise<SuccessResponse<ApiMethods, "rtm.tasks.getList">["rsp"]>;
+  ) => Promise<ApiMethods["rtm.tasks.getList"]["responseArgs"]>;
 }

@@ -1,4 +1,4 @@
-import { RawTaskList } from "./task-list";
+import { RawTaskList } from "./domain-objects/task-list";
 import { RawUser } from "./domain-objects/user";
 
 /**

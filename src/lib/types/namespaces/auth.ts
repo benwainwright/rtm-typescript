@@ -1,5 +1,4 @@
 import { ApiMethods } from "../api-methods";
-import { SuccessResponse } from "../responses/success-response";
 
 /**
  * Parameters that can be passed with rtm.auth.checkToken
@@ -43,7 +42,7 @@ export interface Auth {
    */
   checkToken: (
     args: CheckTokenParams,
-  ) => Promise<SuccessResponse<ApiMethods, "rtm.auth.checkToken">["rsp"]>;
+  ) => Promise<ApiMethods["rtm.auth.checkToken"]["responseArgs"]>;
 
   /**
    * Returns the auth token for the given frob, if one has been attached.
@@ -57,7 +56,7 @@ export interface Auth {
    */
   getToken: (
     args: GetTokenParams,
-  ) => Promise<SuccessResponse<ApiMethods, "rtm.auth.getToken">["rsp"]>;
+  ) => Promise<ApiMethods["rtm.auth.getToken"]["responseArgs"]>;
 
   /**
    *
@@ -69,7 +68,5 @@ export interface Auth {
    * @throws {@link RtmApiFailedResponseError} if the API responds with a failure
    * @throws {@link RtmHttpError} if the API responds with a non 200 response
    */
-  getFrob: () => Promise<
-    SuccessResponse<ApiMethods, "rtm.auth.getFrob">["rsp"]
-  >;
+  getFrob: () => Promise<ApiMethods["rtm.auth.getFrob"]["responseArgs"]>;
 }

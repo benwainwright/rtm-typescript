@@ -1,5 +1,3 @@
-import { ExpandRecursively } from "../expand-recursively";
-
 /**
  * A successful response from the API
  *
@@ -9,11 +7,9 @@ export interface SuccessResponse<
   T extends Record<keyof T, { requestArgs: unknown; responseArgs: unknown }>,
   M extends keyof T,
 > {
-  rsp: ExpandRecursively<
-    {
-      stat: "ok";
-      api_key?: string;
-      callback: string;
-    } & T[M]["responseArgs"]
-  >;
+  rsp: {
+    stat: "ok";
+    api_key?: string;
+    callback: string;
+  } & T[M]["responseArgs"];
 }

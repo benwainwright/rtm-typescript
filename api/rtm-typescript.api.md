@@ -7,9 +7,9 @@
 // @public
 export interface Auth {
     // Warning: (ae-forgotten-export) The symbol "ApiMethods" needs to be exported by the entry point index.d.ts
-    checkToken: (args: CheckTokenParams) => Promise<SuccessResponse<ApiMethods, "rtm.auth.checkToken">["rsp"]>;
-    getFrob: () => Promise<SuccessResponse<ApiMethods, "rtm.auth.getFrob">["rsp"]>;
-    getToken: (args: GetTokenParams) => Promise<SuccessResponse<ApiMethods, "rtm.auth.getToken">["rsp"]>;
+    checkToken: (args: CheckTokenParams) => Promise<ApiMethods["rtm.auth.checkToken"]["responseArgs"]>;
+    getFrob: () => Promise<ApiMethods["rtm.auth.getFrob"]["responseArgs"]>;
+    getToken: (args: GetTokenParams) => Promise<ApiMethods["rtm.auth.getToken"]["responseArgs"]>;
 }
 
 // @public
@@ -86,22 +86,22 @@ export interface SuccessResponse<T extends Record<keyof T, {
     responseArgs: unknown;
 }>, M extends keyof T> {
     // (undocumented)
-    rsp: ExpandRecursively<{
+    rsp: {
         stat: "ok";
         api_key?: string;
         callback: string;
-    } & T[M]["responseArgs"]>;
+    } & T[M]["responseArgs"];
 }
 
 // @public
 export interface Tasks {
-    getList: (params: GetListParams) => Promise<SuccessResponse<ApiMethods, "rtm.tasks.getList">["rsp"]>;
+    getList: (params: GetListParams) => Promise<ApiMethods["rtm.tasks.getList"]["responseArgs"]>;
 }
 
 // @public
 export interface Test {
-    echo: (args: Record<string, string>) => Promise<SuccessResponse<ApiMethods, "rtm.test.echo">["rsp"]>;
-    login: () => Promise<SuccessResponse<ApiMethods, "rtm.test.login">["rsp"]>;
+    echo: (args: Record<string, string>) => Promise<ApiMethods["rtm.test.echo"]["responseArgs"]>;
+    login: () => Promise<ApiMethods["rtm.test.login"]["responseArgs"]>;
 }
 
 // (No @packageDocumentation comment for this package)

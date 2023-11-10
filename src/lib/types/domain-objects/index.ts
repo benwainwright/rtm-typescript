@@ -1,4 +1,4 @@
 export type { Note } from "./note";
-export type { RawTaskSeries as TaskSeries } from "./task-series";
-export type { RawTask as Task } from "./task";
-export type { RawUser as User } from "./user";
+export type { RawTaskSeries } from "./task-series";
+export type { RawTask } from "./task";
+export type { RawUser } from "./user";
